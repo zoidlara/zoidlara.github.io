@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Lara Portfolio</title>
+<title>Larazoid · Lara Božić, grafička dizajnerica</title>
+<meta name="description" content="Portfolio Lare Božić, studentice dizajna vizualnih komunikacija iz Splita: vizualni identiteti, ambalaža, tisak, ilustracija i fotografija.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zoidlara.github.io/">
+<meta property="og:title" content="Larazoid · Lara Božić, grafička dizajnerica">
+<meta property="og:description" content="Vizualni identiteti, ambalaža, tisak, ilustracija i fotografija. Split.">
+<meta property="og:image" content="https://zoidlara.github.io/radovi/smotra-a3-zid.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050807">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23050807%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23C9B0FF%22/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +87,14 @@ button{font:inherit;color:inherit}
 [data-view]{display:block}
 .photo-mode [data-view="design"]{display:none}
 body:not(.photo-mode) [data-view="photo"]{display:none}
-.veil{position:fixed;inset:0;z-index:150;pointer-events:none;background:radial-gradient(circle at center,var(--lilac),var(--violet) 35%,var(--forest) 70%,var(--ink));clip-path:circle(0px at var(--vx,50%) var(--vy,50%))}
+.veil{position:fixed;inset:0;z-index:150;pointer-events:none}
+.veil>i{position:absolute;display:block;background:var(--ink)}
+.veil .scan{position:absolute;left:0;right:0;height:140px;translate:0 -100%;background:linear-gradient(to bottom,transparent,rgba(168,245,208,.10) 70%,rgba(168,245,208,.35));border-bottom:2px solid var(--mint);box-shadow:0 0 24px 2px rgba(168,245,208,.55)}
+::view-transition-old(root),::view-transition-new(root){mix-blend-mode:normal}
+html.vt-skener::view-transition-old(root){animation:vtScanOld 1.1s linear forwards}
+html.vt-skener::view-transition-new(root){animation:vtScan 1.1s cubic-bezier(.65,0,.35,1) both}
+@keyframes vtScan{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
+@keyframes vtScanOld{to{filter:brightness(.55)}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;height:clamp(560px,88vh,920px);overflow:hidden;isolation:isolate}
@@ -244,7 +259,7 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 
 /* ---------- photo world ---------- */
 .p-hero{position:relative;height:clamp(520px,80vh,860px);overflow:hidden;isolation:isolate}
-#bokeh{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+#bokeh{position:absolute;inset:0;width:100%;height:100%;z-index:-1;background:radial-gradient(120% 90% at 70% 30%,var(--forest),var(--ink) 60%)}
 .p-hero .wrap{height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:20px;padding-block:0 36px}
 .p-title{margin:0;font-family:var(--f-display);font-size:clamp(3.2rem,12vw,13rem);line-height:.86;letter-spacing:-.035em;font-variation-settings:"wght" 250,"wdth" 100}
 .p-title b{font-variation-settings:"wght" 800,"wdth" 75;font-weight:inherit;background:linear-gradient(175deg,#fff,var(--lilac) 60%,var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -700,7 +715,6 @@ section.s{padding-block:clamp(72px,12vw,160px)}
   <div class="lb-bot"><button class="x" id="lbPrev" type="button" data-hover="">← Prethodna</button><span class="lb-exif mono" id="lbExif"></span><button class="x" id="lbNext" type="button" data-hover="">Sljedeća →</button></div>
 </div>
 
-<div class="badge">Prototip · privremeni sadržaj</div>
 
 <script>
 (() => {
@@ -1298,44 +1312,89 @@ gallery.addEventListener('click', e => { const b = e.target.closest('.ph-item');
 $('lbClose').addEventListener('click', closeLB); $('lbPrev').addEventListener('click', () => stepLB(-1)); $('lbNext').addEventListener('click', () => stepLB(1));
 addEventListener('keydown', e => { if (e.key === 'Escape') { if (lbIdx > -1) closeLB(); else if (dOpen > -1) closeP(); } if (lbIdx > -1 && e.key === 'ArrowRight') stepLB(1); if (lbIdx > -1 && e.key === 'ArrowLeft') stepLB(-1); });
 
-/* bokeh hero */
-const bk = $('bokeh'), bkx = bk.getContext('2d');
-const R1 = rng(42);
-const orbs = Array.from({length:32}, () => ({x:R1(), y:R1(), z:.2 + R1()*.8, r:.015 + R1()*.07, c:['168,245,208','201,176,255','122,77,255','47,191,133','238,240,247'][R1()*5|0], ph:R1()*6.28}));
-let bkVisible = false; new IntersectionObserver(([e]) => bkVisible = e.isIntersecting).observe(bk);
-const sizeBk = () => { const d = Math.min(devicePixelRatio || 1, 1.5); bk.width = Math.max(1, bk.clientWidth*d); bk.height = Math.max(1, bk.clientHeight*d); };
+/* foto hero: ista tekuća pozadina kao Larazoid, ali "kroz objektiv" (fokus prati miš, focus peaking, zrno filma) */
+const bk = $('bokeh'), bgl = bk.getContext('webgl', {antialias:false});
+let bkOn = !!bgl, bkVisible = false, bScale = 1, bR, bT, bM, bF;
+if (bgl) {
+  const vs = `attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`;
+  const fs = `precision highp float;uniform vec2 r;uniform float t;uniform vec2 m;uniform float fo;
+  float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  float fbm(vec2 p){float v=0.,a=.5;mat2 R=mat2(.8,.6,-.6,.8);for(int i=0;i<5;i++){v+=a*n(p);p=R*p*2.02;a*=.5;}return v;}
+  void main(){
+    float s=min(r.x,r.y);
+    vec2 p=(gl_FragCoord.xy-.5*r)/s, mp=(m-.5*r)/s;
+    float d=length(p-mp);
+    float sharp=exp(-d*d*4.5);
+    float T=t*.04;
+    vec2 pp=p*1.3+vec2(2.3,-1.1);
+    vec2 q=vec2(fbm(pp+T),fbm(pp+vec2(5.2,1.3)-T));
+    vec2 w=vec2(fbm(pp+3.2*q+vec2(1.7,9.2)+T*1.2),fbm(pp+3.2*q+vec2(8.3,2.8)-T));
+    float f=fbm(pp+3.2*w);
+    vec3 ink=vec3(.012,.022,.02), forest=vec3(.035,.2,.14), em=vec3(.16,.72,.5), vio=vec3(.42,.27,1.), lil=vec3(.79,.69,1.);
+    vec3 c=mix(ink,forest,smoothstep(.25,.8,f));
+    c=mix(c,vio*.8,clamp(pow(length(q),2.)*1.,0.,1.)*smoothstep(.3,.85,w.y));
+    c=mix(c,lil,smoothstep(.8,.98,w.x)*.28);
+    c=mix(c,ink,smoothstep(.55,.15,f)*.75);
+    float band=fract(f*11.); float iso=min(band,1.-band);
+    float pk=smoothstep(.03+.05*(1.-sharp),.0,iso)*smoothstep(.3,.6,f);
+    c+=mix(em*.3,vec3(.66,.96,.82),sharp)*pk*(.04+sharp*.4*fo);
+    c+=lil*.08*sharp*fo;
+    vec2 uv=gl_FragCoord.xy/r;
+    float leak=smoothstep(.9,0.,length((uv-vec2(1.05,.95+.08*sin(t*.2)))*vec2(1.,1.6)));
+    c+=vio*.18*leak+lil*.05*leak*leak;
+    c*=.35+.65*pow(16.*uv.x*uv.y*(1.-uv.x)*(1.-uv.y),.3);
+    c+=(h(gl_FragCoord.xy+fract(t*7.)*91.)-.5)*.055;
+    gl_FragColor=vec4(c,1.);
+  }`;
+  const sh = (type, src) => { const x = bgl.createShader(type); bgl.shaderSource(x, src); bgl.compileShader(x); return x; };
+  const pr = bgl.createProgram(); bgl.attachShader(pr, sh(bgl.VERTEX_SHADER, vs)); bgl.attachShader(pr, sh(bgl.FRAGMENT_SHADER, fs)); bgl.linkProgram(pr);
+  if (!bgl.getProgramParameter(pr, bgl.LINK_STATUS)) bkOn = false;
+  else {
+    bgl.useProgram(pr);
+    bgl.bindBuffer(bgl.ARRAY_BUFFER, bgl.createBuffer());
+    bgl.bufferData(bgl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), bgl.STATIC_DRAW);
+    const loc = bgl.getAttribLocation(pr,'p'); bgl.enableVertexAttribArray(loc); bgl.vertexAttribPointer(loc,2,bgl.FLOAT,false,0,0);
+    bR = bgl.getUniformLocation(pr,'r'); bT = bgl.getUniformLocation(pr,'t'); bM = bgl.getUniformLocation(pr,'m'); bF = bgl.getUniformLocation(pr,'fo');
+  }
+}
+new IntersectionObserver(([e]) => bkVisible = e.isIntersecting).observe(bk);
+const sizeBk = () => { bScale = Math.min(devicePixelRatio || 1, 1.5) * (innerWidth < 720 ? 0.55 : 0.65); bk.width = Math.max(1, bk.clientWidth*bScale | 0); bk.height = Math.max(1, bk.clientHeight*bScale | 0); if (bkOn) bgl.viewport(0, 0, bk.width, bk.height); };
 let exifTick = 0;
 function drawBokeh(now) {
-  const W = bk.width, H = bk.height, t = now/1000, S = Math.max(W, H);
-  const bg = bkx.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#07120E'); bg.addColorStop(.6, '#050807'); bg.addColorStop(1, '#140C2E'); bkx.fillStyle = bg; bkx.fillRect(0, 0, W, H);
   const fx = mouse.sx/innerWidth - .5, fy = mouse.sy/innerHeight - .5;
   const focus = 1 - Math.min(1, Math.hypot(fx, fy)*2);
-  bkx.globalCompositeOperation = 'lighter';
-  orbs.forEach(o => {
-    const x = (o.x + fx*o.z*.12 + (RM ? 0 : Math.sin(t*.15 + o.ph)*.02))*W, y = (o.y + fy*o.z*.12 + (RM ? 0 : Math.cos(t*.12 + o.ph)*.02))*H;
-    const blur = Math.abs(o.z - (.3 + focus*.6)); const rr = o.r*S*(.6 + blur*1.2);
-    const g = bkx.createRadialGradient(x, y, rr*Math.max(.05, .6 - blur*.6), x, y, rr); const a = .06 + (1 - blur)*.1 + .03*Math.sin(t + o.ph);
-    g.addColorStop(0, `rgba(${o.c},${a})`); g.addColorStop(.92, `rgba(${o.c},${a*.9})`); g.addColorStop(1, `rgba(${o.c},0)`);
-    bkx.fillStyle = g; bkx.beginPath(); bkx.arc(x, y, rr, 0, 7); bkx.fill();
-  });
-  bkx.globalCompositeOperation = 'source-over';
+  if (bkOn) { const rect = bk.getBoundingClientRect(); bgl.uniform2f(bR, bk.width, bk.height); bgl.uniform1f(bT, RM ? 8 : (now - t0)/1000); bgl.uniform2f(bM, (mouse.sx - rect.left)*bScale, (rect.bottom - mouse.sy)*bScale); bgl.uniform1f(bF, .55 + focus*.45); bgl.drawArrays(bgl.TRIANGLE_STRIP, 0, 4); }
   if (++exifTick % 8 === 0) { const f = (1.4 + focus*6.6).toFixed(1), ss = Math.round(60 + focus*940), iso = Math.round((100 + (1 - focus)*3100)/100)*100; $('exifLive').innerHTML = `<span>f/${f}</span><span>1/${ss}s</span><span>ISO ${iso}</span><span>50mm</span>`; }
 }
 
-/* mode switch with magic veil */
+/* prijelaz između Dizajn i Foto: skener (mint linija otkriva novu stranu odozgo prema dolje) */
+async function scanTo(apply) {
+  if (!document.startViewTransition) {
+    const v = document.createElement('i'); v.style.cssText = 'inset:0;opacity:0'; veil.appendChild(v);
+    await v.animate([{opacity:0},{opacity:1}], {duration:280, fill:'forwards'}).finished; apply();
+    await v.animate([{opacity:1},{opacity:0}], {duration:420, fill:'forwards'}).finished; return;
+  }
+  const root = document.documentElement; root.classList.add('vt-skener');
+  const t = document.startViewTransition(() => {
+    apply();
+    const l = document.createElement('i'); l.className = 'scan'; veil.appendChild(l);
+    l.animate([{top:'0%', opacity:1},{top:'100%', opacity:1, offset:.92},{top:'100%', opacity:0}], {duration:1100, easing:'cubic-bezier(.65,0,.35,1)', fill:'forwards'});
+  });
+  t.ready.catch(() => {});
+  const guard = setTimeout(() => t.skipTransition(), 2500);
+  try { await t.finished; } catch (e) {} finally { clearTimeout(guard); root.classList.remove('vt-skener'); }
+}
+
+/* mode switch */
 const veil = $('veil');
 let photoMode = false, switching = false;
 function setMode(toPhoto, ox, oy, instant) {
   if (switching || toPhoto === photoMode) return;
   const apply = () => { photoMode = toPhoto; document.body.classList.toggle('photo-mode', toPhoto); scrollTo(0, 0); if (toPhoto) { sizeBk(); paintGallery(); } else { sizeGL(); layoutHS(); } try { history.replaceState(null, '', toPhoto ? '#fotografija' : '#dizajn'); } catch (e) {} };
-  if (instant || RM || !veil.animate) { apply(); return; }
+  if (instant || RM || document.hidden || !veil.animate) { apply(); return; }
   switching = true;
-  const R = Math.hypot(Math.max(ox, innerWidth - ox), Math.max(oy, innerHeight - oy));
-  veil.animate([{clipPath:`circle(0px at ${ox}px ${oy}px)`},{clipPath:`circle(${R}px at ${ox}px ${oy}px)`}], {duration:650, easing:'cubic-bezier(.7,0,.3,1)', fill:'forwards'}).onfinish = () => {
-    apply();
-    const cx = innerWidth/2, cy = innerHeight/2, R2 = Math.hypot(cx, cy);
-    veil.animate([{clipPath:`circle(${R2}px at ${cx}px ${cy}px)`},{clipPath:`circle(0px at ${cx}px ${cy}px)`}], {duration:700, easing:'cubic-bezier(.7,0,.3,1)', fill:'forwards'}).onfinish = () => switching = false;
-  };
+  scanTo(apply).finally(() => { veil.innerHTML = ''; switching = false; });
 }
 const fromEvt = (e, el) => { const r = el.getBoundingClientRect(); return [e.clientX || r.left + r.width/2, e.clientY || r.top + r.height/2]; };
 $('switch').addEventListener('click', e => setMode(!photoMode, ...fromEvt(e, e.currentTarget)));
