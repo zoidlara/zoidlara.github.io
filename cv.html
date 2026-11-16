@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lara Božić · Životopis</title>
+<meta name="description" content="Životopis — Lara Božić, studentica i grafička dizajnerica iz Splita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ink:#050807;
+  --sheet:#FBFBFD;
+  --text:#14201B;
+  --mute:#56645E;
+  --forest:#0F3B2C;
+  --mint:#A8F5D0;
+  --violet:#7A4DFF;
+  --lilac:#C9B0FF;
+  --rule:#DCE0E6;
+  --f-display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--f-body);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lilac);outline-offset:3px;border-radius:4px}
+
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:210mm;margin:0 auto;padding:20px 16px;color:#EEF0F7;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.bar a{text-decoration:none}
+.print{all:unset;cursor:pointer;padding:12px 20px;border-radius:99px;background:#EEF0F7;color:var(--ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.print:focus-visible{outline:2px solid var(--lilac);outline-offset:3px}
+
+.sheet{position:relative;max-width:210mm;min-height:297mm;margin:0 auto 48px;background:var(--sheet);padding:15mm 16mm;overflow:hidden}
+.sheet::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--mint),var(--lilac),var(--violet))}
+
+header{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+h1{margin:0;font-family:var(--f-display);font-variation-settings:"wght" 750,"wdth" 80;font-size:48px;line-height:.95;letter-spacing:-.02em;color:var(--ink)}
+.role{grid-column:1;margin:6px 0 0;font-family:var(--f-display);font-variation-settings:"wght" 400,"wdth" 95;font-size:18px;color:var(--forest)}
+.contact{grid-column:2;grid-row:1 / span 2;list-style:none;margin:0;padding:0;text-align:right;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;line-height:1.8;color:var(--mute)}
+.contact a{text-decoration:none;color:var(--text)}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 58mm;gap:0 12mm;margin-top:16px}
+section{margin-bottom:16px;break-inside:avoid}
+h2{margin:0 0 10px;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+p{margin:0}
+.item{display:grid;grid-template-columns:30mm minmax(0,1fr);gap:2px 12px;padding:8px 0;border-top:1px solid var(--rule)}
+.item:first-of-type{border-top:0;padding-top:0}
+.when{font-family:var(--f-mono);font-size:11px;color:var(--mute);font-variant-numeric:tabular-nums;padding-top:2px}
+.item h3{margin:0;font-family:var(--f-display);font-variation-settings:"wght" 600,"wdth" 90;font-size:16px;line-height:1.25;color:var(--ink)}
+.item p{grid-column:2;color:var(--mute)}
+aside .item{grid-template-columns:1fr}
+aside .item p{grid-column:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.tags li{padding:4px 10px;border:1px solid var(--rule);border-radius:99px;font-size:12.5px}
+.plain{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.plain span{color:var(--mute)}
+
+.ph{text-decoration:underline dashed var(--violet);text-underline-offset:3px;text-decoration-thickness:1px;color:var(--violet)}
+
+@media (max-width:640px){
+  .sheet{padding:28px 16px;min-height:0}
+  header{grid-template-columns:1fr}
+  .contact{grid-column:1;grid-row:auto;text-align:left;margin-top:10px}
+  .cols{grid-template-columns:1fr}
+  .item{grid-template-columns:1fr}
+  .item p{grid-column:1}
+  h1{font-size:40px}
+}
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  .bar{display:none}
+  .sheet{margin:0;max-width:none;width:210mm;min-height:297mm}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="bar" aria-label="Životopis">
+  <a href="index.html">← Natrag na portfolio</a>
+  <button class="print" type="button" id="print">Spremi kao PDF</button>
+</nav>
+
+<main class="sheet">
+  <header>
+    <h1>Lara Božić</h1>
+    <p class="role">Studentica · grafička dizajnerica</p>
+    <ul class="contact">
+      <li>Split, Hrvatska</li>
+      <li><a href="mailto:larabozichtt@gmail.com">larabozichtt@gmail.com</a></li>
+    </ul>
+  </header>
+
+  <div class="cols">
+    <div>
+      <section>
+        <h2>Profil</h2>
+        <p>Studentica dizajna vizualnih komunikacija na UMAS-u u Splitu. Najviše me zanimaju vizualni identiteti, tipografija i fotografija: kako jasnom slikom ispričati priču koju ljudi zapamte. Prije dizajna sam dvije godine studirala računarstvo, pa se dobro snalazim i u digitalnim alatima i u radu s developerima. Tražim praksu ili suradnje na pravim projektima.</p>
+      </section>
+
+      <section>
+        <h2>Projekti i iskustvo</h2>
+        <div class="item">
+          <span class="when">2026 · u tijeku</span>
+          <h3>Smotra Sveučilišta u Splitu 2026</h3>
+          <p>Glavni zid (7,6 × 2,35 m) s ilustracijom Splita, štandovi za 19 sastavnica, plakati i priprema za tisak, uz web alat za raspored štandova i 3D šetnju sajmom.</p>
+        </div>
+        <div class="item">
+          <span class="when">studeni 2026</span>
+          <h3>Riva Tech i Domain Software Solutions</h3>
+          <p>Logotipi i knjige standarda za dvije IT tvrtke, s paketima za tisak, web, društvene mreže, vizitke i naljepnice.</p>
+        </div>
+        <div class="item">
+          <span class="when">listopad 2026</span>
+          <h3>Inauguracija rektora Sveučilišta u Splitu</h3>
+          <p>Pozivnice, etikete za vina sa zlatotiskom, brošura s programom, ploča i projekcije govornika, u skladu s knjigom standarda Sveučilišta.</p>
+        </div>
+        <div class="item">
+          <span class="when">listopad 2026</span>
+          <h3>Adios, studentski startup</h3>
+          <p>Logotip, knjiga standarda i vizuali za platformu tuk tuk tura po Splitu, te kampanja za nove suradnike: Instagram objave na hrvatskom i engleskom i plakati.</p>
+        </div>
+        <div class="item">
+          <span class="when">2026</span>
+          <h3>Fishing for Friends</h3>
+          <p>Logotip i UI/UX dizajn aplikacije.</p>
+        </div>
+        <div class="item">
+          <span class="when">2025</span>
+          <h3>Tubing or Not Tubing · Tubing Croatia</h3>
+          <p>Ilustrirani logotip sa Shakespeareom na gumi i ilustrirana trifold brošura s QR kodom za tubing ture.</p>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section>
+        <h2>Obrazovanje</h2>
+        <div class="item">
+          <span class="when">2025 — danas</span>
+          <h3>Dizajn vizualnih komunikacija</h3>
+          <p>Umjetnička akademija u Splitu (UMAS) · 2. godina</p>
+        </div>
+        <div class="item">
+          <span class="when">2023 — 2025</span>
+          <h3>Računarstvo</h3>
+          <p>Sveučilište u Splitu · dvije godine prije prelaska na dizajn</p>
+        </div>
+      </section>
+      <section>
+        <h2>Područja</h2>
+        <ul class="tags">
+          <li>Vizualni identitet</li>
+          <li>Knjiga standarda</li>
+          <li>Ilustracija</li>
+          <li>UI/UX</li>
+          <li>Plakat i tisak</li>
+          <li>Fotografija</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Alati</h2>
+        <ul class="tags">
+          <li>Illustrator</li>
+          <li>Photoshop</li>
+          <li>InDesign</li>
+          <li>Figma</li>
+          <li>Lightroom</li>
+          <li>Procreate</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Jezici</h2>
+        <ul class="plain">
+          <li>Hrvatski <span>· materinji</span></li>
+          <li>Engleski <span>· tečno, govor i pismo</span></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Izvan dizajna</h2>
+        <p>Planinarenje i fotografija.</p>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<script>
+document.getElementById('print').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>

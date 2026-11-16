@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Lara Portfolio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23050807%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23C9B0FF%22/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@700&family=Inter:wght@400;600&display=swap">
 <style>
 /* Layout: an enchanted night forest. Live shader hero, cursor-reactive type, organized work index + archive, fairy physics playground, and a second "photo" world behind a switch. */
 :root{
@@ -120,9 +121,8 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .hs-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--mint),var(--lilac));transform-origin:left;transform:scaleX(0)}
 .hs-track{display:flex;gap:clamp(16px,2.6vw,40px);width:max-content;padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px));will-change:transform}
 .hcard{all:unset;box-sizing:border-box;--cw:min(62vw,860px,calc((100vh - 330px) * 1.6));width:var(--cw);flex:none;display:flex;flex-direction:column;gap:18px}
-.hc-art{position:relative;aspect-ratio:16/10;max-width:100%;border-radius:22px;overflow:hidden;background:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line)}
-.hc-art canvas{position:absolute;inset:0 -6%;width:112%;height:100%;display:block;transition:scale 1s var(--ease)}
-.hcard:hover .hc-art canvas,.hcard:focus-visible .hc-art canvas{scale:1.05}
+.hc-art{position:relative;aspect-ratio:16/10;max-width:100%;border-radius:22px;overflow:hidden;background:var(--bg,var(--ink-3));box-shadow:inset 0 0 0 1px var(--line)}
+.hc-art > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .hc-art .hc-n{position:absolute;right:20px;top:16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--paper);mix-blend-mode:difference}
 .hc-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:baseline}
 .hc-info h3{margin:0;font-family:var(--f-display);font-size:clamp(28px,3.4vw,48px);line-height:1;letter-spacing:-.015em;font-variation-settings:"wght" 500,"wdth" 92;transition:font-variation-settings .6s var(--ease)}
@@ -142,12 +142,20 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .hscroll:not(.native) .hs-ghost{display:block;position:absolute;left:0;right:0;top:56%;transform:translateY(-50%);text-align:center;font-family:var(--f-display);font-variation-settings:"wght" 800,"wdth" 75;font-size:clamp(90px,19vw,320px);line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(201,176,255,.22);white-space:nowrap;z-index:1;pointer-events:none}
 .hscroll:not(.native) .hs-hint{display:block;position:absolute;left:0;right:0;bottom:calc(20px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mute);z-index:6;transition:opacity .5s}
 .hscroll:not(.native) .hs-track{position:absolute;inset:0;padding:0;width:auto;transform-style:preserve-3d;z-index:2}
-.hscroll:not(.native) .hcard{position:absolute;left:50%;top:57%;--cw:min(48vw,700px,calc((100vh - 330px) * 1.6));will-change:transform,opacity,filter;backface-visibility:hidden}
+.hscroll:not(.native) .hcard{position:absolute;left:50%;top:57%;--cw:min(48vw,700px,calc((100vh - 330px) * 1.6));will-change:transform,opacity;backface-visibility:hidden}
 .hscroll:not(.native) .hc-art{box-shadow:inset 0 0 0 1px rgba(238,240,247,.14),0 40px 120px rgba(0,0,0,.6),0 0 80px var(--glow,rgba(122,77,255,.25))}
-.hscroll.native .hs-sticky{position:relative;height:auto;padding-block:clamp(72px,12vw,120px) 0}
+.hscroll.native .hs-sticky{position:relative;height:auto;padding-block:clamp(72px,10vw,120px) 0;gap:clamp(24px,3vw,40px)}
 .hscroll.native .hs-track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:none;transform:none!important}
 .hscroll.native .hs-track::-webkit-scrollbar{display:none}
-.hscroll.native .hcard{--cw:min(84vw,520px);scroll-snap-align:center}
+.hscroll.native .hcard{--cw:min(84vw,620px);scroll-snap-align:start;scroll-margin-left:max(40px,env(safe-area-inset-left,0px))}
+@media(min-width:821px){.hscroll.native .hcard{--cw:min(40vw,640px)}}
+.hscroll.native .hc-art{border-radius:16px}
+.hscroll.native .hcard.cta .hc-art{background:var(--ink-2)}
+.hs-nav{display:inline-flex;gap:8px;margin-left:8px}
+.hs-nav button{all:unset;cursor:pointer;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);color:var(--paper);font-family:var(--f-mono);font-size:14px;transition:background .3s,border-color .3s}
+.hs-nav button:hover{background:rgba(238,240,247,.08);border-color:rgba(238,240,247,.3)}
+.hs-nav button:focus-visible{outline:2px solid var(--lilac);outline-offset:2px}
+@media(max-width:820px){.hs-nav{display:none}}
 @media(max-width:820px){.hs-track{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
 
 .more-row{display:flex;justify-content:center;padding-top:40px}
@@ -170,9 +178,8 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .flt:focus-visible{outline:2px solid var(--lilac);outline-offset:2px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:28px 20px}
 .card{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;transition:opacity .4s,transform .5s var(--ease)}
-.card .th{aspect-ratio:4/3;max-width:100%;border-radius:14px;overflow:hidden;position:relative;background:var(--ink-3)}
-.card canvas{width:100%;height:100%;display:block;transition:transform .8s var(--ease)}
-.card:hover canvas,.card:focus-visible canvas{transform:scale(1.06)}
+.card .th{aspect-ratio:4/3;max-width:100%;border-radius:14px;overflow:hidden;position:relative;background:var(--bg,var(--ink-3))}
+.card .th > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .card .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .card h3{margin:0;font-family:var(--f-display);font-variation-settings:"wght" 600,"wdth" 90;font-size:24px;line-height:1.1}
 .card .yr{font-family:var(--f-mono);font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
@@ -181,9 +188,9 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 
 
 /* drawer */
-.drawer{position:fixed;inset:0;z-index:120;display:grid;grid-template-columns:1fr minmax(0,640px);pointer-events:none}
+.drawer{position:fixed;inset:0;z-index:120;display:grid;grid-template-columns:1fr minmax(0,min(1040px,92vw));pointer-events:none}
 .drawer .scrim{background:rgba(5,8,7,.6);backdrop-filter:blur(6px);opacity:0;transition:opacity .4s}
-.drawer .panel{background:var(--ink-2);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .6s var(--ease);overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 24px) max(24px,env(safe-area-inset-right,0px)) 40px 24px;display:flex;flex-direction:column;gap:24px}
+.drawer .panel{background:var(--ink-2);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .6s var(--ease);overflow-y:auto;overscroll-behavior:contain;padding:calc(env(safe-area-inset-top,0px) + 24px) max(clamp(24px,4vw,56px),env(safe-area-inset-right,0px)) 72px clamp(24px,4vw,56px);display:flex;flex-direction:column;gap:28px}
 .drawer.open{pointer-events:auto}
 .drawer.open .scrim{opacity:1}
 .drawer.open .panel{transform:none}
@@ -191,42 +198,32 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .x{all:unset;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:8px 14px;white-space:nowrap}
 .x:focus-visible{outline:2px solid var(--lilac)}
 .panel h3{font-family:var(--f-display);font-variation-settings:"wght" 700,"wdth" 82;font-size:clamp(40px,7vw,72px);line-height:.95;margin:0;letter-spacing:-.02em}
-.panel .art{aspect-ratio:4/3;max-width:100%;border-radius:12px;overflow:hidden}
-.panel .art canvas{width:100%;height:100%;display:block}
+.panel .art{display:grid;gap:12px;margin:0}
+.panel .art > img{width:100%;height:auto;display:block;border-radius:12px;background:var(--ink-3)}
 .panel dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0;border-block:1px solid var(--line);padding-block:16px}
 .panel dt{color:var(--mute)}
 .panel dd{margin:4px 0 0;text-transform:none;letter-spacing:.02em}
 .panel p{margin:0;max-width:60ch;color:rgba(238,240,247,.85)}
 @media(max-width:720px){.drawer{grid-template-columns:0 1fr}.panel dl{grid-template-columns:1fr 1fr}}
 
-/* ---------- about / enchanted playground ---------- */
-.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,72px);margin-top:40px;align-items:start}
-.bio{display:flex;flex-direction:column;gap:20px;font-size:clamp(17px,1.5vw,20px);line-height:1.5;max-width:52ch}
-.bio p{margin:0}
-.bio .lead{font-family:var(--f-display);font-variation-settings:"wght" 450,"wdth" 90;font-size:clamp(26px,3vw,40px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
-.bio .lead em{font-style:normal;background:linear-gradient(90deg,var(--mint),var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent}
-.sky{position:relative;height:clamp(440px,46vw,600px);min-height:min(620px,150vw);border-radius:24px;overflow:hidden;background:radial-gradient(70% 60% at 85% 0%,rgba(122,77,255,.16),transparent 65%),radial-gradient(70% 60% at 0% 100%,rgba(47,191,133,.12),transparent 65%),#050907;box-shadow:inset 0 0 0 1px var(--line)}
-.sky canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.sky .hint{position:absolute;left:20px;top:18px;color:var(--mute);z-index:2}
-.star{all:unset;--k:0;position:absolute;z-index:2;display:flex;align-items:center;gap:12px;transform:translate(-14px,-50%);padding:8px 10px;border-radius:99px}
-.star i{width:28px;height:28px;flex:none;border-radius:50%}
-.star span{font-family:var(--f-display);font-size:clamp(15px,1.5vw,20px);font-variation-settings:"wght" 450,"wdth" 92;white-space:nowrap;color:var(--paper);opacity:calc(.42 + var(--k) * .58);transition:font-variation-settings .5s var(--ease),letter-spacing .5s var(--ease)}
-.star[aria-pressed="true"] span{font-variation-settings:"wght" 650,"wdth" 88;background:linear-gradient(90deg,var(--mint),var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent;opacity:1}
-.star.flip{flex-direction:row-reverse;transform:translate(calc(-100% + 14px),-50%)}
-.star:focus-visible{outline:1px solid var(--lilac);outline-offset:2px}
-.sky-cap{position:absolute;left:20px;right:20px;bottom:18px;z-index:3;display:flex;flex-direction:column;gap:6px;max-width:44ch;pointer-events:none}
-.sky-cap .mono{color:var(--mute);font-size:11px}
-.sky-cap b{font-family:var(--f-display);font-weight:inherit;font-variation-settings:"wght" 650,"wdth" 85;font-size:clamp(26px,2.6vw,36px);line-height:1}
-.sky-cap p{margin:0;color:rgba(238,240,247,.8);font-size:15px}
-@media(max-width:860px){.about{grid-template-columns:1fr}}
-
+/* ---------- about ---------- */
+.about2{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);margin-top:clamp(28px,4vw,48px);align-items:start}
+.bio2 p{margin:0 0 1.1em;max-width:34em;font-size:clamp(19px,1.6vw,24px);line-height:1.5;color:rgba(238,240,247,.9)}
+.bio2 p:first-child{font-family:var(--f-display);font-variation-settings:"wght" 420,"wdth" 92;font-size:clamp(24px,2.4vw,34px);line-height:1.25;letter-spacing:-.01em;color:var(--paper)}
+.bio-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.facts{margin:0;display:grid}
+.facts div{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.facts div:last-child{border-bottom:1px solid var(--line)}
+.facts dt{color:var(--mute);padding-top:3px}
+.facts dd{margin:0;font-size:16px;line-height:1.45}
+@media(max-width:860px){.about2{grid-template-columns:1fr}.facts div{grid-template-columns:7.5em minmax(0,1fr)}}
 /* ---------- timeline ---------- */
 .tl{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0}
 .tl li{border-top:1px solid var(--line);padding:24px 24px 24px 0;display:flex;flex-direction:column;gap:8px;position:relative}
 .tl li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--paper)}
 .tl li:first-child::before{background:var(--mint);box-shadow:0 0 0 6px rgba(168,245,208,.18)}
 .tl .when{color:var(--mute);font-variant-numeric:tabular-nums}
-.tl h4{margin:0;font-family:var(--f-display);font-variation-settings:"wght" 600,"wdth" 90;font-size:26px;line-height:1.1}
+.tl h3{margin:0;font-family:var(--f-display);font-variation-settings:"wght" 600,"wdth" 90;font-size:26px;line-height:1.1}
 .tl p{margin:0;color:rgba(238,240,247,.75);max-width:36ch}
 
 /* ---------- photo teaser ---------- */
@@ -239,10 +236,10 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .teaser .p{display:block;color:rgba(238,240,247,.78);max-width:40ch}
 .teaser .go{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:14px 22px;border-radius:99px;background:var(--paper);color:var(--ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px;min-height:320px}
-.strip canvas{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;transition:transform .8s var(--ease)}
-.teaser:hover .strip canvas:nth-child(1){transform:translateY(-12px) rotate(-2deg)}
-.teaser:hover .strip canvas:nth-child(2){transform:translateY(10px)}
-.teaser:hover .strip canvas:nth-child(3){transform:translateY(-8px) rotate(2deg)}
+.strip img{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;transition:transform .8s var(--ease)}
+.teaser:hover .strip img:nth-child(1){transform:translateY(-12px) rotate(-2deg)}
+.teaser:hover .strip img:nth-child(2){transform:translateY(10px)}
+.teaser:hover .strip img:nth-child(3){transform:translateY(-8px) rotate(2deg)}
 @media(max-width:820px){.teaser{grid-template-columns:1fr}.strip{min-height:220px;height:220px}}
 
 /* ---------- photo world ---------- */
@@ -254,20 +251,40 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .p-meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end}
 .p-meta p{margin:0;max-width:44ch;font-size:clamp(16px,1.5vw,19px)}
 .exif-live{display:flex;gap:18px;color:var(--mint);font-variant-numeric:tabular-nums;flex-wrap:wrap}
-.gallery{columns:3 300px;column-gap:16px;margin-top:28px}
-.ph-item{all:unset;box-sizing:border-box;display:block;width:100%;margin-bottom:16px;break-inside:avoid;border-radius:12px;overflow:hidden;position:relative;background:var(--ink-3)}
-.ph-item canvas{width:100%;height:auto;display:block;transition:transform 1s var(--ease)}
+.ptools{display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap;margin:22px 0 14px}
+.psort{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:99px}
+.psort .mono{padding:0 8px 0 10px;color:var(--mute)}
+.psort button{all:unset;cursor:pointer;padding:8px 14px;border-radius:99px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;transition:background .3s,color .3s}
+.psort button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+.psort button:focus-visible{outline:2px solid var(--lilac);outline-offset:2px}
+.spectrum{display:flex;height:6px;border-radius:99px;overflow:hidden;margin-bottom:18px;opacity:0;transition:opacity .5s}
+.spectrum.on{opacity:1}.spectrum i{flex:1}
+.gallery{display:block}
+.ph-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,16vw,250px);grid-auto-flow:dense;gap:12px}
+.ph-sec+.ph-sec{margin-top:clamp(24px,4vw,56px)}
+.ph-sec .ph-group{margin-bottom:16px}
+.ph-item{all:unset;box-sizing:border-box;display:block;position:relative;overflow:hidden;border-radius:10px;background:var(--c,var(--ink-3));cursor:pointer}
+.ph-item.wide{grid-column:span 2}.ph-item.tall{grid-row:span 2}
+.ph-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease)}
+.ph-item:hover img,.ph-item:focus-visible img{transform:scale(1.04)}
+.ph-item.lead{grid-column:span 2;grid-row:span 2}
+.ph-group{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:4px 18px;border-bottom:1px solid var(--line);padding:0 0 12px}
+.ph-group i{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--lilac);letter-spacing:.1em}
+.ph-group b{font-family:var(--f-display);font-weight:inherit;font-variation-settings:"wght" 650,"wdth" 82;font-size:clamp(28px,3.6vw,52px);line-height:.95;letter-spacing:-.02em}
+.ph-group em{grid-column:2;font-style:normal;color:var(--mute);font-size:15px}
+.ph-group span{grid-row:1;grid-column:3;font-family:var(--f-mono);font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:560px){.ph-item.lead{grid-column:span 2;grid-row:span 2}.ph-group{grid-template-columns:auto 1fr}.ph-group span{grid-column:1/-1;grid-row:auto}.ph-item.wide{grid-column:span 1}.ph-item.tall{grid-row:span 1}.ph-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:8px}.ph-item.wide{grid-column:span 2}}
 .ph-item:hover canvas{transform:scale(1.04)}
 .ph-item .ex{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(5,8,7,.85));display:flex;justify-content:space-between;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;transform:translateY(100%);transition:transform .45s var(--ease)}
 .ph-item:hover .ex,.ph-item:focus-visible .ex{transform:none}
 .ph-item:focus-visible{outline:2px solid var(--lilac);outline-offset:3px}
 .ph-item.hide{display:none}
-@media(hover:none){.ph-item .ex{transform:none}}
+@media(hover:none){.ph-item .ex{display:none}}
 .lightbox{position:fixed;inset:0;z-index:130;background:rgba(5,8,7,.94);display:flex;flex-direction:column;gap:14px;padding:calc(env(safe-area-inset-top,0px) + 18px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 18px) max(16px,env(safe-area-inset-left,0px));opacity:0;pointer-events:none;transition:opacity .4s}
 .lightbox.open{opacity:1;pointer-events:auto}
 .lb-top,.lb-bot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .lb-stage{flex:1;min-height:0;display:grid;place-items:center}
-.lb-stage canvas{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 30px 120px rgba(122,77,255,.25)}
+.lb-stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 30px 120px rgba(122,77,255,.25)}
 .lb-exif{display:flex;gap:18px;color:var(--mint);flex-wrap:wrap;font-variant-numeric:tabular-nums}
 
 /* ---------- contact ---------- */
@@ -284,10 +301,240 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:20px;color:var(--mute)}
 .badge{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--paper);color:var(--ink);padding:8px 14px;border-radius:99px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,.4)}
 
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---------- mockup scene (animirani mockupi radova) ---------- */
+.sc{position:absolute;inset:0;display:block;overflow:hidden;container-type:inline-size;background:radial-gradient(120% 95% at 50% 18%,var(--wall2,#24302b),var(--wall,#0b1110));transition:scale 1s var(--ease)}
+.sc::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:4;background:radial-gradient(140% 110% at 50% 38%,transparent 55%,rgba(0,0,0,.26))}
+.hcard:hover .sc,.hcard:focus-visible .sc,.card:hover .sc,.card:focus-visible .sc{scale:1.04}
+.sc img{display:block;max-width:none}
+.sc *,.sc *::before,.sc *::after{animation-play-state:paused}
+.sc.play *,.sc.play *::before,.sc.play *::after{animation-play-state:running}
+.idle .sc *,.idle .sc *::before,.idle .sc *::after{animation-play-state:paused!important}
+.sc .floor{position:absolute;left:var(--x,50%);bottom:var(--fy,7%);width:var(--fw,34%);height:6%;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.42),transparent);animation:floor 5.5s ease-in-out infinite alternate}
+@keyframes floor{from{scale:1;opacity:.95}to{scale:.84;opacity:.6}}
+/* plakat na zidu */
+.poster{position:absolute;top:var(--y,9%);left:var(--x,50%);height:var(--h,80%);aspect-ratio:var(--ar,.707);translate:-50% 0;transform-origin:50% 0;background:#fff;box-shadow:0 1px 1px rgba(0,0,0,.18),0 14px 26px -8px rgba(0,0,0,.38),0 42px 60px -24px rgba(0,0,0,.5);animation:sway 7s ease-in-out infinite alternate}
+.poster img{width:100%;height:100%;object-fit:cover}
+.poster .sheen{position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.35) 50%,transparent 62%);background-size:260% 100%;mix-blend-mode:soft-light;animation:sheen 6.5s ease-in-out infinite}
+.poster .tape{position:absolute;top:-2.5%;width:24%;height:5.5%;background:rgba(244,240,228,.72);box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.poster .tape.l{left:-7%;rotate:-32deg}.poster .tape.r{right:-7%;rotate:32deg}
+@keyframes sway{from{rotate:-1.1deg}to{rotate:1.1deg}}
+@keyframes sheen{0%{background-position:130% 0}55%,100%{background-position:-70% 0}}
+/* mobitel */
+.phone{position:absolute;top:var(--y,8%);left:var(--x,50%);height:var(--h,84%);aspect-ratio:9/19;translate:-50% 0;padding:3.2%;border-radius:17%/8.2%;background:linear-gradient(145deg,#2b2e35,#0b0c0f 40%);box-shadow:inset 0 0 0 1.5px #464a52,0 34px 50px -18px rgba(0,0,0,.65),0 12px 22px -12px rgba(0,0,0,.55);container-type:inline-size;animation:floaty 6s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+.phone .screen{position:relative;display:flex;flex-direction:column;width:100%;height:100%;border-radius:13.5%/6.4%;overflow:hidden;background:#fff}
+.phone .screen::before{content:"";position:absolute;top:2.2%;left:50%;width:30%;height:3.1%;translate:-50% 0;background:#0b0c0f;border-radius:99px;z-index:3}
+.phone .screen::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 38%);pointer-events:none}
+@keyframes floaty{from{translate:-50% 0}to{translate:-50% -3.5%}}
+/* Instagram objava u mobitelu */
+.ig{font-family:var(--f-body);color:#111;background:#fff}
+.ig-top{display:flex;align-items:center;gap:3cqw;padding:15cqw 4cqw 3cqw;font-size:4.4cqw;font-weight:600}
+.ig-top i{position:relative;width:8.5cqw;height:8.5cqw;border-radius:50%;background:#0A1A13;box-shadow:0 0 0 .8cqw #fff,0 0 0 1.5cqw #d62976}
+.ig-top i::after{content:"";position:absolute;inset:22% 12%;background:#B6F29E;-webkit-mask:url(radovi/adios-logo.svg) center/contain no-repeat;mask:url(radovi/adios-logo.svg) center/contain no-repeat}
+.ig-top em{margin-left:auto;font-style:normal;letter-spacing:.1em}
+.ig-slides{display:block;width:100%;aspect-ratio:4/5;overflow:hidden;background:#F3F5F0}
+.ig-track{display:flex;width:500%;height:100%;animation:igswipe 15s cubic-bezier(.7,0,.3,1) infinite}
+.ig-track img{width:20%;height:100%;object-fit:cover}
+@keyframes igswipe{0%,15%{transform:translateX(0)}20%,35%{transform:translateX(-20%)}40%,55%{transform:translateX(-40%)}60%,75%{transform:translateX(-60%)}80%,95%{transform:translateX(-80%)}100%{transform:translateX(0)}}
+.ig-bar{display:flex;align-items:center;gap:4cqw;padding:3.4cqw 4cqw 2cqw}
+.ig-bar svg{width:6.6cqw;height:6.6cqw;fill:none;stroke:#111;stroke-width:2}
+.ig-bar .heart{fill:#ed2a5b;stroke:#ed2a5b;animation:like 15s infinite}
+@keyframes like{0%,8%{scale:1}10%{scale:1.3}13%,100%{scale:1}}
+.ig-bar b{margin-left:auto;display:flex;gap:1.4cqw}.ig-bar b i{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#c7c7c7}.ig-bar b i:first-child{background:#3897f0}
+.ig-cap{display:block;padding:0 4cqw;font-size:3.7cqw;line-height:1.4}.ig-cap b{font-weight:600}
+/* trifold brošura u 3D */
+.sc-tri{perspective:1100px}
+.trifold{position:absolute;left:50%;top:13%;height:68%;aspect-ratio:var(--ar,1.45);translate:-50% 0;transform-style:preserve-3d;transform:rotateX(14deg)}
+.trifold i{position:absolute;top:0;width:33.4%;height:100%;background:var(--src) no-repeat;background-size:300% 100%;filter:drop-shadow(0 16px 12px rgba(0,0,0,.32))}
+.trifold .pl{left:0;background-position:0 0;transform-origin:100% 50%;animation:foldL 6s ease-in-out infinite alternate;filter:brightness(.86) drop-shadow(0 16px 12px rgba(0,0,0,.32))}
+.trifold .pm{left:33.3%;background-position:50% 0}
+.trifold .pr{left:66.6%;background-position:100% 0;transform-origin:0 50%;animation:foldR 6s ease-in-out infinite alternate;filter:brightness(.95) drop-shadow(0 16px 12px rgba(0,0,0,.32))}
+@keyframes foldL{from{transform:rotateY(14deg)}to{transform:rotateY(46deg)}}
+@keyframes foldR{from{transform:rotateY(-14deg)}to{transform:rotateY(-46deg)}}
+.trifold.out .pl{animation-name:foldLo}.trifold.out .pr{animation-name:foldRo}
+@keyframes foldLo{from{transform:rotateY(-10deg)}to{transform:rotateY(-38deg)}}
+@keyframes foldRo{from{transform:rotateY(10deg)}to{transform:rotateY(38deg)}}
+/* naljepnica */
+.sticker{position:absolute;left:50%;top:48%;height:72%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:#F5F0E2;box-shadow:0 0 0 2.2cqw #fff,0 22px 34px -12px rgba(0,0,0,.5);animation:wobble 7s ease-in-out infinite alternate}
+.sticker img{width:100%;height:100%;object-fit:contain;padding:4%}
+.sticker::after{content:"";position:absolute;inset:-2.2cqw;border-radius:50%;background:linear-gradient(125deg,rgba(255,255,255,.55),transparent 30%,transparent 70%,rgba(0,0,0,.08))}
+@keyframes wobble{from{rotate:-6deg;translate:-50% -50%}to{rotate:5deg;translate:-50% -54%}}
+/* lebdeći proizvod (prozirni PNG) */
+.float-obj{position:absolute;left:var(--x,50%);bottom:var(--b,11%);height:var(--h,80%);aspect-ratio:var(--ar,.75);translate:-50% 0;animation:bob 5.5s ease-in-out infinite alternate}
+.float-obj img{width:100%;height:100%;object-fit:contain}
+@keyframes bob{from{translate:-50% 0}to{translate:-50% -4%}}
+/* fotografija mockupa i panorama */
+.sc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{from{scale:1}to{scale:1.08}}
+.sc-pan img{position:absolute;top:0;left:0;height:100%;width:auto;animation:pan 22s ease-in-out infinite alternate}
+@keyframes pan{from{translate:0 0}to{translate:calc(-100% + 100cqw) 0}}
+/* papirnata kartica */
+.paper{position:absolute;left:var(--x,50%);top:50%;height:var(--h,78%);aspect-ratio:var(--ar,.77);translate:-50% -50%;background:#fff;box-shadow:0 2px 3px rgba(0,0,0,.12),0 30px 44px -18px rgba(0,0,0,.5);rotate:-4deg;animation:papery 7s ease-in-out infinite alternate}
+.paper img{width:100%;height:100%;object-fit:contain;padding:7%}
+@keyframes papery{from{rotate:-4deg;translate:-50% -50%}to{rotate:-1.5deg;translate:-50% -53%}}
+/* Fishing for Friends ekrani */
+.fff{font-family:var(--f-body);text-align:left;color:#0B0F2E}
+.fff b{font-weight:600}.fff em{font-style:normal}
+.fff.s1{align-items:center;justify-content:center;gap:3.4cqw;padding:10cqw;text-align:center;color:#fff;background:radial-gradient(120% 70% at 50% 0%,#1e2fa8,#0B0F2E 72%)}
+.fff.s1 b{font-size:8.4cqw;letter-spacing:-.02em;line-height:1.05}
+.fff.s1 em{font-size:4.4cqw;opacity:.72}
+.fff u{display:block;text-decoration:none;text-align:center;border-radius:99px;background:linear-gradient(90deg,#00A8C6,#3355FF);color:#fff;font-weight:600;font-size:4.4cqw;padding:3.6cqw 6cqw}
+.fff.s1 u{margin-top:12cqw;width:100%}
+/* Riva Tech logo simbol: boje se mijenjaju preko --rb (zagrada i tekst) i --rs (zvijezda) */
+#rl .b{fill:var(--rb,#0F3D4C)}#rl .s{fill:var(--rs,#1F8A8A)}
+.rlogo{display:block;width:62%;height:auto;overflow:visible}
+.sc-logo .rlogo.big{position:absolute;left:50%;top:50%;width:44%;translate:-50% -50%;animation:breathe 6s ease-in-out infinite alternate}
+@keyframes breathe{from{scale:1}to{scale:1.035}}
+.sheen2{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);background-size:260% 100%;mix-blend-mode:soft-light;animation:sheen 7s ease-in-out infinite}
+/* plakat u okviru s videom */
+.poster.frame{padding:1.2%;background:#111;box-shadow:0 1px 1px rgba(0,0,0,.2),0 18px 30px -10px rgba(0,0,0,.4),0 46px 70px -28px rgba(0,0,0,.5);animation:none}
+.poster video{display:block;width:100%;height:100%;object-fit:cover;background:#dbe8f2}
+/* niz plakata */
+.posters{position:absolute;inset:8% 5% 8%;display:grid;grid-template-columns:repeat(4,1fr);gap:3%;align-items:center}
+.posters span{display:block;aspect-ratio:1000/1414;background:#fff;box-shadow:0 2px 3px rgba(0,0,0,.12),0 20px 30px -14px rgba(0,0,0,.45);transform-origin:50% 0;animation:sway 7s ease-in-out infinite alternate}
+.posters span:nth-child(2){animation-delay:-1.8s}.posters span:nth-child(3){animation-delay:-3.6s}.posters span:nth-child(4){animation-delay:-5.4s}
+.posters img{width:100%;height:100%;object-fit:cover}
+/* knjiga standarda: lepeza stranica */
+.sc-bb{perspective:1400px}
+.bb{position:absolute;left:50%;top:52%;width:40%;aspect-ratio:1.414;translate:-50% -50%;transform-style:preserve-3d}
+.bb-p{position:absolute;inset:0;display:flex;flex-direction:column;gap:6%;padding:7% 8%;background:#F3F5F0;color:#0A1A13;font-family:var(--f-body);box-shadow:0 2px 3px rgba(0,0,0,.12),0 24px 36px -16px rgba(0,0,0,.45);transform-origin:50% 100%;animation:fan 9s cubic-bezier(.6,0,.3,1) infinite alternate;container-type:inline-size}
+.bb-p:nth-child(1){--r:-10deg;--tx:-38%;z-index:1}.bb-p:nth-child(2){--r:-3deg;--tx:-12%;z-index:2}.bb-p:nth-child(3){--r:4deg;--tx:13%;z-index:3}.bb-p:nth-child(4){--r:11deg;--tx:38%;z-index:4}
+@keyframes fan{0%,12%{transform:translateX(0) rotate(0)}70%,100%{transform:translateX(var(--tx)) rotate(var(--r))}}
+.bb-p.dark{background:#0A1A13;color:#B6F29E;justify-content:center;align-items:center}
+.bb-p b{font-family:Poppins,var(--f-display);font-weight:700;font-size:8cqw;letter-spacing:-.02em}
+.bb-p em{font-style:normal;font-family:var(--f-mono);font-size:3.6cqw;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.bb-logo{display:block;width:58%;aspect-ratio:227/61;-webkit-mask:url(radovi/adios-logo.svg) center/contain no-repeat;mask:url(radovi/adios-logo.svg) center/contain no-repeat}
+.bb-p .sw{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4%}
+.bb-p .sw i{position:relative;border-radius:4%}
+.bb-p .sw em{position:absolute;left:6%;bottom:6%;font-size:3cqw;color:#fff;mix-blend-mode:difference;opacity:1}
+.bb-p .ty{flex:1;display:flex;align-items:center;gap:8%}
+.bb-p .ty strong{font-family:Poppins,var(--f-display);font-weight:700;font-size:26cqw;line-height:.8;color:#3A954C}
+.bb-p .ty span{display:flex;flex-direction:column;gap:10%}
+.bb-p .ty .pp{font-family:Poppins,sans-serif;font-weight:700;text-transform:none;letter-spacing:0;font-size:5cqw;opacity:1}
+.bb-p .ty .in{font-family:Inter,sans-serif;text-transform:none;letter-spacing:0;font-size:4.4cqw}
+.bb-p .cz{flex:1;display:grid;place-items:center;background:repeating-linear-gradient(45deg,rgba(58,149,76,.12) 0 4px,transparent 4px 8px)}
+.bb-p .cz .bb-logo{width:52%;outline:2px dashed #3A954C;outline-offset:6cqw;background-clip:content-box}
+/* verzije loga */
+.ver{position:absolute;inset:12% 6%;display:grid;grid-template-columns:repeat(5,1fr);gap:2.4%}
+.ver span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12%;border-radius:8px;box-shadow:0 14px 24px -14px rgba(0,0,0,.4);animation:floaty2 6s ease-in-out infinite alternate}
+.ver span:nth-child(2){animation-delay:-1.2s}.ver span:nth-child(3){animation-delay:-2.4s}.ver span:nth-child(4){animation-delay:-3.6s}.ver span:nth-child(5){animation-delay:-4.8s}
+.ver em{font-style:normal;font-family:var(--f-mono);font-size:clamp(7px,1.1cqw,11px);letter-spacing:.08em;text-transform:uppercase}
+@keyframes floaty2{from{translate:0 0}to{translate:0 -4%}}
+/* boce */
+.bottles{position:absolute;inset:8% 4% 6%;display:flex;justify-content:center;align-items:flex-end;gap:2%}
+.bottles span{width:16.5%;aspect-ratio:200/570;animation:bob2 6s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+.sc-bottles.one .bottles span{width:auto;height:100%}
+.bottle{display:block;width:100%;height:100%}
+@keyframes bob2{from{translate:0 0}to{translate:0 -2.5%}}
+.sc-bottles.one .bottles{inset:6% 0 4%}
+.b-name{position:absolute;left:5%;bottom:5%;z-index:5;font-style:normal;font-family:var(--f-mono);font-size:clamp(9px,1.6cqw,13px);letter-spacing:.1em;text-transform:uppercase;color:rgba(5,8,7,.65)}
+/* kartica koja se okreće (pozivnica A5) */
+.card3d{position:absolute;left:50%;top:48%;width:64%;aspect-ratio:1600/1124;translate:-50% -50%;transform-style:preserve-3d;animation:flip 10s cubic-bezier(.6,0,.3,1) infinite}
+.card3d .face{position:absolute;inset:0;backface-visibility:hidden;box-shadow:0 2px 3px rgba(0,0,0,.25),0 30px 40px -18px rgba(0,0,0,.6)}
+.card3d .face img{width:100%;height:100%;object-fit:cover}
+.card3d .back{transform:rotateY(180deg)}
+@keyframes flip{0%,8%{transform:rotateX(14deg) rotateY(-14deg)}42%,58%{transform:rotateX(14deg) rotateY(-166deg)}92%,100%{transform:rotateX(14deg) rotateY(-374deg)}}
+.sc-inv{perspective:1300px}
+.sc-inv .glow{position:absolute;left:50%;top:-30%;width:90%;height:90%;translate:-50% 0;background:radial-gradient(closest-side,rgba(232,201,140,.22),transparent);pointer-events:none}
+/* ikona aplikacije */
+.app-icon{display:grid;place-items:center;width:30cqw;aspect-ratio:1;border-radius:23%;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.45)}
+.app-icon img{width:56%!important;height:56%!important;object-fit:contain;filter:none!important;margin:0!important}
+.fff.s1 .app-icon{margin-bottom:6cqw}
+.app-icon.big{position:absolute;left:var(--x,70%);top:var(--top,50%);width:var(--w,26%);translate:-50% -50%;border-radius:23%;animation:iconfloat 6s ease-in-out infinite alternate;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 30px 50px -18px rgba(0,0,0,.75)}
+@keyframes iconfloat{from{translate:-50% -50%;rotate:-4deg}to{translate:-50% -56%;rotate:3deg}}
+/* video u mobitelu */
+.screen.vid{background:#f4f2ea}
+.screen.vid video{width:100%;height:100%;object-fit:cover;scale:1.12}
+/* majica i hudica */
+.garment{position:absolute;left:var(--x,50%);bottom:9%;height:80%;aspect-ratio:400/440;translate:-50% 0;animation:bob 6s ease-in-out infinite alternate}
+.garment.hood{aspect-ratio:400/470;animation-delay:-2s}
+.sc-wear.real .garment{animation:none;height:66%;bottom:15%}
+.sc-wear.real .garment.tee{left:31%}.sc-wear.real .garment.hood{left:69%;height:69%}
+.garment svg{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 18px 18px rgba(0,0,0,.28))}
+.garment .print{position:absolute;left:50%;top:30%;width:34%;aspect-ratio:1;translate:-50% 0}
+.garment.hood .print{top:36%}
+.garment .print img{width:100%;height:100%;object-fit:contain}
+.garment .print.mult{mix-blend-mode:multiply;opacity:.92}
+.garment .print.scr{mix-blend-mode:lighten;opacity:.95}
+.garment .ptxt{position:absolute;left:0;right:0;top:20%;text-align:center;font-style:normal;font-family:var(--f-mono);font-size:clamp(6px,1.25cqw,12px);letter-spacing:.24em;color:rgba(238,240,247,.85)}
+.garment .ptxt.dark{color:#1b1a17;top:24%}
+.garment.hood .ptxt{top:auto;bottom:24%}
+/* pločice s logom */
+.tiles{position:absolute;inset:14% 7%;display:grid;grid-template-columns:repeat(4,1fr);gap:4%;align-items:center}
+.tiles span{display:block;aspect-ratio:1;border-radius:18%;overflow:hidden;background:#fff;box-shadow:0 18px 28px -14px rgba(0,0,0,.4);animation:floaty2 6s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+.tiles img{width:100%;height:100%;object-fit:cover}
+/* zidni natpis */
+.sign{position:absolute;left:50%;top:50%;width:66%;aspect-ratio:900/430;translate:-50% -50%;background:#fff;border-radius:6px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 3px rgba(0,0,0,.08),0 24px 40px -18px rgba(0,0,0,.4);padding:3%}
+.sign img{width:100%;height:100%;object-fit:contain}
+.sign::before,.sign::after{content:"";position:absolute;top:8%;width:2.2%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#9aa1a6);box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.sign::before{left:2.5%}.sign::after{right:2.5%}
+
+/* naljepnice u paru, baneri, papiri na stolu, staklene boce */
+.sticker.s2{left:var(--x,50%);height:50%;animation-delay:var(--d,0s)}
+.sticker.s2.fit{background:#fff}.sticker.s2.fit img{object-fit:contain;padding:14%;border-radius:0}
+.sticker.s2 img{object-fit:cover;padding:0;border-radius:50%}
+.paper.wide img{padding:10%}
+.poster.frame.still{animation:sway 9s ease-in-out infinite alternate}
+.poster.frame.still img{width:100%;height:100%;object-fit:cover}
+.tiles.t5{grid-template-columns:repeat(5,1fr);inset:20% 5%;gap:3%}
+.banners{position:absolute;inset:12% 7%;display:grid;grid-template-columns:1fr 1fr;gap:5% 4%;align-content:center}
+.banners span{display:block;aspect-ratio:1200/847;box-shadow:0 2px 3px rgba(0,0,0,.3),0 20px 30px -14px rgba(0,0,0,.6);animation:floaty2 6s ease-in-out infinite alternate}
+.banners span:nth-child(2){animation-delay:-1.5s}.banners span:nth-child(3){animation-delay:-3s}.banners span:nth-child(4){animation-delay:-4.5s}
+.banners img{width:100%;height:100%;object-fit:cover}
+.sc-desk .paper.pc{rotate:-6deg}.sc-desk .paper.st{rotate:7deg;top:56%;animation-delay:-3s}
+.sc-desk .paper img{padding:0;object-fit:cover}
+.sc-bottles.glass .bottles span{width:auto;height:100%}
+.sc-bottles.glass.beer .bottles span{aspect-ratio:200/600}
+.sc-bottles.glass.oil .bottles span{aspect-ratio:200/620}
+.sc-bottles.glass .bottles{inset:7% 4% 5%;gap:4%}
+/* zatamnjenje umjesto blura u pinned galeriji */
+.hscroll:not(.native) .hc-art::after{content:"";position:absolute;inset:0;z-index:6;background:#050807;opacity:var(--dim,0);pointer-events:none}
+/* drawer scene */
+.d-sc{position:relative;display:block;aspect-ratio:16/10;border-radius:14px;overflow:hidden}
+.d-sc.hero{aspect-ratio:16/9}
+/* ladica kao prezentacija projekta */
+.panel .art{display:flex;flex-direction:column;gap:clamp(40px,6vw,72px)}
+.cs-sec{display:flex;flex-direction:column;gap:20px}
+.cs-sec header{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;align-items:baseline;border-top:1px solid var(--line);padding-top:18px}
+.cs-sec header i{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--lilac);letter-spacing:.1em}
+.cs-sec h4{margin:0;font-family:var(--f-display);font-weight:inherit;font-variation-settings:"wght" 600,"wdth" 85;font-size:clamp(24px,2.6vw,34px);line-height:1}
+.cs-sec header p{grid-column:2;margin:6px 0 0;max-width:62ch;color:rgba(238,240,247,.8);font-size:16px;line-height:1.55}
+.cs-items{display:grid;gap:14px}
+.cs-items.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.cs-items.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.cs-items.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cs-items .d-sc{grid-column:1/-1}
+.cs-img{margin:0;display:flex;flex-direction:column;gap:8px}
+.cs-img img{width:100%;height:auto;display:block;border-radius:10px;background:var(--ink-3)}
+.cs-img figcaption{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cs-pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.cs-pal span{display:flex;flex-direction:column;gap:6px}
+.cs-pal i{display:block;aspect-ratio:3/2;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(238,240,247,.12)}
+.cs-pal b{font-weight:500;font-size:14px}.cs-pal em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--mute)}
+.cs-type{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.cs-type span{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:12px;background:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line)}
+.cs-type strong{font-size:56px;line-height:1}.cs-type em{font-style:normal;font-size:14px;color:rgba(238,240,247,.8)}
+@media(max-width:720px){.cs-items.c3,.cs-items.c4{grid-template-columns:repeat(2,minmax(0,1fr))}.cs-sec header{grid-template-columns:1fr}.cs-sec header p{grid-column:1}}
+/* realistične boce na stolu */
+.sc .table{position:absolute;left:0;right:0;bottom:0;height:26%;background:linear-gradient(to bottom,rgba(255,255,255,.08),rgba(0,0,0,.22)),var(--tbl,#8a7a66);box-shadow:0 -1px 0 rgba(255,255,255,.12),0 -30px 60px -30px rgba(0,0,0,.4)}
+.rb-wrap{position:absolute;left:50%;bottom:21%;height:var(--bh,76%);aspect-ratio:var(--bar,220/700);translate:-50% 0}
+.rb{position:absolute;inset:0;display:block}
+.rb svg{display:block;width:100%;height:100%}
+.rb.refl{transform:scaleY(-1) translateY(-100%);transform-origin:50% 100%;opacity:.16;-webkit-mask-image:linear-gradient(to top,#000,transparent 30%);mask-image:linear-gradient(to top,#000,transparent 30%);pointer-events:none}
+.sc-real .rb-wrap{animation:none}
+/* FFF dark i light */
+.sc-modes{display:grid;grid-template-columns:1fr 1fr}
+.sc-modes .mode{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.sc-modes .mode.dark{background:radial-gradient(90% 80% at 50% 30%,#1b2577,#070a24 70%);color:#fff}
+.sc-modes .mode.light{background:radial-gradient(90% 80% at 50% 30%,#ffffff,#e7ebf4 70%);color:#0B0F2E}
+.sc-modes .app-icon.big{position:relative;left:auto;top:auto;translate:none;width:34%}
+.sc-modes b{font-family:var(--f-display);font-variation-settings:"wght" 700,"wdth" 90;font-size:clamp(18px,3cqw,30px);letter-spacing:-.02em;margin-top:6px}
+.sc-modes em{font-style:normal;font-family:var(--f-mono);font-size:clamp(8px,1.2cqw,11px);letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.sc-modes i{position:absolute;left:6%;top:6%;font-style:normal;font-family:var(--f-mono);font-size:clamp(8px,1.1cqw,11px);letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.app-icon.light{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(11,15,46,.08),0 30px 50px -20px rgba(11,15,46,.35)!important}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="rl" viewBox="-11.96 12.48 223.22 179.26"><path class="s" d="M73.53,135.01c-3.49.02-6.82,2.36-7.71,6.15l-7.17,30.71-6.2-30.93c-1.1-5.54-7.48-8.19-12.19-5.07l-23.53,15.58,15.78-28.3c2.49-4.45.19-10.07-4.7-11.51L0,103.47l28.05-7.28c4.94-1.28,7.42-6.82,5.07-11.35l-14.87-28.78,23.02,16.31c4.62,3.27,11.07.83,12.35-4.68l7.18-30.71,6.19,30.93c.51,2.54,2.14,4.47,4.2,5.51-.29,1.61-.42,3.26-.4,4.94-11.18,1.81-20.99,11.96-20.47,23.7.57,12.53,9.85,23.2,22.58,23.94-.14,3.12.07,6.13.63,9.01Z"/><path class="b" d="M52.497671875 179.78546874999998H43.6303125V172.53490234375H51.16423437500001Q54.764515625 172.53490234375 56.898015625 170.32639648437498Q59.031515625000004 168.117890625 59.964921875 164.86763671875Q60.898328125000006 161.61738281249998 60.898328125000006 158.45046875V125.36455078124999Q60.898328125000006 118.86404296874998 64.19858593750001 113.90532226562499Q67.49884375 108.94660156249998 72.56590625000001 105.86302734374999Q77.63296875 102.77945312499999 83.03339062500001 102.11273437499999V101.69603515624999Q77.299609375 101.36267578124998 72.232546875 98.52912109374998Q67.165484375 95.69556640624998 64.03190625 90.65350585937497Q60.898328125000006 85.61144531249998 60.898328125000006 78.86091796874999V45.77499999999998Q60.898328125000006 42.60808593749998 59.964921875 39.357832031249984Q59.031515625000004 36.10757812499999 56.898015625 33.89907226562499Q54.764515625 31.690566406249985 51.16423437500001 31.690566406249985H43.6303125V24.439999999999998H52.497671875Q56.031281250000006 24.439999999999998 59.83157812500001 25.731767578124987Q63.63187500000001 27.023535156249977 66.898796875 29.94042968749998Q70.16571875 32.85732421874998 72.232546875 37.64936523437498Q74.299375 42.441406249999986 74.299375 49.35861328124999V81.61113281249999Q74.299375 86.11148437499999 76.499546875 89.73676757812498Q78.69971875 93.36205078124999 82.06664843749999 95.44554687499999Q85.433578125 97.52904296874999 88.900515625 97.52904296874999H93.567546875V106.69642578124999H88.900515625Q85.433578125 106.69642578124999 82.06664843749999 108.77992187499999Q78.69971875 110.86341796874999 76.499546875 114.44703124999998Q74.299375 118.03064453124999 74.299375 122.61433593749999V154.86685546874997Q74.299375 161.78406249999998 72.232546875 166.576103515625Q70.16571875 171.36814453124998 66.898796875 174.2850390625Q63.63187500000001 177.20193359375 59.83157812500001 178.493701171875Q56.031281250000006 179.78546874999998 52.497671875 179.78546874999998Z"/><g class="b"><path d="M68.76,30.91C68.36,30.83 68.16,30.73 67.10,30.12C66.54,29.80 66.29,29.58 65.80,29.01C64.77,27.78 64.28,27.14 64.10,26.78C64.00,26.59 63.77,26.26 63.59,26.05C63.40,25.83 63.10,25.41 62.92,25.10C62.73,24.79 62.34,24.20 62.04,23.79C61.48,23.00 60.79,22.01 59.98,20.83C59.71,20.44 59.30,19.85 59.06,19.52C58.82,19.19 58.48,18.71 58.31,18.46C58.14,18.21 57.86,17.79 57.69,17.54C57.52,17.29 57.18,16.81 56.94,16.48C56.48,15.83 55.83,14.89 55.05,13.75C54.79,13.36 54.50,12.97 54.42,12.88C54.34,12.78 54.16,12.52 54.03,12.28C53.72,11.74 52.80,10.42 52.39,9.94C52.22,9.74 52.00,9.41 51.90,9.22C51.81,9.03 51.40,8.44 51.00,7.91C48.89,5.10 48.90,5.06 51.81,5.01C53.85,4.98 54.45,5.07 54.71,5.44C54.78,5.54 55.09,5.99 55.40,6.44C55.71,6.88 56.11,7.46 56.29,7.72C56.48,7.97 56.81,8.48 57.04,8.84C57.49,9.54 58.05,10.37 59.00,11.71C59.32,12.17 59.76,12.80 59.97,13.12C60.19,13.45 60.47,13.83 60.60,13.98C60.73,14.13 60.95,14.47 61.09,14.73C61.33,15.18 61.82,15.91 62.67,17.07C62.87,17.35 63.24,17.87 63.48,18.23C63.72,18.58 64.09,19.12 64.29,19.42C64.49,19.71 64.79,20.17 64.94,20.42C65.10,20.67 65.56,21.33 65.98,21.88C66.39,22.43 66.83,23.08 66.95,23.31C67.07,23.55 67.27,23.87 67.40,24.02C67.64,24.30 68.43,25.45 68.90,26.19C69.27,26.79 69.47,26.94 69.81,26.89C70.23,26.82 70.57,26.53 70.98,25.88C71.19,25.56 71.47,25.17 71.60,25.02C71.73,24.87 71.93,24.55 72.05,24.32C72.17,24.09 72.64,23.38 73.11,22.74C73.91,21.65 74.11,21.37 75.00,20.00C75.89,18.63 76.09,18.35 76.89,17.26C77.36,16.62 77.83,15.91 77.95,15.68C78.07,15.45 78.27,15.13 78.40,14.98C78.67,14.67 79.48,13.47 79.92,12.75C80.08,12.49 80.33,12.13 80.48,11.95C80.85,11.50 81.75,10.22 82.07,9.67C82.22,9.41 82.62,8.81 82.96,8.33C83.30,7.85 83.73,7.21 83.91,6.90C84.38,6.14 85.21,5.20 85.52,5.09C85.67,5.04 86.54,5.00 87.66,5.00C89.28,5.00 89.58,5.02 89.83,5.15C90.32,5.39 90.28,5.75 89.68,6.47C89.45,6.74 89.15,7.16 89.01,7.41C88.86,7.65 88.63,7.99 88.50,8.16C87.81,9.01 87.38,9.60 87.04,10.17C86.83,10.51 86.38,11.19 86.04,11.67C85.70,12.15 85.21,12.84 84.95,13.21C84.70,13.58 84.29,14.16 84.04,14.50C83.80,14.84 83.44,15.35 83.26,15.62C82.46,16.82 82.02,17.46 81.67,17.93C81.31,18.42 81.04,18.81 79.95,20.38C79.70,20.74 79.25,21.38 78.96,21.79C78.66,22.20 78.27,22.79 78.08,23.10C77.90,23.41 77.60,23.83 77.41,24.05C77.23,24.26 77.00,24.58 76.91,24.77C76.81,24.95 76.36,25.62 75.89,26.26C75.42,26.89 74.91,27.62 74.75,27.88C74.30,28.61 73.06,29.83 72.38,30.20C71.36,30.77 71.22,30.83 70.76,30.91C70.23,31.01 69.28,31.01 68.76,30.91ZM2.46,29.93C2.24,29.86 2.07,29.74 1.93,29.57C1.78,29.37 1.77,5.68 1.93,5.43C2.18,5.03 1.62,5.04 15.37,5.04L28.29,5.04L28.96,5.22C30.84,5.72 32.26,6.75 33.22,8.30C33.50,8.75 33.77,9.26 33.82,9.42C34.36,11.08 34.33,16.71 33.78,17.78C33.63,18.06 33.18,18.65 32.61,19.26C31.99,19.95 31.98,20.55 32.60,21.02C32.95,21.28 33.61,22.18 33.83,22.69C34.11,23.31 34.17,24.03 34.20,26.64C34.23,30.13 34.34,29.94 32.25,29.99C30.76,30.02 30.32,29.95 30.15,29.64C30.07,29.51 30.03,28.60 30.00,26.15C29.96,22.96 29.95,22.84 29.78,22.61C29.44,22.15 30.06,22.17 18.00,22.17C5.94,22.17 6.56,22.15 6.22,22.61C6.05,22.84 6.04,22.96 6.00,26.15C5.95,29.74 5.95,29.75 5.49,29.91C5.21,30.01 2.75,30.02 2.46,29.93ZM41.46,29.93C41.24,29.86 41.07,29.74 40.93,29.57C40.78,29.38 40.77,5.68 40.93,5.43C41.14,5.08 41.32,5.04 42.75,5.01C43.61,5.00 44.24,5.02 44.44,5.08C45.04,5.26 45.00,4.32 45.00,17.50C45.00,30.53 45.03,29.72 44.49,29.91C44.21,30.01 41.75,30.02 41.46,29.93ZM81.02,29.92C80.24,29.73 80.35,29.24 81.46,27.88C81.84,27.41 82.48,26.49 82.92,25.76C83.08,25.49 83.33,25.13 83.48,24.95C83.84,24.51 84.75,23.21 85.03,22.73C85.15,22.52 85.40,22.17 85.59,21.95C85.77,21.74 86.00,21.42 86.09,21.23C86.19,21.05 86.64,20.38 87.11,19.74C87.58,19.11 88.10,18.37 88.27,18.11C88.45,17.84 88.83,17.29 89.12,16.88C89.42,16.46 89.79,15.91 89.96,15.64C90.12,15.37 90.36,15.01 90.50,14.85C91.18,14.00 91.62,13.40 91.96,12.83C92.17,12.49 92.62,11.81 92.96,11.33C93.58,10.47 94.18,9.61 94.86,8.61C95.05,8.33 95.34,7.94 95.50,7.74C95.66,7.54 95.90,7.21 96.04,7.00C96.55,6.20 97.50,5.28 98.33,4.77C99.41,4.10 99.60,4.04 100.81,4.04L101.82,4.04L102.80,4.54C103.90,5.10 104.45,5.56 105.15,6.48C105.41,6.82 105.80,7.33 106.02,7.61C106.23,7.89 106.55,8.34 106.73,8.61C106.90,8.87 107.22,9.34 107.44,9.64C107.66,9.93 107.97,10.37 108.13,10.61C108.29,10.85 108.66,11.38 108.95,11.79C109.25,12.20 109.69,12.84 109.95,13.21C110.20,13.58 110.67,14.25 111.00,14.71C111.32,15.17 111.79,15.85 112.04,16.22C112.29,16.60 112.53,16.93 112.58,16.95C112.63,16.98 112.82,17.26 113.00,17.57C113.19,17.87 113.58,18.46 113.87,18.88C114.17,19.29 114.66,19.98 114.96,20.42C115.26,20.85 115.63,21.37 115.78,21.56C115.92,21.75 116.25,22.21 116.50,22.58C116.75,22.96 117.13,23.50 117.35,23.80C117.56,24.09 117.89,24.58 118.08,24.89C118.39,25.41 118.83,26.01 119.50,26.84C119.63,27.01 119.86,27.35 120.01,27.59C120.15,27.84 120.45,28.26 120.68,28.53C121.28,29.25 121.32,29.61 120.83,29.85C120.36,30.09 116.86,30.07 116.38,29.83C116.05,29.66 115.48,29.03 115.06,28.36C114.94,28.17 114.44,27.47 113.94,26.81C113.45,26.14 112.94,25.45 112.82,25.26C112.51,24.80 111.88,24.36 111.38,24.25C111.08,24.18 107.90,24.16 100.54,24.18L90.12,24.21L89.71,24.42C89.31,24.62 89.02,24.96 87.79,26.67C87.65,26.86 87.29,27.36 86.98,27.78C86.67,28.20 86.24,28.80 86.02,29.12C85.46,29.95 85.31,29.99 83.04,29.99C82.08,29.99 81.17,29.95 81.02,29.92ZM108.27,19.81C108.63,19.58 108.57,19.32 107.94,18.40C107.63,17.94 107.21,17.32 107.00,17.00C106.57,16.34 106.11,15.65 105.50,14.75C104.69,13.55 104.21,12.80 103.92,12.28C103.57,11.65 102.73,10.40 102.40,10.02C102.27,9.87 102.06,9.53 101.92,9.26C101.66,8.74 101.21,8.28 100.87,8.20C100.42,8.09 100.21,8.32 99.04,10.16C98.57,10.91 98.12,11.61 97.60,12.40C97.40,12.71 97.14,13.14 97.03,13.35C96.92,13.57 96.73,13.87 96.60,14.02C96.28,14.39 95.45,15.64 95.06,16.32C94.88,16.62 94.65,16.97 94.55,17.08C94.44,17.20 94.25,17.46 94.12,17.67C93.99,17.87 93.71,18.28 93.49,18.57C92.96,19.25 92.95,19.63 93.46,19.91C93.58,19.97 95.68,19.99 100.84,19.98C107.58,19.96 108.06,19.95 108.27,19.81ZM29.53,17.89C30.01,17.69 30.01,17.65 29.98,13.56C29.96,9.94 29.95,9.84 29.78,9.61C29.44,9.15 30.06,9.17 18.00,9.17C5.94,9.17 6.56,9.15 6.22,9.61C6.05,9.84 6.04,9.94 6.02,13.56C5.99,17.62 6.00,17.68 6.45,17.88C6.84,18.05 29.13,18.05 29.53,17.89Z" transform="translate(86.24 114.65) scale(0.78)"/><path d="M14.46,28.89C14.32,28.82 14.16,28.67 14.10,28.55C14.02,28.38 14.00,26.14 14.00,18.81C14.00,13.42 13.96,9.15 13.92,8.97C13.88,8.79 13.75,8.54 13.63,8.42L13.41,8.21L6.71,8.19L-0.00,8.16L-0.00,6.08L-0.00,4.00L15.81,4.02C33.19,4.04 31.86,4.00 32.12,4.55C32.21,4.74 32.24,5.11 32.23,6.14C32.21,7.36 32.19,7.51 32.03,7.72C31.69,8.19 31.91,8.18 25.27,8.19C18.36,8.21 18.68,8.18 18.36,8.82C18.22,9.11 18.21,9.61 18.19,18.74C18.18,28.83 18.19,28.59 17.81,28.84C17.55,29.01 14.82,29.05 14.46,28.89ZM43.47,28.91C43.21,28.87 42.48,28.62 41.86,28.36C40.40,27.74 39.55,27.04 38.84,25.87C37.79,24.13 37.83,24.48 37.82,16.64C37.82,8.85 37.82,8.86 38.78,7.30C39.74,5.75 41.16,4.72 43.04,4.22L43.71,4.04L56.71,4.04C68.96,4.04 69.72,4.05 69.98,4.19C70.41,4.43 70.45,4.57 70.44,6.07C70.44,7.57 70.40,7.70 69.85,8.03C69.61,8.17 68.96,8.18 56.19,8.17C41.75,8.17 42.56,8.14 42.22,8.61C42.05,8.84 42.04,8.94 42.04,11.50C42.04,14.06 42.05,14.16 42.22,14.39C42.56,14.86 41.75,14.83 56.19,14.83C68.96,14.82 69.61,14.83 69.85,14.97C70.40,15.30 70.44,15.43 70.44,16.93C70.45,18.43 70.41,18.57 69.98,18.81C69.72,18.95 68.89,18.96 56.12,19.00C45.70,19.03 42.50,19.07 42.37,19.14C42.02,19.34 41.99,19.60 42.01,21.94C42.04,24.04 42.05,24.17 42.22,24.39C42.57,24.86 41.75,24.83 56.19,24.83C68.96,24.82 69.61,24.83 69.85,24.97C70.40,25.30 70.44,25.43 70.44,26.93C70.45,28.43 70.41,28.57 69.98,28.81C69.72,28.95 68.95,28.96 56.83,28.97C49.75,28.98 43.74,28.95 43.47,28.91ZM82.49,28.91C81.96,28.83 81.52,28.67 80.41,28.14C79.34,27.63 78.48,26.83 77.78,25.70C76.82,24.16 76.82,24.20 76.82,16.50C76.82,8.80 76.82,8.84 77.78,7.30C78.74,5.75 80.17,4.72 82.04,4.22L82.71,4.04L95.71,4.04C107.96,4.04 108.72,4.05 108.98,4.19C109.41,4.43 109.45,4.57 109.44,6.07C109.44,7.57 109.40,7.70 108.85,8.03C108.61,8.17 107.96,8.18 95.19,8.17C80.75,8.17 81.56,8.14 81.22,8.61C81.04,8.85 81.04,8.86 81.04,16.50C81.04,24.14 81.04,24.15 81.22,24.39C81.56,24.86 80.75,24.83 95.19,24.83C107.96,24.82 108.61,24.83 108.85,24.97C109.40,25.30 109.44,25.43 109.44,26.93C109.45,28.43 109.41,28.57 108.98,28.81C108.72,28.95 107.95,28.96 95.83,28.97C88.75,28.98 82.75,28.95 82.49,28.91ZM115.46,28.93C115.24,28.86 115.07,28.74 114.93,28.57C114.78,28.38 114.77,4.68 114.93,4.43C115.14,4.08 115.32,4.04 116.75,4.01C118.24,3.98 118.68,4.05 118.85,4.36C118.93,4.50 118.97,5.69 119.00,9.35C119.04,14.06 119.04,14.16 119.22,14.39C119.56,14.85 118.94,14.83 131.00,14.83C143.06,14.83 142.44,14.85 142.78,14.39C142.96,14.16 142.96,14.06 143.00,9.35C143.03,5.69 143.07,4.50 143.15,4.36C143.32,4.05 143.76,3.98 145.25,4.01C146.68,4.04 146.86,4.08 147.07,4.43C147.22,4.66 147.22,28.34 147.07,28.57C146.86,28.92 146.68,28.96 145.25,28.99C144.39,29.00 143.76,28.98 143.56,28.92C142.99,28.75 143.00,28.86 143.00,24.00C143.00,19.21 143.01,19.27 142.49,19.09C142.11,18.96 119.89,18.96 119.51,19.09C118.99,19.27 119.00,19.21 119.00,24.00C119.00,28.79 119.01,28.73 118.49,28.91C118.21,29.01 115.75,29.02 115.46,28.93Z" transform="translate(84.50 144.45) scale(0.78)"/></g></symbol><symbol id="rs" viewBox="-11.96 12.48 223.22 179.26"><path d="M73.53,135.01c-3.49.02-6.82,2.36-7.71,6.15l-7.17,30.71-6.2-30.93c-1.1-5.54-7.48-8.19-12.19-5.07l-23.53,15.58,15.78-28.3c2.49-4.45.19-10.07-4.7-11.51L0,103.47l28.05-7.28c4.94-1.28,7.42-6.82,5.07-11.35l-14.87-28.78,23.02,16.31c4.62,3.27,11.07.83,12.35-4.68l7.18-30.71,6.19,30.93c.51,2.54,2.14,4.47,4.2,5.51-.29,1.61-.42,3.26-.4,4.94-11.18,1.81-20.99,11.96-20.47,23.7.57,12.53,9.85,23.2,22.58,23.94-.14,3.12.07,6.13.63,9.01Z"/></symbol></defs></svg>
 
 <div class="cur cur-ring" id="ring" aria-hidden="true"><span id="ringTxt"></span></div>
 <div class="cur cur-dot" id="dot" aria-hidden="true"></div>
@@ -318,9 +565,7 @@ section.s{padding-block:clamp(72px,12vw,160px)}
     <div class="wrap">
       <h1 class="big" id="big" aria-label="Larazoid"><span>L</span><span>a</span><span>r</span><span>a</span><span>z</span><span>o</span><span>i</span><span>d</span></h1>
       <div class="hero-meta">
-        <p><span class="ph">[Tvoja uloga]</span> koja pretvara složene ideje u stvari koje ljudi stvarno žele koristiti. Trenutno <span class="ph">[grad]</span>, uskoro na vašem timu.</p>
-        <div class="status mono"><b></b>Otvorena za nove prilike · 2026</div>
-        <span class="scroll-hint mono">Skrolaj ↓</span>
+        <p>Studentica i grafička dizajnerica koja složene ideje pretvara u jasne, upečatljive vizuale. Trenutno u Splitu, uskoro u vašem timu.</p>
       </div>
     </div>
   </section>
@@ -334,9 +579,9 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 
   <section class="hscroll" id="radovi" aria-label="Odabrani radovi">
     <div class="hs-sticky">
-      <div class="wrap hs-head"><h2>Odabrani radovi</h2><div class="hs-meta mono"><span id="hsCount">01 / 04</span><span class="hs-bar"><i id="hsBar"></i></span></div></div>
+      <div class="wrap hs-head"><h2>Odabrani radovi</h2><div class="hs-meta mono"><span id="hsCount">01 / 04</span><span class="hs-bar"><i id="hsBar"></i></span><span class="hs-nav"><button type="button" data-d="-1" aria-label="Prethodni rad" data-hover="">←</button><button type="button" data-d="1" aria-label="Sljedeći rad" data-hover="">→</button></span></div></div>
       <canvas class="hs-warp" id="hsWarp" aria-hidden="true"></canvas>
-      <div class="hs-ghost" id="hsGhost" aria-hidden="true">Nocturne</div>
+      <div class="hs-ghost" id="hsGhost" aria-hidden="true">Smotra</div>
       <div class="hs-track" id="hsTrack"></div>
       <div class="hs-hint mono" aria-hidden="true">Skrolajte da proletite kroz radove ↓</div>
     </div>
@@ -353,31 +598,22 @@ section.s{padding-block:clamp(72px,12vw,160px)}
 
   <section class="s" id="o-meni" style="padding-top:0">
     <div class="wrap">
-      <div class="s-head"><h2>O meni</h2><span class="mono">Moje zviježđe →</span></div>
-      <div class="about">
-        <div class="bio">
-          <p class="lead">Volim <em>teške probleme</em>, jasne odgovore i detalje koje većina ljudi ni ne primijeti.</p>
-          <p class="ph">[Ovdje ide tvoja kratka biografija: 3 do 4 rečenice o tome što radiš, kako razmišljaš i što te pokreće. Primjer: Imam X godina iskustva u Y, radila sam s timovima u Z, a najviše me veseli kad vidim da je nešto što sam napravila stvarno nekome olakšalo dan.]</p>
-          <p>Ovo je moje zviježđe: devet stvari koje me čine onim što jesam. Kliknite na zvijezdu i saznajte više.</p>
+      <div class="s-head"><h2>O meni</h2></div>
+      <div class="about2">
+        <div class="bio2">
+          <p>Ja sam Lara, studentica dizajna vizualnih komunikacija na Umjetničkoj akademiji u Splitu. Bavim se vizualnim komunikacijama u najširem smislu, od identiteta i ambalaže do ilustracije, fotografije, weba i animacije.</p>
+          <p>Ove godine najviše radim za Sveučilište u Splitu. Prije dizajna sam dvije godine studirala računarstvo, pa mi web i kod nisu strani. Kad ne dizajniram, fotografiram ili sam u planinama.</p>
+          <div class="bio-links"><a class="btn" href="cv.html" target="_blank" rel="noopener" data-hover="CV">Životopis ↗</a><a class="btn ghost" href="#kontakt" data-hover="">Javi se</a></div>
         </div>
-        <div class="sky" id="sky">
-          <canvas id="skyCv" aria-hidden="true"></canvas>
-          <span class="hint mono">Prijeđite mišem preko zvijezda</span>
-          <div class="sky-cap" id="skyCap" aria-live="polite"><span class="mono" id="capN"></span><b id="capW"></b><p id="capD"></p></div>
-        </div>
-        </div>
+        <dl class="facts">
+          <div><dt class="mono">Studij</dt><dd>Dizajn vizualnih komunikacija, UMAS · 2. godina</dd></div>
+          <div><dt class="mono">Prije</dt><dd>Računarstvo, Sveučilište u Splitu · 2023 — 2025</dd></div>
+          <div><dt class="mono">Radim</dt><dd>Identiteti, ambalaža, tisak, ilustracija, fotografija, web, animacija…</dd></div>
+          <div><dt class="mono">Alati</dt><dd>Illustrator, Photoshop, InDesign, Figma, Procreate, Lightroom</dd></div>
+          <div><dt class="mono">Suradnje</dt><dd>Sveučilište u Splitu, Adios, Tubing Croatia, Riva Tech, Domain</dd></div>
+          <div><dt class="mono">Izvan dizajna</dt><dd>Fotografija i planinarenje</dd></div>
+        </dl>
       </div>
-    </div>
-  </section>
-
-  <section class="s" style="padding-top:0" aria-label="Iskustvo">
-    <div class="wrap">
-      <div class="s-head"><h2>Put do sad</h2><span class="mono">Od najnovijeg</span></div>
-      <ol class="tl">
-        <li><span class="when mono">2024 — danas</span><h4 class="ph">[Pozicija]</h4><p>[Tvrtka] · Jedna rečenica o najvećem uspjehu na ovoj poziciji.</p></li>
-        <li><span class="when mono">2021 — 2024</span><h4 class="ph">[Pozicija]</h4><p>[Tvrtka] · Što si naučila i što si isporučila.</p></li>
-        <li><span class="when mono">2017 — 2021</span><h4 class="ph">[Fakultet / smjer]</h4><p>[Ustanova] · Smjer, nagrade ili rad na koji si ponosna.</p></li>
-      </ol>
     </div>
   </section>
 
@@ -387,10 +623,10 @@ section.s{padding-block:clamp(72px,12vw,160px)}
         <span class="txt">
           <span class="mono" style="color:var(--mint)">Druga strana</span>
           <span class="h">Kad ne dizajniram, <span>fotografiram.</span></span>
-          <span class="p">Portreti, priroda i grad noću. Kliknite i cijela se stranica pretvara u moj foto portfolio.</span>
+          <span class="p">Arhitektura, ljudi i grad, najčešće u crno-bijelom. Kliknite i cijela se stranica pretvara u moj foto portfolio.</span>
           <span class="go">Otvori foto portfolio →</span>
         </span>
-        <span class="strip" aria-hidden="true"><canvas width="300" height="600"></canvas><canvas width="300" height="600"></canvas><canvas width="300" height="600"></canvas></span>
+        <span class="strip" aria-hidden="true"><img src="radovi/foto/arh-konzola-s.jpg" alt="" loading="lazy"><img src="radovi/foto/arh-kutija-tamna-s.jpg" alt="" loading="lazy"><img src="radovi/foto/arh-fasada-s.jpg" alt="" loading="lazy"></span>
       </button>
     </div>
   </section>
@@ -403,15 +639,19 @@ section.s{padding-block:clamp(72px,12vw,160px)}
       <span class="mono" style="color:var(--mint)">Larazoid · foto portfolio</span>
       <h1 class="p-title">Kroz <b>objektiv</b></h1>
       <div class="p-meta">
-        <p>Svjetlo, ljudi i mjesta koja me zaustave na pola koraka. <span class="ph">[Kratki opis tvog pristupa fotografiji i opreme.]</span></p>
+        <p>Svjetlo, ljudi i mjesta koja me zaustave na pola koraka. Najviše fotografiram arhitekturu, more i teksture koje većina prođe bez pogleda.</p>
         <div class="exif-live mono" id="exifLive"><span>f/1.8</span><span>1/250s</span><span>ISO 200</span><span>50mm</span></div>
       </div>
     </div>
   </section>
   <section class="s" style="padding-top:clamp(40px,6vw,80px)">
     <div class="wrap">
-      <div class="s-head"><h2>Galerija</h2><span class="mono">Privremene fotografije · klikni za uvećanje</span></div>
-      <div class="filters" id="pFilters" role="group" aria-label="Filtriraj fotografije" style="margin-top:20px"></div>
+      <div class="s-head"><h2>Galerija</h2><span class="mono" id="pCount">12 fotografija</span></div>
+      <div class="ptools">
+        <div class="filters" id="pFilters" role="group" aria-label="Filtriraj fotografije po seriji"></div>
+        <div class="psort" id="pSort" role="group" aria-label="Poredaj fotografije"><span class="mono">Poredaj</span><button type="button" data-s="serije" aria-pressed="true">Serije</button><button type="button" data-s="boja" aria-pressed="false">Boja</button><button type="button" data-s="svjetlo" aria-pressed="false">Svjetlo</button></div>
+      </div>
+      <div class="spectrum" id="pSpec" aria-hidden="true"></div>
       <div class="gallery" id="gallery"></div>
       <div class="more-row"><button class="more mag" id="backBtn" type="button" data-hover="">← Natrag na dizajn portfolio</button></div>
     </div>
@@ -423,14 +663,16 @@ section.s{padding-block:clamp(72px,12vw,160px)}
     <span class="mono" style="color:var(--mute)">Imate projekt ili otvorenu poziciju?</span>
     <h2 class="say"><span>Javite</span><span class="o">se.</span></h2>
     <div class="mail">
-      <span class="addr" id="addr">lara@primjer.hr</span>
+      <span class="addr" id="addr">larabozichtt@gmail.com</span>
       <button class="btn mag" id="copy" type="button" data-hover="Kopiraj">Kopiraj e-mail</button>
     </div>
     <div class="links">
-      <a class="btn ghost mag" href="https://www.linkedin.com/" target="_blank" rel="noopener" data-hover="Otvori">LinkedIn ↗</a>
-      <a class="btn ghost mag" href="https://www.behance.net/" target="_blank" rel="noopener" data-hover="Otvori">Behance ↗</a>
-      <a class="btn ghost mag" href="https://www.instagram.com/" target="_blank" rel="noopener" data-hover="Otvori">Instagram ↗</a>
-      <a class="btn ghost mag" href="#kontakt" data-hover="CV">Životopis (PDF)</a>
+      <!-- Kad profili budu gotovi, ovdje zamijeni href i makni komentar:
+      <a class="btn ghost mag" href="https://www.linkedin.com/in/TVOJ-PROFIL" target="_blank" rel="noopener" data-hover="Otvori">LinkedIn ↗</a>
+      <a class="btn ghost mag" href="https://www.behance.net/TVOJ-PROFIL" target="_blank" rel="noopener" data-hover="Otvori">Behance ↗</a>
+      <a class="btn ghost mag" href="https://www.instagram.com/TVOJ-PROFIL" target="_blank" rel="noopener" data-hover="Otvori">Instagram ↗</a>
+      -->
+      <a class="btn ghost mag" href="cv.html" target="_blank" rel="noopener" data-hover="CV">Životopis ↗</a>
     </div>
     <div class="foot mono"><span>© 2026 Larazoid</span><span>Dizajnirano i kodirano s puno kave</span></div>
   </div>
@@ -442,20 +684,19 @@ section.s{padding-block:clamp(72px,12vw,160px)}
   <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="dTitle">
     <div class="top"><span class="mono" id="dMeta" style="color:var(--mute)"></span><button class="x" id="dClose" type="button" data-hover="Zatvori">Zatvori · Esc</button></div>
     <h3 id="dTitle"></h3>
-    <div class="art"><canvas id="dArt" width="1200" height="900"></canvas></div>
     <dl class="mono">
-      <div><dt>Uloga</dt><dd id="dRole"></dd></div>
-      <div><dt>Trajanje</dt><dd id="dTime"></dd></div>
-      <div><dt>Rezultat</dt><dd id="dRes"></dd></div>
+      <div><dt>Klijent</dt><dd id="dRole"></dd></div>
+      <div><dt>Godina</dt><dd id="dTime"></dd></div>
+      <div><dt>Opseg</dt><dd id="dRes"></dd></div>
     </dl>
     <p id="dText"></p>
-    <p class="ph">[Ovdje idu prave slike, videozapisi i opis procesa: problem, istraživanje, rješenje, rezultat.]</p>
+    <div class="art" id="dArt"></div>
   </aside>
 </div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotografija" aria-hidden="true">
   <div class="lb-top"><span class="mono" id="lbTitle"></span><button class="x" id="lbClose" type="button" data-hover="Zatvori">Zatvori · Esc</button></div>
-  <div class="lb-stage"><canvas id="lbCanvas" width="1600" height="1067"></canvas></div>
+  <div class="lb-stage"><img id="lbImg" alt=""></div>
   <div class="lb-bot"><button class="x" id="lbPrev" type="button" data-hover="">← Prethodna</button><span class="lb-exif mono" id="lbExif"></span><button class="x" id="lbNext" type="button" data-hover="">Sljedeća →</button></div>
 </div>
 
@@ -558,56 +799,274 @@ const marq = $('marq');
 let mx = 0, lastY = scrollY, vel = 0;
 
 /* projects */
-const CATS = {brand:['Branding',C.lilac], ux:['UX/UI',C.mint], space:['Prostor',C.violet], camp:['Kampanje',C.emerald]};
-const projects = [
-  {t:'Nocturne', k:'brand', y:'2026', role:'Vodeća dizajnerica', time:'3 mjeseca', res:'+38% prepoznatljivost', d:'Vizualni identitet za noćni festival: logo koji diše uz glazbu, sustav boja izveden iz zvuka i plakati generirani kodom.'},
-  {t:'Atlas', k:'ux', y:'2025', role:'UX/UI', time:'6 mjeseci', res:'4.8 ★ ocjena', d:'Aplikacija za planiranje putovanja koja iz fotografija sama složi itinerar. Od istraživanja korisnika do lansiranja.'},
-  {t:'Slojevi', k:'space', y:'2024', role:'Kustosica i dizajn', time:'8 tjedana', res:'12 000 posjetitelja', d:'Interaktivna izložba o tome kako pamtimo gradove. Posjetitelji su dodavali vlastite slojeve na projiciranu kartu.'},
-  {t:'Puls', k:'camp', y:'2023', role:'Kreativna direkcija', time:'4 mjeseca', res:'2.1M pregleda', d:'Kampanja za podizanje svijesti o mentalnom zdravlju mladih, kroz seriju kratkih videa i generativni web.'},
-  {t:'Mahovina', k:'brand', y:'2025', role:'Dizajnerica', time:'2 mjeseca', res:'Nagrada ADC', d:'Identitet za malu prirodnu kozmetiku: ambalaža od recikliranog papira i ilustracije šumskog bilja.'},
-  {t:'Kompas', k:'ux', y:'2024', role:'UX istraživanje', time:'5 mjeseci', res:'−42% odustajanja', d:'Redizajn bankovne aplikacije za starije korisnike. Desetci intervjua, tri kruga testiranja.'},
-  {t:'Svjetlarnik', k:'space', y:'2023', role:'Dizajn instalacije', time:'6 tjedana', res:'Festival svjetla', d:'Svjetlosna instalacija u parku koja reagira na korake prolaznika.'},
-  {t:'Glasno', k:'camp', y:'2025', role:'Art direkcija', time:'3 mjeseca', res:'+65% angažmana', d:'Društvena kampanja za glazbeni festival: plakati, reelsi i filteri za Instagram.'},
-  {t:'Vila', k:'brand', y:'2023', role:'Dizajnerica', time:'6 tjedana', res:'Novi vizual', d:'Identitet za butik hotel u Istri, od logotipa do menija i natpisa.'},
-  {t:'Ritam', k:'ux', y:'2022', role:'UI dizajn', time:'4 mjeseca', res:'50k korisnika', d:'Aplikacija za praćenje navika s prilagodljivim, razigranim sučeljem.'},
-  {t:'Paviljon', k:'space', y:'2022', role:'Suradnica', time:'3 mjeseca', res:'Studentski projekt', d:'Privremeni paviljon za studentski sajam, modularan i rasklopiv.'},
-  {t:'Zelena nit', k:'camp', y:'2022', role:'Dizajnerica', time:'2 mjeseca', res:'1 200 volontera', d:'Kampanja za čišćenje rijeka s ilustriranim vodičem i mapom akcija.'},
-];
-projects.forEach((p, i) => p.seed = i);
+const CATS = {brand:['Identitet',C.lilac], pack:['Ambalaža','#F2B880'], camp:['Tisak i kampanje',C.emerald], ill:['Ilustracija','#F2A3C7'], ux:['UX/UI',C.mint], space:['Prostor',C.violet]};
 
-function drawArt(ctx, W, H, p, t, noTitle) {
-  const col = CATS[p.k][1];
-  const g = ctx.createLinearGradient(0, 0, W, H);
-  g.addColorStop(0, C.forest); g.addColorStop(.55, '#0A1712'); g.addColorStop(1, p.seed % 2 ? C.violet : '#2A1A66');
-  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  const cx = W/2, cy = H/2, S = Math.min(W, H), mode = p.seed % 4;
-  ctx.save(); ctx.strokeStyle = col; ctx.fillStyle = col;
-  if (mode === 0) { for (let i = 12; i > 0; i--) { ctx.beginPath(); ctx.arc(cx, cy, S*0.04*i + Math.sin(t*2 + i*.6)*S*0.012, 0, 7); ctx.globalAlpha = i%2 ? .85 : .25; ctx.lineWidth = S*0.01; ctx.stroke(); } }
-  else if (mode === 1) { ctx.lineWidth = S*0.005; for (let i = 0; i < 6; i++) { ctx.globalAlpha = .6; ctx.beginPath(); ctx.ellipse(cx, cy, S*(0.1+i*0.07), S*(0.05+i*0.035), t*0.2 + i*0.3, 0, 7); ctx.stroke(); }
-    for (let i = 0; i < 6; i++) { const a = t*(0.5+i*0.1) + i; ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(cx + Math.cos(a)*S*(0.1+i*0.07), cy + Math.sin(a)*S*(0.05+i*0.035), S*0.02, 0, 7); ctx.fillStyle = i%2 ? C.paper : col; ctx.fill(); } }
-  else if (mode === 2) { for (let i = 0; i < 9; i++) { ctx.beginPath(); ctx.moveTo(0, H); for (let x = 0; x <= W; x += W/40) ctx.lineTo(x, H*0.2 + i*H*0.085 + Math.sin(x*0.012 + t + i + p.seed)*H*0.04); ctx.lineTo(W, H); ctx.closePath(); ctx.globalAlpha = 0.08 + i*0.05; ctx.fill(); } }
-  else { const n = 36, bw = W/n; for (let i = 0; i < n; i++) { const h = (0.15 + 0.7*Math.abs(Math.sin(t*2.2 + i*0.45 + p.seed) * Math.cos(i*0.17 + t))) * H; ctx.globalAlpha = i%3 ? .9 : .4; ctx.fillRect(i*bw + bw*0.2, (H - h)/2, bw*0.6, h); } }
-  ctx.restore();
-  if (noTitle) return;
-  ctx.fillStyle = C.paper; ctx.font = `700 ${S*0.14}px "Bricolage Grotesque", sans-serif`; ctx.textBaseline = 'top';
-  ctx.fillText(p.t, S*0.05, S*0.045);
-}
+/* ---- Animirani mockupi. Svaka scena je HTML string; slike su u mapi radovi/. ---- */
+const IMG = (src, alt = '') => `<img src="radovi/${src}" alt="${alt}" loading="lazy" decoding="async">`;
+const VID = (src, poster, label) => `<video src="radovi/${src}" poster="radovi/${poster}" muted loop playsinline preload="none" aria-label="${label}"></video>`;
+const scene = (cls, vars, inner) => `<span class="sc ${cls}" style="${vars}">${inner}</span>`;
+const ICON = {
+  heart:'<svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.2 5.2 3 1.6-1.8 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>',
+  chat:'<svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.1A8.5 8.5 0 1 1 21 12z"/></svg>',
+  send:'<svg viewBox="0 0 24 24"><path d="M22 3 11 13M22 3l-7 18-4-8-8-4 19-6z"/></svg>'
+};
+const rivaLogo = (b, s, cls = '') => `<svg class="rlogo ${cls}" viewBox="-11.96 12.48 223.22 179.26" style="--rb:${b};--rs:${s}" aria-hidden="true"><use href="#rl"/></svg>`;
+
+/* Riva Tech boce: SVG s cilindričnim sjenčanjem, otiskom i odsjajem */
+const BOTTLES = [
+  {n:'Petrolej', body:'#0F3D4C', cap:'steel', print:(id) => `<use href="#rs" x="40" y="150" width="300" height="240" style="fill:#1F8A8A;opacity:.9"/><g transform="translate(55 400)">${'<use href="#rl" width="90" height="72" style="--rb:#fff;--rs:#45B5AE"/>'}</g>`},
+  {n:'Kod', body:'#121417', cap:'black', print:() => `<g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#45B5AE">${['const riva = {','  star: "✦",','  city: "Split",','  build() {','    return {','      ideas,','      code','    };','  }','};','// ship it','{ } { } { }'].map((l, i) => `<text x="38" y="${190 + i * 15}" opacity="${.35 + (i % 3) * .2}">${l}</text>`).join('')}</g><g transform="translate(55 418)"><use href="#rl" width="90" height="72" style="--rb:#fff;--rs:#45B5AE"/></g>`},
+  {n:'Riva', body:'#F3EFE6', cap:'petrol', print:() => `<g transform="translate(55 172)"><use href="#rl" width="90" height="72" style="--rb:#0F3D4C;--rs:#1F8A8A"/></g><g fill="none" stroke="#0F3D4C" stroke-width="2" stroke-linecap="round"><path d="M20 420c20-6 40 6 60 0s40-6 60 0 40 6 60 0"/><path d="M20 436c20-6 40 6 60 0s40-6 60 0 40 6 60 0" opacity=".5"/><path d="M58 405V330M58 330c-14 2-24 12-28 22M58 330c14 0 24 8 30 18M58 330c-6-10-18-14-28-12M58 330c6-12 18-16 30-14M58 330c0-10 6-18 14-22"/><path d="M142 405V340M142 340c-12 2-20 10-24 20M142 340c12 0 20 6 26 16M142 340c-6-8-16-12-24-10M142 340c6-10 16-12 26-10"/><path d="M78 405h44v-34l-22-14-22 14z"/><path d="M92 405v-16h16v16"/></g><use href="#rs" x="122" y="268" width="56" height="45" style="fill:#1F8A8A"/>`},
+  {n:'Zalazak', body:'url(#sunset)', cap:'white', print:() => `<g fill="#FBE3C4">${[0,1,2,3,4,5].map(i => `<rect x="20" y="${300 + i * 14}" width="160" height="${7 - i}" opacity=".85"/>`).join('')}</g><circle cx="100" cy="300" r="46" fill="#FBE3C4" opacity=".95"/><rect x="20" y="300" width="160" height="90" fill="url(#sunset)" style="mix-blend-mode:normal" opacity=".0"/><g transform="translate(55 405)"><use href="#rl" width="90" height="72" style="--rb:#fff;--rs:#FBE3C4"/></g>`},
+  {n:'Noć', body:'#1C1848', cap:'gold', print:() => `<g fill="#D6AF1B">${[[48,190],[80,220],[130,205],[150,250],[110,270],[62,262],[90,310],[140,330],[56,340]].map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i % 3 ? 1.6 : 2.6}"/>`).join('')}</g><path d="M48 190L80 220L130 205L150 250L110 270L62 262L80 220M110 270L90 310L140 330M90 310L56 340" stroke="#D6AF1B" stroke-width=".8" fill="none" opacity=".55"/><g transform="translate(55 405)"><use href="#rl" width="90" height="72" style="--rb:#fff;--rs:#D6AF1B"/></g>`}
+];
+const CAPS = {steel:['#d9dde0','#8d959b','#f4f6f7'], black:['#2a2d31','#0b0c0d','#55595e'], petrol:['#1F6D73','#0F3D4C','#45B5AE'], white:['#ffffff','#cfd3d6','#ffffff'], gold:['#E8C766','#9C7A12','#FFF1B8']};
+const bottleSVG = (b, i) => { const id = 'bt' + i, c = CAPS[b.cap];
+  return `<svg class="bottle" viewBox="0 0 200 570" role="img" aria-label="Riva Tech boca, verzija ${b.n}"><defs>
+    <clipPath id="${id}c"><path d="M65 92h70c0 26 40 38 40 76v350q0 30-30 30H55q-30 0-30-30V168c0-38 40-50 40-76z"/></clipPath>
+    <linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".07" stop-color="#000" stop-opacity=".18"/><stop offset=".2" stop-color="#fff" stop-opacity=".2"/><stop offset=".3" stop-color="#fff" stop-opacity=".04"/><stop offset=".62" stop-color="#000" stop-opacity="0"/><stop offset=".86" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>
+    <linearGradient id="${id}h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".25" stop-color="#fff" stop-opacity=".55"/><stop offset=".8" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="${id}k" x1="0" x2="1"><stop offset="0" stop-color="${c[1]}"/><stop offset=".3" stop-color="${c[2]}"/><stop offset=".55" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient>
+    <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F08A24"/><stop offset=".55" stop-color="#C2553A"/><stop offset="1" stop-color="#0F4C5C"/></linearGradient>
+    <filter id="${id}b"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
+    <ellipse cx="100" cy="552" rx="78" ry="9" fill="#000" opacity=".28" filter="url(#${id}b)"/>
+    <rect x="62" y="14" width="76" height="70" rx="9" fill="url(#${id}k)"/>${[0,1,2,3,4,5,6,7,8].map(k => `<rect x="${66 + k * 8}" y="20" width="2" height="58" fill="#000" opacity=".12"/>`).join('')}
+    <rect x="66" y="82" width="68" height="12" rx="3" fill="url(#${id}k)" opacity=".85"/>
+    <g clip-path="url(#${id}c)"><rect x="0" y="80" width="200" height="490" fill="${b.body}"/>${b.print(id)}<rect x="0" y="80" width="200" height="490" fill="url(#${id}s)"/><rect x="48" y="150" width="9" height="370" rx="4.5" fill="url(#${id}h)" filter="url(#${id}b)" opacity=".75"/><rect x="152" y="170" width="4" height="330" rx="2" fill="url(#${id}h)" opacity=".3"/></g>
+  </svg>`; };
+
+/* Realistična staklena boca: etiketa omotana oko cilindra (trake), staklo, odsjaji, čep */
+const BOTTLE_KINDS = {
+  beer:{body:'M93 186h34v8c0 5-2 7-2 11v70c0 36 47 52 47 106v290q0 16-14 18q-26 4-48 4t-48-4q-14-2-14-18V381c0-54 47-70 47-106V205c0-4-2-6-2-11z', cx:110, r:62, ly:428, top:150, neckY:[222, 262], base:693},
+  oil:{body:'M97 84h26v86c0 28 49 36 49 84v400q0 16-14 18q-26 4-48 4t-48-4q-14-2-14-18V254c0-48 49-56 49-84z', cx:110, r:62, ly:330, top:18, neckY:null, base:676}
+};
+const realBottle = (o, id) => {
+  const K = BOTTLE_KINDS[o.kind], [src, iw, ih] = o.label, Phi = o.arc || 2.1, N = 40;
+  const lH = K.r * Phi * ih / iw; let strips = '';
+  for (let i = 0; i < N; i++) {
+    const u0 = i / N, u1 = (i + 1) / N, a0 = (u0 - .5) * Phi, a1 = (u1 - .5) * Phi;
+    const x0 = K.cx + K.r * Math.sin(a0), x1 = K.cx + K.r * Math.sin(a1), dy = 6 * Math.cos((a0 + a1) / 2);
+    strips += `<svg x="${x0.toFixed(2)}" y="${(K.ly + dy).toFixed(2)}" width="${(x1 - x0 + .5).toFixed(2)}" height="${lH.toFixed(1)}" viewBox="${(u0 * iw).toFixed(1)} 0 ${((u1 - u0) * iw).toFixed(1)} ${ih}" preserveAspectRatio="none"><image href="radovi/${src}" width="${iw}" height="${ih}"/></svg>`;
+  }
+  const cap = o.kind === 'beer'
+    ? `<rect x="90" y="${K.top + 6}" width="40" height="30" rx="3" fill="url(#${id}k)"/><path d="M88 ${K.top + 36}${Array.from({length: 11}, (_, k) => ` L${90 + k * 4} ${K.top + (k % 2 ? 42 : 36)}`).join('')} L132 ${K.top + 36}z" fill="url(#${id}k)"/><rect x="90" y="${K.top + 6}" width="40" height="4" rx="2" fill="#fff" opacity=".35"/>`
+    : `<rect x="92" y="${K.top}" width="36" height="70" rx="5" fill="url(#${id}k)"/><rect x="92" y="${K.top + 58}" width="36" height="6" fill="#000" opacity=".28"/><rect x="96" y="${K.top + 4}" width="5" height="52" rx="2.5" fill="#fff" opacity=".35"/>`;
+  const VH = K.base + 16;
+  return `<svg class="rbottle" viewBox="0 0 220 ${VH}" role="img" aria-label="${o.alt}"><defs>
+    <clipPath id="${id}c"><path d="${K.body}"/></clipPath>
+    <linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".72"/><stop offset=".1" stop-color="#000" stop-opacity=".25"/><stop offset=".22" stop-color="#fff" stop-opacity=".16"/><stop offset=".3" stop-color="#fff" stop-opacity=".02"/><stop offset=".62" stop-color="#000" stop-opacity=".06"/><stop offset=".86" stop-color="#000" stop-opacity=".42"/><stop offset="1" stop-color="#000" stop-opacity=".78"/></linearGradient>
+    <linearGradient id="${id}v" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".9" stop-color="#000" stop-opacity=".25"/></linearGradient>
+    <linearGradient id="${id}h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".18" stop-color="#fff" stop-opacity=".75"/><stop offset=".85" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="${id}k" x1="0" x2="1"><stop offset="0" stop-color="${o.cap[1]}"/><stop offset=".3" stop-color="${o.cap[2]}"/><stop offset=".55" stop-color="${o.cap[0]}"/><stop offset="1" stop-color="${o.cap[1]}"/></linearGradient>
+    <radialGradient id="${id}g" cx=".3" cy=".25" r=".9"><stop offset="0" stop-color="${o.glass[1]}"/><stop offset="1" stop-color="${o.glass[0]}"/></radialGradient>
+    <filter id="${id}b"><feGaussianBlur stdDeviation="2.6"/></filter><filter id="${id}b2"><feGaussianBlur stdDeviation="7"/></filter></defs>
+    <ellipse cx="110" cy="${K.base + 3}" rx="84" ry="9" fill="#000" opacity=".4" filter="url(#${id}b2)"/><ellipse cx="110" cy="${K.base + 1}" rx="58" ry="3.5" fill="#000" opacity=".6" filter="url(#${id}b)"/>
+    <g clip-path="url(#${id}c)">
+      <rect width="220" height="720" fill="url(#${id}g)"/>
+      ${strips}
+      ${o.neck && K.neckY ? `<rect x="94" y="${K.neckY[0]}" width="32" height="${K.neckY[1] - K.neckY[0]}" fill="#f1e9d6"/><image href="radovi/${o.neck}" x="96" y="${K.neckY[0] + 2}" width="28" height="${K.neckY[1] - K.neckY[0] - 4}" preserveAspectRatio="xMidYMid meet"/>` : ''}
+      <rect width="220" height="720" fill="url(#${id}s)"/><rect width="220" height="720" fill="url(#${id}v)"/>
+      <rect x="62" y="230" width="16" height="440" rx="8" fill="url(#${id}h)" filter="url(#${id}b)" opacity=".55"/>
+      <rect x="76" y="250" width="3.5" height="400" rx="1.75" fill="url(#${id}h)" opacity=".85"/>
+      <rect x="158" y="260" width="5" height="380" rx="2.5" fill="url(#${id}h)" opacity=".3"/>
+      <rect x="100" y="${K.top + 50}" width="5" height="110" rx="2.5" fill="url(#${id}h)" opacity=".5"/>
+      <ellipse cx="86" cy="${o.kind === 'beer' ? 350 : 236}" rx="16" ry="30" fill="#fff" opacity=".14" filter="url(#${id}b)"/>
+    </g>
+    ${cap}
+  </svg>`;
+};
+const bottleScene = (o, vars) => () => scene('sc-real', vars + `;--bar:220/${BOTTLE_KINDS[o.kind].base + 16};--bh:${o.kind === 'beer' ? '90%' : '76%'}`, `<i class="table"></i><span class="rb-wrap"><span class="rb">${realBottle(o, o.id)}</span><span class="rb refl" aria-hidden="true">${realBottle(o, o.id + 'r')}</span></span>`);
+
+/* Majica i hudica (pogled straga) s tkaninom, naborima i otiskom */
+const fabricDefs = id => `<filter id="${id}n" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .55 0"/><feComposite in2="SourceGraphic" operator="in"/></filter><filter id="${id}f"><feGaussianBlur stdDeviation="9"/></filter><filter id="${id}f2"><feGaussianBlur stdDeviation="3"/></filter>`;
+const garmentTee = (id, fill, print, text, ink) => `<svg viewBox="0 0 400 440" class="gsvg" role="img" aria-label="Majica s otiskom, pogled straga"><defs>${fabricDefs(id)}<clipPath id="${id}c"><path id="${id}p" d="M132 22c18 13 42 19 68 19s50-6 68-19l78 30c14 6 22 15 26 27l26 72-58 25-18-47v290c0 9-6 15-15 15H95c-9 0-15-6-15-15V129l-18 47-58-25 26-72c4-12 12-21 26-27z"/></clipPath>
+  <linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".18" stop-color="#000" stop-opacity="0"/><stop offset=".8" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".26"/></linearGradient></defs>
+  <g clip-path="url(#${id}c)"><rect width="400" height="440" fill="${fill}"/>
+    <image href="radovi/${print}" x="140" y="150" width="120" height="120" style="mix-blend-mode:${ink === 'dark' ? 'multiply' : 'screen'}" opacity=".93"/>
+    <text x="200" y="128" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4" fill="${ink === 'dark' ? '#1d1b17' : '#ece6da'}" opacity=".9">${text}</text>
+    <path d="M70 140c40 30 50 120 30 250" stroke="#000" stroke-opacity=".16" stroke-width="22" fill="none" filter="url(#${id}f)"/><path d="M330 140c-40 30-50 120-30 250" stroke="#000" stroke-opacity=".16" stroke-width="22" fill="none" filter="url(#${id}f)"/>
+    <path d="M200 60c-6 120 6 240-4 370" stroke="#fff" stroke-opacity=".12" stroke-width="30" fill="none" filter="url(#${id}f)"/>
+    <path d="M110 330c40 14 70 4 96 18s60 10 90-4" stroke="#000" stroke-opacity=".12" stroke-width="10" fill="none" filter="url(#${id}f2)"/>
+    <path d="M60 70c20 20 30 40 26 60" stroke="#000" stroke-opacity=".18" stroke-width="10" fill="none" filter="url(#${id}f2)"/><path d="M340 70c-20 20-30 40-26 60" stroke="#000" stroke-opacity=".18" stroke-width="10" fill="none" filter="url(#${id}f2)"/>
+    <rect width="400" height="440" fill="url(#${id}s)"/><rect width="400" height="440" filter="url(#${id}n)" opacity=".18" style="mix-blend-mode:multiply"/>
+    <path d="M132 22c18 13 42 19 68 19s50-6 68-19" stroke="#000" stroke-opacity=".22" stroke-width="7" fill="none"/>
+    <path d="M80 420h240" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-dasharray="2 3"/></g></svg>`;
+const garmentHoodie = (id, fill, print, text, ink) => `<svg viewBox="0 0 400 470" class="gsvg" role="img" aria-label="Hudica s otiskom, pogled straga"><defs>${fabricDefs(id)}<clipPath id="${id}c"><path d="M128 74 76 96c-18 8-26 22-30 40L8 352c-2 10 4 18 14 20l34 6c8 2 16-4 18-12l18-128v182c0 12 8 20 20 20h176c12 0 20-8 20-20V238l18 128c2 8 10 14 18 12l34-6c10-2 16-10 14-20l-38-216c-4-18-12-32-30-40l-52-22z"/></clipPath>
+  <linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".04"/><stop offset=".3" stop-color="#fff" stop-opacity=".09"/><stop offset=".72" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></linearGradient></defs>
+  <g clip-path="url(#${id}c)"><rect width="400" height="470" fill="${fill}"/>
+    <image href="radovi/${print}" x="140" y="170" width="120" height="120" style="mix-blend-mode:${ink === 'dark' ? 'multiply' : 'lighten'}" opacity=".95"/>
+    <text x="200" y="322" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4" fill="${ink === 'dark' ? '#1d1b17' : '#ece6da'}" opacity=".88">${text}</text>
+    <path d="M60 140c30 60 30 140 16 230" stroke="#000" stroke-opacity=".35" stroke-width="20" fill="none" filter="url(#${id}f)"/><path d="M340 140c-30 60-30 140-16 230" stroke="#000" stroke-opacity=".35" stroke-width="20" fill="none" filter="url(#${id}f)"/>
+    <path d="M200 110c-4 110 4 220-2 300" stroke="#fff" stroke-opacity=".06" stroke-width="40" fill="none" filter="url(#${id}f)"/>
+    <path d="M100 380c40 10 70 0 100 12s70 6 100-6" stroke="#000" stroke-opacity=".3" stroke-width="10" fill="none" filter="url(#${id}f2)"/>
+    <rect y="408" width="400" height="32" fill="#000" opacity=".22"/>${Array.from({length: 40}, (_, k) => `<rect x="${92 + k * 5.4}" y="410" width="1.2" height="28" fill="#000" opacity=".25"/>`).join('')}
+    <rect width="400" height="470" fill="url(#${id}s)"/><rect width="400" height="470" filter="url(#${id}n)" opacity=".22" style="mix-blend-mode:screen"/></g>
+  <path d="M136 82c-8-40 20-74 64-74s72 34 64 74c-14 16-36 26-64 26s-50-10-64-26z" fill="${fill}"/><path d="M136 82c-8-40 20-74 64-74s72 34 64 74c-14 16-36 26-64 26s-50-10-64-26z" fill="url(#${id}s)"/>
+  <path d="M200 10c3 34 3 66 0 98" stroke="#000" stroke-opacity=".4" stroke-width="2" fill="none"/><path d="M150 50c10-24 28-36 50-36" stroke="#fff" stroke-opacity=".08" stroke-width="10" fill="none" filter="url(#${id}f2)"/></svg>`;
+
+const SC = {
+  cagalj: bottleScene({id:'cg', kind:'beer', glass:['#2a1304','#6b3610'], cap:['#d9b25a','#7a5512','#f6e2a4'], label:['cagalj-lisac.jpg',1100,1557], neck:'cagalj-logo.jpg', alt:'Boca piva Čagalj s ilustriranom etiketom'}, '--wall:#3b2412;--wall2:#c68a4c;--tbl:#6b4a2e'),
+  stanic: bottleScene({id:'st', kind:'oil', glass:['#071a10','#1d4a2e'], cap:['#d9c27a','#7a6420','#fbefc2'], label:['stanic-etiketa.jpg',1000,1250], arc:1.9, alt:'Boca maslinovog ulja Stanić s etiketom'}, '--wall:#3e4a2a;--wall2:#c9cfa4;--tbl:#8a8466'),
+  stanicLabel: () => scene('', '--wall:#e6e1d2;--wall2:#fbf9f3', `<span class="paper" style="--ar:1000/1250;--x:34%;--h:74%">${IMG('stanic-etiketa.jpg','Etiketa Stanić na zelenoj podlozi')}</span><span class="paper" style="--ar:1000/923;--x:70%;--h:52%;rotate:6deg">${IMG('stanic-crno.jpg','Znak Stanić na crnoj podlozi')}</span>`),
+  stickerPair: (a, b, wall, wall2) => () => scene('', `--wall:${wall};--wall2:${wall2}`, `<i class="floor" style="--fw:60%;--fy:6%"></i><span class="sticker s2${a[2] ? ' fit' : ''}" style="--x:31%">${IMG(a[0], a[1])}</span><span class="sticker s2${b[2] ? ' fit' : ''}" style="--x:69%;--d:-2.5s">${IMG(b[0], b[1])}</span>`),
+  wallPoster: (src, ar, alt, vars, frame = false) => () => scene('', vars, `<span class="poster${frame ? ' frame still' : ''}" style="--ar:${ar};--h:80%;--y:9%">${IMG(src, alt)}<i class="sheen"></i></span>`),
+  offstage: () => scene('', '--wall:#1a1a1a;--wall2:#4a4a4a', `<span class="banners">${[4,5,6,7].map(n => `<span>${IMG(`offstage-${n}.jpg`,'Offstage plakat, verzija ' + n)}</span>`).join('')}</span>`),
+  mars: () => scene('sc-desk', '--wall:#c9b8a3;--wall2:#f2e9dc', `<span class="paper pc" style="--ar:1400/993;--x:38%;--h:58%">${IMG('mars-razglednica.jpg','Razglednica Mars')}</span><span class="paper st" style="--ar:900/754;--x:70%;--h:46%">${IMG('mars-marke-5.jpg','Arak maraka 50 godina od prve misije na Marsu')}</span>`),
+  smotraPoster: () => scene('', '--wall:#cfdbe5;--wall2:#f2f6f9', `<span class="poster frame" style="--ar:1080/1350;--h:82%;--y:8%">${VID('smotra-plakat-anim.mp4','smotra-plakat-anim.jpg','Animirani plakat Smotre Sveučilišta u Splitu 2026')}<i class="sheen"></i></span>`),
+  panSmotra: () => scene('sc-pan', '--wall:#d7e4ee', IMG('smotra-zid-ilustracija.jpg','Ilustracija Splita na zidu štanda Sveučilišta, panorama')),
+  trifold: (src, ar, alt, out) => () => scene('sc-tri', '--wall:#0b4e66;--wall2:#7fd0e6', `<i class="floor" style="--fw:62%;--fy:9%"></i><span class="trifold${out ? ' out' : ''}" style="--src:url(radovi/${src});--ar:${ar}" role="img" aria-label="${alt}"><i class="pl"></i><i class="pm"></i><i class="pr"></i></span>`),
+  adios: () => scene('', '--wall:#0a1610;--wall2:#1f4a32', `<span class="poster" style="--ar:1066/1600;--x:33%;--h:78%;--y:11%">${IMG('adios-poster-V2-tamna.jpg','Adios plakat na zidu')}<i class="sheen"></i></span><i class="floor" style="--x:70%;--fw:22%;--fy:4%"></i><span class="phone" style="--x:70%;--h:86%;--y:7%;--d:-2s"><span class="screen ig"><span class="ig-top"><i></i>adios.tours<em>···</em></span><span class="ig-slides"><span class="ig-track">${[1,2,3,4,5].map(n => IMG(`adios-slide-${n}.jpg`, `Adios Instagram objava ${n}`)).join('')}</span></span><span class="ig-bar">${ICON.heart}${ICON.chat}${ICON.send}<b><i></i><i></i><i></i><i></i><i></i></b></span><span class="ig-cap"><b>adios.tours</b> Design. Code. Film. Edit. Do it right.</span></span></span>`),
+  adiosPosters: () => scene('', '--wall:#e9ece6;--wall2:#fbfcfa', `<span class="posters">${['V1-tipografska','V5-kamera-grafike','V2-tamna','V3-timeline'].map(v => `<span>${IMG(`adios-poster-${v}.jpg`,'Adios plakat, verzija ' + v)}</span>`).join('')}</span>`),
+  adiosBrand: () => scene('sc-bb', '--wall:#cfd6cc;--wall2:#f3f5f0', `<span class="bb">
+    <span class="bb-p dark"><i class="bb-logo" style="background:#B6F29E"></i><em>Knjiga standarda · 2026</em></span>
+    <span class="bb-p"><b>Boje</b><span class="sw"><i style="background:#0A1A13"><em>#0A1A13</em></i><i style="background:#B6F29E"><em>#B6F29E</em></i><i style="background:#3A954C"><em>#3A954C</em></i><i style="background:#F3F5F0;box-shadow:inset 0 0 0 1px #d9ddd5"><em>#F3F5F0</em></i></span></span>
+    <span class="bb-p"><b>Tipografija</b><span class="ty"><strong>Aa</strong><span><em class="pp">Poppins Bold</em><em class="in">Inter Regular</em><em class="jb">JetBrains Mono</em></span></span></span>
+    <span class="bb-p"><b>Zaštitna zona</b><span class="cz"><i class="bb-logo" style="background:#0A1A13"></i></span></span></span>`),
+  rivaLogo: () => scene('sc-logo', '--wall:#ffffff;--wall2:#ffffff', `${rivaLogo('#111','#111','big')}<i class="sheen2"></i>`),
+  rivaVersions: () => scene('sc-ver', '--wall:#eceeed;--wall2:#f8f9f9', `<span class="ver">${[['#fff','#0F3D4C','#1F8A8A','Primarni'],['#fff','#111','#111','Crni'],['#111','#fff','#fff','Bijeli'],['#0F3D4C','#fff','#45B5AE','Negativ'],['#E9F4F3','#1F8A8A','#1F8A8A','Jednobojni']].map(([bg, b, s, n]) => `<span style="background:${bg}">${rivaLogo(b, s)}<em style="color:${b}">${n}</em></span>`).join('')}</span>`),
+  rivaBottles: () => scene('sc-bottles', '--wall:#b9c7c6;--wall2:#eef2f1', `<span class="bottles">${BOTTLES.map((b, i) => `<span style="--d:${-i * .7}s">${bottleSVG(b, 'l' + i)}</span>`).join('')}</span>`),
+  rivaBottle: (i, wall, wall2) => () => scene('sc-bottles one', `--wall:${wall};--wall2:${wall2}`, `<span class="bottles"><span>${bottleSVG(BOTTLES[i], 's' + i)}</span></span><em class="b-name">${String(i + 1).padStart(2, '0')} · ${BOTTLES[i].n}</em>`),
+  photo: (src, alt, vars = '') => () => scene('sc-photo', vars, IMG(src, alt)),
+  floatObj: (src, alt, ar, vars) => () => scene('', vars, `<i class="floor" style="--fw:26%;--fy:6%"></i><span class="float-obj" style="--ar:${ar}">${IMG(src, alt)}</span>`),
+  invFlip: () => scene('sc-inv', '--wall:#0a1530;--wall2:#2a3f78', `<i class="glow"></i><i class="floor" style="--fw:56%;--fy:12%"></i><span class="card3d" role="img" aria-label="Pozivnica za inauguraciju rektora, prednja i stražnja strana"><span class="face front">${IMG('pozivnica-prednja.jpg')}</span><span class="face back">${IMG('pozivnica-straznja.jpg')}</span></span>`),
+  fff: () => scene('', '--wall:#070a24;--wall2:#1d2c8f', `<i class="floor" style="--x:36%;--fw:24%;--fy:4%"></i><span class="phone" style="--x:36%;--h:86%;--y:7%"><span class="screen fff s1"><span class="app-icon">${IMG('fff-znak.png','')}</span><b>Fishing for Friends</b><em>Pronađi društvo za ribolov</em><u>Započni</u></span></span><span class="app-icon big" style="--x:68%;--top:40%">${IMG('fff-znak.png','Ikona aplikacije, tamna verzija')}</span><span class="app-icon big light" style="--x:84%;--top:64%;--w:15%;--d:-2s">${IMG('fff-znak.png','Ikona aplikacije, svijetla verzija')}</span>`),
+  fffModes: () => scene('sc-modes', '', `<span class="mode dark"><span class="app-icon big">${IMG('fff-znak.png','Ikona aplikacije, tamna verzija')}</span><b>fff</b><em>Fishing for Friends</em><i>Dark</i></span><span class="mode light"><span class="app-icon big light">${IMG('fff-znak.png','Ikona aplikacije, svijetla verzija')}</span><b>fff</b><em>Fishing for Friends</em><i>Light</i></span>`),
+  bergApp: () => scene('', '--wall:#3f5a22;--wall2:#c4d27a', `<span class="paper wide" style="--ar:1.35;--x:30%;--h:44%">${IMG('bergamotto-logo-final.png','Konačni logotip Il Bergamotto')}</span><i class="floor" style="--x:68%;--fw:22%;--fy:4%"></i><span class="phone" style="--x:68%;--h:86%;--y:7%;--d:-1s"><span class="screen vid">${VID('bergamotto-app.mp4','bergamotto-app-poster.jpg','Snimka zaslona aplikacije Il Bergamotto')}</span></span>`),
+  folklor: () => scene('sc-wear real', '--wall:#cfc5b4;--wall2:#f4efe6;--tbl:#b9ad98', `<i class="table"></i><span class="garment tee" style="--x:30%">${garmentTee('gt', '#efe8da', 'folklor-kolo1.jpg', 'NAŠI KORIJENI', 'dark')}</span><span class="garment hood" style="--x:70%">${garmentHoodie('gh', '#1c1c1f', 'folklor-kolocrno2.jpg', 'BOBANOVO', 'light')}</span>`),
+  czmTiles: () => scene('', '--wall:#f3d35a;--wall2:#fff6d2', `<span class="tiles t5">${['czm-osoba-1.jpg','czm-osoba-3.jpg','czm-kuce.jpg','czm-osoba-2.jpg','czm-osoba-4.jpg'].map((f, n) => `<span style="--d:${-n * .8}s">${IMG(f,'Prijedlog logotipa Centra za mlade Čapljina')}</span>`).join('')}</span>`),
+  czmSign: () => scene('sc-sign', '--wall:#d9dde0;--wall2:#f6f7f8', `<span class="sign">${IMG('czm-vrata.jpg','Logotip Centar za mlade Čapljina s vratima na zidnoj ploči')}</span><i class="sheen2"></i>`)
+};
+
+/* Pravi radovi kao prezentacije. sc = naslovni mockup; sec = poglavlja u ladici: {h, p, it:[scena | [slika, š, v, opis] | {pal} | {type}], cols}. */
+const I = (src, w, h, alt) => [src, w, h, alt];
+const projects = [
+  {t:'Smotra 2026', g:'Smotra', k:'space', y:'2026', client:'Sveučilište u Splitu', scope:'Vizualni identitet, tisak, animacije, web alat',
+   blurb:'Billboardi, citylighti, 19 štandova i animacije.',
+   d:'Vizualni identitet sajma na kojem se budućim studentima predstavljaju sve sastavnice Sveučilišta u Splitu, od prvog plakata do štandova na samom sajmu.',
+   sc:SC.smotraPoster,
+   sec:[
+    {h:'Ideja', p:'Ilustracija Splita u kojoj se iz zvonika otvara knjiga postala je zajednički znak cijelog sajma. Isti motiv nosi plakate, billboarde, objave i štandove, pa svaki komad komunikacije odmah izgleda kao Smotra.', it:[SC.panSmotra]},
+    {h:'Kampanja u gradu', p:'Billboardi, citylighti, plakati za škole i web baneri na lokalnim portalima.', it:[SC.photo('smotra-billboard.jpg','Billboard Smotre u gradu'), I('smotra-citylight.jpg',1400,934,'Citylight Smotre na ulici'), I('smotra-a3-zid.jpg',1400,934,'Plakat A3 na zidu'), I('smotra-baneri.jpg',1400,788,'Web baneri na portalu'), I('smotra-brosura.jpg',1400,934,'Brošura A4'), I('smotra-plakat-skole.jpg',709,1000,'Plakat za škole 480 × 680 mm')], cols:2},
+    {h:'Društvene mreže', p:'Carousel, objave za svaki dan pojedinačnih prezentacija i animacije plakata.', it:[I('smotra-insta-mobitel.jpg',934,1400,'Instagram objava na mobitelu'), I('smotra-carousel.jpg',1600,393,'Instagram carousel, 5 slajdova'), I('smotra-dani.jpg',1800,571,'Objave za pojedinačne prezentacije po danima')]},
+    {h:'Na sajmu', p:'Štandovi za 19 sastavnica u bojama znanstvenih područja, beach flagovi i cutouti za fotografiranje. Za fakultete sam napravila i web alat u kojem sami slažu raspored svog štanda, te 3D šetnju kroz prostor sajma.', it:[I('smotra-cutouti.jpg',1600,843,'Cutouti za fotografiranje na štandu'), I('smotra-zastave.jpg',1200,1164,'Beach flagovi')], cols:2},
+    {h:'Boje i tipografija', it:[{pal:[['#0A5FA8','Plava'],['#4D94C4','Srednja plava'],['#FF5722','Narančasta'],['#FF69AC','Ružičasta'],['#DBE9F2','Svijetla']]}, {type:[['Figtree','Figtree, tekst i naslovi',600],['Boogy Brut','Boogy Brut, natpisi na štandovima',400]]}]}]},
+  {t:'Tubing or Not Tubing', g:'Tubing', k:'brand', y:'2025', client:'Tubing Croatia', scope:'Logotip, ilustracija, izrezana trifold brošura',
+   blurb:'Shakespeare na gumi i izrezana 3D brošura.',
+   d:'Identitet za tubing ture na Cetini: ilustrirani logotip i brošura izrezana po obrisu krajolika.',
+   sc:SC.trifold('tubing-vani.webp','1600/1150','Vanjska strana izrezane trifold brošure u 3D', true),
+   sec:[
+    {h:'Znak', p:'Ime se poigrava s Hamletovim „biti ili ne biti”, pa na znaku Shakespeare pluta na gumi s koktelom u ruci. Tamnozelena verzija ide na svijetle podloge, a svijetla na tamnozelenu.', it:[SC.stickerPair(['tubing-znak-svijetli.jpg','Logotip Tubing or Not Tubing, svijetla verzija'],['tubing-znak-tamni.jpg','Logotip Tubing or Not Tubing, tamna verzija'],'#cfe3df','#ffffff')]},
+    {h:'Brošura', p:'Trifold je izrezan po obrisu brda i drveća, pa kad se presavije, zelenilo iskače iznad ruba. Izvana vodi kroz ilustrirani krajolik rijeke do QR koda, a iznutra kroz tri koraka: float, explore, relax.', it:[SC.trifold('tubing-unutra.webp','1600/1132','Unutarnja strana trifold brošure u 3D'), I('tubing-vani.webp',1600,1150,'Vanjska strana brošure, raširena i izrezana'), I('tubing-unutra.webp',1600,1132,'Unutarnja strana brošure, raširena')]}]},
+  {t:'Adios', g:'Adios', k:'camp', y:'2026', client:'Adios, studentski startup', scope:'Logotip, knjiga standarda, plakati, Instagram',
+   blurb:'Logotip, knjiga standarda i kampanja.',
+   d:'Studentski startup koji razvija on-demand platformu za tuk tuk ture po Splitu. Napravila sam logotip, knjigu standarda i kampanju za pronalazak suradnika.',
+   sc:SC.adios,
+   sec:[
+    {h:'Znak i knjiga standarda', p:'Logotip „Adios.” s točkom na kraju. Knjiga standarda definira boje, tipografiju i zaštitnu zonu.', it:[SC.adiosBrand]},
+    {h:'Boje i tipografija', it:[{pal:[['#0A1A13','Tamnozelena'],['#B6F29E','Limeta'],['#3A954C','Zelena'],['#F3F5F0','Svijetla']]}, {type:[['Poppins','Poppins Bold, naslovi',700],['Inter','Inter, tekst',400],['JetBrains Mono','JetBrains Mono, detalji',500]]}]},
+    {h:'Plakati', p:'Serija plakata s QR kodom za prijavu, od tipografskog do onog s kamerom i grafikama iz alata kojima se tim služi.', it:[SC.adiosPosters, I('adios-poster-V5-kamera-grafike.jpg',1000,1414,'Adios plakat s kamerom i grafikama'), I('adios-poster-V1-tipografska.jpg',1000,1414,'Adios tipografski plakat'), I('adios-poster-V3-timeline.jpg',1000,1414,'Adios plakat s vremenskom crtom')], cols:3},
+    {h:'Instagram', p:'Carousel od pet slajdova na engleskom: tko smo, koga tražimo i što nudimo.', it:[I('adios-slide-1.jpg',720,900,'Adios slajd 1'), I('adios-slide-2.jpg',720,900,'Adios slajd 2'), I('adios-slide-3.jpg',720,900,'Adios slajd 3'), I('adios-slide-4.jpg',720,900,'Adios slajd 4'), I('adios-slide-5.jpg',720,900,'Adios slajd 5')], cols:3}]},
+  {t:'Riva Tech', g:'Riva Tech', k:'brand', y:'2026', client:'Riva Tech', scope:'Logotip, varijacije boja, knjiga standarda',
+   blurb:'Logo, varijacije boja i serija boca.',
+   d:'Logotip za IT tvrtku: vitičasta zagrada iz koda i zvijezda koja izlazi iza nje.',
+   sc:SC.rivaLogo,
+   sec:[
+    {h:'Verzije znaka', p:'Primarni znak, crna i bijela verzija, negativ i jednobojna verzija u petroleju.', it:[SC.rivaVersions]},
+    {h:'Varijacije boja', p:'Prijedlozi boja za svijetle i tamne podloge, za web, mreže i tisak.', it:[I('riva-boje-3.jpg',1600,900,'Varijacije boja loga na svijetloj podlozi'), I('riva-boje-4.jpg',1600,900,'Varijacije boja loga na tamnoj podlozi')]},
+    {h:'Boje', it:[{pal:[['#0F3D4C','Tamni petrolej'],['#1F8A8A','Petrolej'],['#45B5AE','Svijetli petrolej']]}]},
+    {h:'Serija boca', p:'Pet boca na kojima logo živi u različitim pričama: petrolej, kod, ilustracija rive, zalazak i noćno nebo.', it:[SC.rivaBottles, SC.rivaBottle(0,'#8fb3b4','#e6efee'), SC.rivaBottle(1,'#9aa3a8','#eceff0'), SC.rivaBottle(2,'#b9cfd2','#f3f7f7'), SC.rivaBottle(3,'#e3b48c','#fbeee2'), SC.rivaBottle(4,'#2a2758','#5d5a9c')], cols:2},
+    {h:'Primjena', it:[I('riva-vizitke.jpg',1600,1040,'Riva Tech vizitke'), I('riva-zid-ulaz.jpg',1600,1040,'Riva Tech znak na zidu ulaza')], cols:2}]},
+  {t:'Domain', g:'Domain', k:'brand', y:'2026', client:'Domain Software Solutions', scope:'Logotip, knjiga standarda, paket',
+   d:'Logotip za tvrtku Domain Software Solutions: znak složen od piksela, u crnoj i bijeloj varijanti.',
+   sc:SC.photo('domain-vizitke.jpg','Domain vizitke'),
+   sec:[{h:'Primjena', p:'Uz knjigu standarda napravila sam paket za tisak, web i društvene mreže te naljepnice za izrezivanje.', it:[I('domain-mobitel.jpg',1600,1100,'Domain logo i ikona aplikacije na mobitelu'), I('domain-zid.jpg',1600,1100,'Domain znak na zidu')], cols:2},
+        {h:'Boje', it:[{pal:[['#000000','Crna'],['#FFFFFF','Bijela']]}]}]},
+  {t:'Alkemičar', g:'Alkemičar', k:'camp', y:'2026', client:'Studentski rad · UMAS', scope:'Naslovnica knjige',
+   d:'Naslovnica za roman Alkemičar Paula Coelha: noćno nebo koje prelazi u pustinjske dine, karavana na horizontu i elegantna serifna tipografija.',
+   sc:SC.photo('alkemicar-knjiga.jpg','Knjiga Alkemičar s novom naslovnicom, mockup'), sec:[]},
+  {t:'Fishing for Friends', g:'Fishing', k:'ux', y:'2026', client:'Fishing for Friends', scope:'Logotip, ikona aplikacije',
+   d:'Logotip i ikona za aplikaciju Fishing for Friends.',
+   sc:SC.fff,
+   sec:[
+    {h:'Proces', p:'Krenula sam od monograma „fff”, ribe i udice. Kroz desetke skica znak se svodio sve dok nije ostalo jedno slovo F s točkom.', it:[I('fff-skice.jpg',1600,1257,'Skice i varijante znaka Fishing for Friends')]},
+    {h:'Dark i light', p:'Znak u gradijentu od tirkizne do ultramarin plave radi na crnoj i na bijeloj podlozi, pa aplikacija ima ikonu za oba načina prikaza.', it:[SC.fffModes]},
+    {h:'Boje', it:[{pal:[['#00A8C6','Tirkizna'],['#3355FF','Plava'],['#2200C8','Ultramarin'],['#0B0F2E','Noćna']]}]}]},
+  {t:'Inauguracija rektora', g:'Inauguracija', k:'camp', y:'2026', client:'Sveučilište u Splitu', scope:'Pozivnice, etikete, brošura, prezentacija',
+   d:'Materijali za svečanu inauguraciju rektora Sveučilišta u Splitu, svi u skladu s knjigom standarda Sveučilišta.',
+   sc:SC.invFlip,
+   sec:[{h:'Pozivnica', p:'Pozivnica u formatu A5: sprijeda zlatna ilustracija rektorskog žezla i zgrade Sveučilišta na tamnoplavoj podlozi, straga tekst u okviru od zlatnih karika.', it:[I('pozivnica-prednja.jpg',1600,1124,'Prednja strana pozivnice'), I('pozivnica-straznja.jpg',1600,1124,'Stražnja strana pozivnice')], cols:2},
+        {h:'Ostali materijali', p:'Etikete za vina sa zlatotiskom i bez njega, brošura s programom svečanosti, ploča 70 × 100 cm, prezentacija i projekcije s imenima govornika.', it:[]}]},
+  {t:'Sjever Boards', g:'Sjever', k:'pack', y:'2026', client:'Studentski rad · UMAS', scope:'Grafike za snowboarde',
+   d:'Grafike za snowboarde marke Sjever, modeli Bura i Velebit.',
+   sc:SC.photo('sjever-daske.jpg','Snowboardi Sjever Bura, mockup'),
+   sec:[{h:'Modeli', p:'Snažna verzalna tipografija, sunce i obris Velebita, uz slogane „nosi te vjetar” i „gdje se rađa bura”.', it:[SC.floatObj('sjever-velebit.png','Snowboard Sjever Velebit u snijegu, mockup','1040/1300','--wall:#8fb3d6;--wall2:#eef4fb'), I('sjever-velebit-plakat.jpg',1000,1500,'Grafika snowboarda Sjever Velebit')], cols:2}]},
+  {t:'Il Bergamotto', g:'Bergamotto', k:'brand', y:'2026', client:'Il Bergamotto', scope:'Logotip, prototip aplikacije',
+   d:'Logotip i prototip aplikacije za večernje rituale opuštanja.',
+   sc:SC.bergApp,
+   sec:[{h:'Proces', p:'Od kaligrafske verzije s ilustracijom bergamota, preko istraživanja boja i fontova, do razigranog natpisa s listićem.', it:[I('bergamotto-logo.jpg',790,1030,'Kaligrafska verzija logotipa s ilustracijom bergamota'), I('bergamotto-proces.jpg',1600,1154,'Varijante logotipa na artboardima'), I('bergamotto-istrazivanje.jpg',1600,1131,'Istraživanje logotipa, boja i ilustracija')], cols:2}]},
+  {t:'Čagalj', g:'Čagalj', k:'pack', y:'2025', client:'Čagalj, craft pivo', scope:'Logotip, ilustracija etikete',
+   blurb:'Lisac s bačvama piva na etiketi.',
+   d:'Logotip i etiketa za craft pivo Čagalj.',
+   sc:SC.cagalj,
+   sec:[{h:'Ilustracija', p:'Na etiketi je čagalj s naočalama i kriglom pred bačvama, nacrtan u Procreateu od skice do konačne boje.', it:[I('cagalj-lisac.jpg',1100,1557,'Ilustracija za etiketu piva Čagalj'), I('cagalj-skica-1.jpg',900,1200,'Skica u Procreateu'), I('cagalj-skica-2.jpg',900,1200,'Skica s bojom u Procreateu')], cols:3},
+        {h:'Znak', p:'Značka s lisicom pred planinama ide na vrat boce i na ostale materijale.', it:[I('cagalj-logo.jpg',1000,1414,'Logotip Čagalj')]}]},
+  {t:'Maslinovo ulje Stanić', g:'Stanić', k:'pack', y:'2025', client:'Maslinovo ulje Stanić', scope:'Znak, etiketa',
+   blurb:'Stablo masline koje raste iz kule.',
+   d:'Znak i etiketa za maslinovo ulje Stanić.',
+   sc:SC.stanic,
+   sec:[{h:'Ideja', p:'Znak spaja stablo masline i kulu iz koje ono raste. Crtež je u bijeloj liniji, pa radi i u malom formatu na boci.', it:[I('stanic-skica.jpg',900,627,'Skica znaka')]},
+        {h:'Znak i etiketa', p:'Etiketa je tamnozelena s bijelim znakom i natpisom, a znak postoji i u verziji na crnoj podlozi.', it:[SC.stanicLabel]},
+        {h:'U stvarnosti', p:'Etiketa je otisnuta i živi na pravim bocama.', it:[I('stanic-boca-foto.jpg',1100,1687,'Prava boca ulja Stanić s etiketom'), I('stanic-etiketa.jpg',1000,1250,'Etiketa na zelenoj podlozi')], cols:2}]},
+  {t:'Splitske legende', g:'Legende', k:'ill', y:'2025', client:'Splitske legende', scope:'Ilustrirana karta',
+   d:'Ilustrirana karta Splita i okolice s mjestima iz splitskih legendi: svaka priča ima svoj crtež i kratki tekst, na tamnoj, starinski toniranoj podlozi.',
+   sc:SC.wallPoster('legende-karta.jpg','1800/1272','Ilustrirana karta Splitske legende u okviru na zidu','--wall:#2a3742;--wall2:#7e8f99',true),
+   sec:[{h:'Karta', it:[I('legende-karta.jpg',1800,1272,'Ilustrirana karta Splitske legende')]}]},
+  {t:'Offstage', g:'Offstage', k:'brand', y:'2025', client:'Offstage', scope:'Logotip, plakati',
+   d:'Logotip i plakati za glazbeni događaj Offstage.',
+   sc:SC.offstage,
+   sec:[{h:'Znak', p:'Zvučnici kao znak i rukom ispisan natpis, s QR kodom u sredini na plakatima.', it:[I('offstage-3.jpg',1200,847,'Logotip Offstage')]},
+        {h:'Verzije boja', it:[I('offstage-sve.jpg',1400,585,'Sve verzije boja'), I('offstage-9.jpg',1200,847,'Verzija na bijelom')]}]},
+  {t:'Rafting Cetina', g:'Cetina', k:'brand', y:'2025', client:'Rafting Cetina', scope:'Logotip, naljepnica, ilustracija',
+   d:'Logotip za Rafting Cetina Euro Cup 2025, ilustrirana naljepnica Cetina Raft i digitalna slika raftinga.',
+   sc:SC.stickerPair(['cetina-naljepnica.jpg','Naljepnica Cetina Raft'],['cetina-eurocup.jpg','Logotip Rafting Cetina Euro Cup 2025',1],'#0d4b5c','#8fd0dc'),
+   sec:[{h:'Euro Cup 2025', p:'Planine i valovi Cetine složeni u znak natjecanja.', it:[I('cetina-eurocup.jpg',900,700,'Logotip Rafting Cetina Euro Cup 2025')]},
+        {h:'Naljepnica i ilustracija', p:'Veslači u kockastim dresovima na naljepnici, i digitalna slika raftinga ispod mosta.', it:[I('cetina-naljepnica.jpg',1000,1000,'Naljepnica Cetina Raft'), I('cetina-ilustracija.jpg',1400,1297,'Digitalna slika raftinga na Cetini')], cols:2}]},
+  {t:'Mars', g:'Mars', k:'camp', y:'2026', client:'Studentski rad', scope:'Poštanske marke, razglednica',
+   d:'Serija poštanskih maraka i razglednica za 50 godina od prve misije na Marsu.',
+   sc:SC.mars,
+   sec:[{h:'Marke', p:'Pikselizirane rakete, padobran i lender na narančastom planetu, i tamna serija s koordinatama mjesta slijetanja.', it:[I('mars-marke-3.jpg',900,1041,'Arak maraka, narančasta serija'), I('mars-marke-5.jpg',900,754,'Arak maraka, tamna serija')], cols:2},
+        {h:'Razglednica', it:[I('mars-razglednica.jpg',1400,993,'Prednja strana razglednice'), I('mars-razglednica-straga.jpg',1400,993,'Stražnja strana razglednice')], cols:2}]},
+  {t:'Prenj 2026', g:'Prenj', k:'camp', y:'2026', client:'Planinarski itinerar', scope:'Plakat',
+   d:'Plakat za planinarski itinerar na Prenju: fotografija grebena izrezana u brojke 2026, uz najavu „coming soon”.',
+   sc:SC.wallPoster('prenj-plakat.jpg','1000/1500','Plakat Prenj 2026 na zidu','--wall:#9aa59a;--wall2:#e8ece6'), sec:[]},
+  {t:'Naši korijeni', g:'Folklor', k:'brand', y:'2026', client:'Folklor „Naši korijeni”, Bobanovo', scope:'Serija simbola, merch',
+   d:'Serija simbola inspiriranih kolom i narodnim motivima za folklor „Naši korijeni” iz Bobanova.',
+   sc:SC.folklor,
+   sec:[{h:'Simboli', p:'Simboli u krugu, kao kolo, s motivima koji se ponavljaju oko ruba, u crnoj i bijeloj varijanti.', it:[I('folklor-kolocrno1.jpg',430,430,'Simbol kola, bijelo na crnom'), I('folklor-kolo2.jpg',430,430,'Simbol kola, crno na bijelom'), I('folklor-kolo1.jpg',430,430,'Simbol kola'), I('folklor-kolocrno2.jpg',430,430,'Simbol kola, bijelo na crnom')], cols:4}]},
+  {t:'Centar za mlade', g:'CZM', k:'brand', y:'2026', client:'Centar za mlade Čapljina', scope:'Prijedlozi logotipa',
+   d:'Tri prijedloga logotipa za Centar za mlade Čapljina.',
+   sc:SC.czmTiles,
+   sec:[{h:'Otvorena vrata', p:'Vrata kao poziv mladima da uđu.', it:[SC.czmSign]},
+        {h:'C i figura, krov i sunce', p:'Slovo C koje grli figuru u skoku, u četiri kombinacije plave i žute, i krov pod kojim se okupljaju ljudi, sa suncem iza.', it:[I('czm-osoba-3.jpg',640,640,'Logotip C i figura'), I('czm-kuce.jpg',1000,1000,'Logotip s krovom, ljudima i suncem')], cols:2}]},
+];
+const sceneIO = new IntersectionObserver(es => es.forEach(e => { const on = e.isIntersecting && !RM; e.target.classList.toggle('play', e.isIntersecting); e.target.querySelectorAll('video').forEach(v => { if (on) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }); }), {rootMargin:'80px'});
+const watchScenes = root => root.querySelectorAll('.sc').forEach(s => sceneIO.observe(s));
+const coverHTML = (p, cls) => `<span class="${cls}">${p.sc()}</span>`;
+const radova = n => n % 10 === 1 && n % 100 !== 11 ? 'rad' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'rada' : 'radova');
 const tagHTML = k => `<span class="tag tg"><i style="background:${CATS[k][1]}"></i>${CATS[k][0]}</span>`;
 
-const blurb = {Nocturne:'Identitet koji diše uz glazbu.', Atlas:'Putovanje složeno iz tvojih fotografija.', Slojevi:'Izložba o tome kako pamtimo gradove.', Puls:'Kampanja o mentalnom zdravlju mladih.'};
 const hsTrack = $('hsTrack'), FEAT = 4;
 const hcards = projects.slice(0, FEAT).map((p, i) => {
   const b = document.createElement('button'); b.type = 'button'; b.className = 'hcard'; b.dataset.i = i; b.setAttribute('data-hover','Otvori');
-  b.innerHTML = `<span class="hc-art"><canvas width="1000" height="560"></canvas></span><span class="hc-info"><h3>${p.t}</h3><span class="yr">${p.y}</span><p>${tagHTML(p.k)}<span>${blurb[p.t] || p.d}</span></p></span>`;
-  hsTrack.appendChild(b); b._ctx = b.querySelector('canvas').getContext('2d'); b._cv = b.querySelector('canvas'); return b;
+  b.innerHTML = `${coverHTML(p, 'hc-art')}<span class="hc-info"><h3>${p.t}</h3><span class="yr">${p.y}</span><p>${tagHTML(p.k)}<span>${p.blurb || p.d}</span></p></span>`;
+  hsTrack.appendChild(b); return b;
 });
 const cta = document.createElement('button'); cta.type = 'button'; cta.className = 'hcard cta'; cta.setAttribute('data-hover','Arhiva');
-cta.innerHTML = `<span class="hc-art"><span class="hc-cta"><b>+${projects.length - FEAT} radova</b><span>Pogledaj cijelu arhivu →</span></span></span><span class="hc-info"><h3>Arhiva</h3><span class="yr">2022 — 2026</span><p>Svi projekti, posloženi po kategorijama.</p></span>`;
+const restN = projects.length - FEAT;
+cta.innerHTML = `<span class="hc-art"><span class="hc-cta"><b>+${restN} ${radova(restN)}</b><span>Pogledaj cijelu arhivu →</span></span></span><span class="hc-info"><h3>Arhiva</h3><span class="yr">2026</span><p>Svi projekti, posloženi po kategorijama.</p></span>`;
 hsTrack.appendChild(cta);
-const drawH = t => hcards.forEach(c => drawArt(c._ctx, 1000, 560, projects[+c.dataset.i], t == null ? projects[+c.dataset.i].seed*1.3 : t, true));
-drawH();
+watchScenes(hsTrack);
 hsTrack.addEventListener('click', e => { const c = e.target.closest('.hcard'); if (!c) return; if (c.classList.contains('cta')) { if (!$('archive').classList.contains('open')) $('moreBtn').click(); else $('arhiva').scrollIntoView({behavior: RM ? 'auto' : 'smooth'}); } else openP(+c.dataset.i); });
-let hoverH = null; hsTrack.addEventListener('pointerover', e => { const c = e.target.closest('.hcard'); hoverH = c && !c.classList.contains('cta') ? c : null; }); hsTrack.addEventListener('pointerleave', () => hoverH = null);
 const hsSec = $('radovi'), hsMQ = matchMedia('(max-width: 820px), (pointer: coarse)');
 let hsPinned = false, hsDist = 0;
 const allH = [...hcards, cta], NH = allH.length;
@@ -615,10 +1074,10 @@ const ghost = $('hsGhost'), warp = $('hsWarp'), wctx = warp.getContext('2d');
 let ghostIdx = -1, hsProg = 0;
 const W3 = Array.from({length:180}, () => ({x:(Math.random()-.5)*2, y:(Math.random()-.5)*2, z:Math.random()}));
 function layoutHS() {
-  hsPinned = !hsMQ.matches && !RM && !photoMode;
+  hsPinned = false; /* mirna vodoravna traka na svim ekranima */
   hsSec.classList.toggle('native', !hsPinned);
   if (hsPinned) { hsDist = (NH - 1) * innerHeight * .95; hsSec.style.height = (innerHeight + hsDist) + 'px'; const d = Math.min(devicePixelRatio || 1, 1.5); warp.width = innerWidth*d; warp.height = innerHeight*d; }
-  else { hsSec.style.height = ''; hsTrack.style.transform = ''; allH.forEach(c => { c.style.transform = ''; c.style.opacity = ''; c.style.filter = ''; c.style.pointerEvents = ''; c.style.zIndex = ''; }); }
+  else { hsSec.style.height = ''; hsTrack.style.transform = ''; allH.forEach(c => { c.style.transform = ''; c.style.opacity = ''; c.style.removeProperty('--dim'); c.classList.remove('idle'); c.style.pointerEvents = ''; c.style.zIndex = ''; }); }
 }
 function updateHS() {
   let prog;
@@ -635,11 +1094,11 @@ function updateHS() {
       let op = d < 0 ? Math.max(0, 1 + d / .55) : Math.max(0, 1 - Math.max(0, d - 2.2) / .8);
       const bl = Math.max(0, d - .25) * 3.2;
       c.style.transform = `translate(-50%,-50%) translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg)`;
-      c.style.opacity = op.toFixed(3); c.style.filter = bl > .1 ? `blur(${bl.toFixed(1)}px)` : 'none';
+      c.style.opacity = op.toFixed(3); c.style.setProperty('--dim', Math.min(.72, bl / 7).toFixed(3)); c.classList.toggle('idle', Math.abs(d) > 1.1); const vid = c.querySelector('video'); if (vid) { if (Math.abs(d) > 1.1) { if (!vid.paused) vid.pause(); } else if (vid.paused && !RM && vid.preload === 'auto') vid.play().catch(() => {}); }
       c.style.zIndex = String(100 - Math.round(d * 10)); c.style.pointerEvents = Math.abs(d) < .5 ? 'auto' : 'none';
     });
     const gi = Math.min(NH - 1, Math.max(0, Math.round(pos)));
-    if (gi !== ghostIdx) { ghostIdx = gi; ghost.textContent = gi < FEAT ? projects[gi].t : 'Arhiva';
+    if (gi !== ghostIdx) { ghostIdx = gi; ghost.textContent = gi < FEAT ? projects[gi].g : 'Arhiva';
       const col = gi < FEAT ? CATS[projects[gi].k][1] : C.violet; const rgb = col.match(/\w\w/g).map(h => parseInt(h, 16)).join(',');
       hsSec.querySelector('.hs-sticky').style.setProperty('--gc', `rgba(${rgb},.16)`); allH[gi].style.setProperty('--glow', `rgba(${rgb},.3)`);
       if (!RM) ghost.animate([{opacity:0, letterSpacing:'.08em'},{opacity:1, letterSpacing:'-.04em'}], {duration:700, easing:'cubic-bezier(.2,.8,.2,1)'}); }
@@ -662,19 +1121,16 @@ function drawWarp() {
   });
 }
 hsTrack.addEventListener('scroll', updateHS, {passive:true});
+document.querySelector('.hs-nav').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const card = hsTrack.querySelector('.hcard'); const step = card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(hsTrack).columnGap || 24) : 400; hsTrack.scrollBy({left: step * +b.dataset.d, behavior: RM ? 'auto' : 'smooth'}); });
 $('moreN').textContent = projects.length;
 
 const grid = $('grid'), filters = $('filters');
 const cards = projects.map((p, i) => {
   const b = document.createElement('button'); b.type = 'button'; b.className = 'card'; b.dataset.i = i; b.dataset.k = p.k; b.setAttribute('data-hover','Otvori');
-  b.innerHTML = `<span class="th"><canvas width="560" height="420"></canvas></span><span class="row"><h3>${p.t}</h3><span class="yr">${p.y}</span></span>${tagHTML(p.k)}`;
-  grid.appendChild(b); b._ctx = b.querySelector('canvas').getContext('2d'); return b;
+  b.innerHTML = `${coverHTML(p, 'th')}<span class="row"><h3>${p.t}</h3><span class="yr">${p.y}</span></span>${tagHTML(p.k)}`;
+  grid.appendChild(b); return b;
 });
-const drawCards = () => cards.forEach(c => drawArt(c._ctx, 560, 420, projects[+c.dataset.i], projects[+c.dataset.i].seed*1.7));
-drawCards();
-let hoverCard = null;
-grid.addEventListener('pointerover', e => { hoverCard = e.target.closest('.card'); });
-grid.addEventListener('pointerleave', () => hoverCard = null);
+watchScenes(grid);
 const fl = [['all','Sve',projects.length], ...Object.entries(CATS).map(([k,[n]]) => [k, n, projects.filter(p => p.k === k).length])];
 fl.forEach(([k, n, c]) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'flt'; b.dataset.k = k; b.setAttribute('aria-pressed', k === 'all'); b.setAttribute('data-hover',''); b.innerHTML = `${n}<sup>${c}</sup>`; filters.appendChild(b); });
 filters.addEventListener('click', e => {
@@ -686,19 +1142,25 @@ $('moreBtn').addEventListener('click', () => {
   const a = $('archive'), open = !a.classList.contains('open');
   a.classList.toggle('open', open); $('moreBtn').setAttribute('aria-expanded', open);
   $('moreLbl').textContent = open ? 'Sakrij arhivu' : 'Svi radovi';
-  if (open) { drawCards(); setTimeout(() => filters.scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'center'}), 350); }
+  if (open) setTimeout(() => filters.scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'center'}), 350);
 });
 grid.addEventListener('click', e => { const c = e.target.closest('.card'); if (c) openP(+c.dataset.i); });
-document.fonts && document.fonts.ready.then(drawCards);
 
 
-const drawer = $('drawer'), dctx = $('dArt').getContext('2d');
+const drawer = $('drawer');
 let dOpen = -1, lastFocus = null;
 function openP(i) {
   const p = projects[i]; dOpen = i; lastFocus = document.activeElement;
-  $('dTitle').textContent = p.t; $('dMeta').textContent = CATS[p.k][0] + ' · ' + p.y; $('dRole').textContent = p.role; $('dTime').textContent = p.time; $('dRes').textContent = p.res; $('dText').textContent = p.d;
+  $('dTitle').textContent = p.t; $('dMeta').textContent = CATS[p.k][0] + ' · ' + p.y; $('dRole').textContent = p.client; $('dTime').textContent = p.y; $('dRes').textContent = p.scope; $('dText').textContent = p.d;
+  const item = it => typeof it === 'function' ? `<span class="d-sc">${it()}</span>`
+    : Array.isArray(it) ? `<figure class="cs-img"><img src="radovi/${it[0]}" width="${it[1]}" height="${it[2]}" alt="${it[3]}" loading="lazy" decoding="async"><figcaption>${it[3]}</figcaption></figure>`
+    : it.pal ? `<div class="cs-pal">${it.pal.map(([c, n]) => `<span><i style="background:${c}"></i><b>${n}</b><em>${c}</em></span>`).join('')}</div>`
+    : it.type ? `<div class="cs-type">${it.type.map(([f, n, w]) => `<span><strong style="font-family:'${f}',var(--f-display);font-weight:${w}">Aa</strong><em>${n}</em></span>`).join('')}</div>` : '';
+  const secs = (p.sec || []).map((s, n) => `<section class="cs-sec"><header><i>${String(n + 1).padStart(2, '0')}</i><h4>${s.h}</h4>${s.p ? `<p>${s.p}</p>` : ''}</header>${s.it && s.it.length ? `<div class="cs-items${s.cols ? ' c' + s.cols : ''}">${s.it.map(item).join('')}</div>` : ''}</section>`).join('');
+  $('dArt').innerHTML = `<span class="d-sc hero">${p.sc()}</span>${secs}`;
+  watchScenes($('dArt'));
+  $('drawer').querySelector('.panel').scrollTop = 0;
   drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); $('dClose').focus({preventScroll:true});
-  const loop = now => { if (dOpen !== i) return; drawArt(dctx, 1200, 900, p, now/1000); requestAnimationFrame(loop); }; requestAnimationFrame(loop);
 }
 function closeP() { dOpen = -1; drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); lastFocus && lastFocus.focus({preventScroll:true}); }
 $('dClose').addEventListener('click', closeP); $('scrim').addEventListener('click', closeP);
@@ -709,145 +1171,126 @@ $('copy').addEventListener('click', () => {
   navigator.clipboard.writeText(txt).then(done).catch(() => { const r = document.createRange(); r.selectNodeContents($('addr')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Označeno, kopiraj s Ctrl+C'; });
 });
 
-/* constellation */
-const sky = $('sky'), scv = $('skyCv'), sctx = scv.getContext('2d');
-const NODES = [
-  {w:'Znatiželja', x:.12, y:.26, d:'Uvijek prvo pitam zašto, a tek onda kako.'},
-  {w:'Istraživanje', x:.33, y:.14, d:'Prije nego išta nacrtam, razgovaram s ljudima za koje radim.'},
-  {w:'Tipografija', x:.56, y:.27, d:'Slova su mi pola dizajna. Druga polovica je razmak između njih.'},
-  {w:'Detalji', x:.80, y:.15, d:'Primijetim piksel koji bježi. I popravim ga.'},
-  {w:'Storytelling', x:.18, y:.52, d:'Svaki projekt pretvorim u priču koju je lako zapamtiti.'},
-  {w:'Sustavi', x:.47, y:.50, d:'Gradim pravila koja timu štede vrijeme i živce.'},
-  {w:'Prototipi', x:.72, y:.47, d:'Radije pokažem nego objasnim. Klikabilno, brzo i rano.'},
-  {w:'Fotografija', x:.86, y:.74, d:'Kamera me naučila gledati svjetlo, kadar i trenutak.'},
-  {w:'Ideje u 2 ujutro', x:.56, y:.70, d:'Najbolje ideje dođu kad bi trebala spavati. Zapišem ih sve.'},
-];
-const EDGES = [[0,1],[1,2],[2,3],[0,4],[1,5],[2,5],[5,6],[3,6],[6,7],[4,8],[5,8]];
-const R2 = rng(11);
-const bgStars = Array.from({length:120}, () => ({x:R2(), y:R2(), r:R2()*1.1 + .2, ph:R2()*6.28, z:.3 + R2()*.7}));
-let SW = 0, SH = 0, active = 0, hoverN = -1, skyVisible = false;
-const nState = NODES.map(() => ({k:0, a:0}));
-const labels = NODES.map((n, i) => {
-  const b = document.createElement('button'); b.type = 'button'; b.className = 'star'; b.dataset.i = i; b.setAttribute('data-hover','');
-  b.innerHTML = `<i aria-hidden="true"></i><span>${n.w}</span>`; b.setAttribute('aria-pressed', i === active);
-  sky.appendChild(b); return b;
-});
-const sizeSky = () => { const d = Math.min(devicePixelRatio || 1, 2); SW = sky.clientWidth; SH = sky.clientHeight; scv.width = SW*d; scv.height = SH*d; sctx.setTransform(d,0,0,d,0,0); placeLabels(); };
-const MPOS = [[.08,.14],[.52,.20],[.10,.31],[.58,.38],[.08,.48],[.50,.55],[.12,.64],[.56,.70],[.20,.77]];
-const pos = n => { if (SW < 560) { const m = MPOS[NODES.indexOf(n)]; return [m[0]*SW, m[1]*SH]; } return [n.x*SW, n.y*SH]; };
-function placeLabels() { labels.forEach((b, i) => { b.classList.toggle('flip', SW >= 560 && NODES[i].x > .78); const [x, y] = pos(NODES[i]); b.style.left = x + 'px'; b.style.top = y + 'px'; }); }
-function setActive(i) {
-  active = i; labels.forEach((b, j) => b.setAttribute('aria-pressed', j === i));
-  $('capW').textContent = NODES[i].w; $('capD').textContent = NODES[i].d; $('capN').textContent = `Zvijezda ${i+1} od ${NODES.length}`;
-  if (!RM) $('skyCap').animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'none'}], {duration:450, easing:'cubic-bezier(.2,.8,.2,1)'});
-}
-sky.addEventListener('click', e => { const b = e.target.closest('.star'); if (b) setActive(+b.dataset.i); });
-sky.addEventListener('pointerover', e => { const b = e.target.closest('.star'); hoverN = b ? +b.dataset.i : -1; });
-sky.addEventListener('pointerleave', () => hoverN = -1);
-new IntersectionObserver(([e]) => skyVisible = e.isIntersecting).observe(sky);
-new ResizeObserver(sizeSky).observe(sky);
-sizeSky(); setActive(0);
-function drawSky(now) {
-  const t = now/1000, r = sky.getBoundingClientRect();
-  const lx = mouse.x - r.left, ly = mouse.y - r.top, inside = lx > 0 && ly > 0 && lx < SW && ly < SH;
-  const px = inside ? (lx/SW - .5) : 0, py = inside ? (ly/SH - .5) : 0;
-  sctx.clearRect(0, 0, SW, SH);
-  bgStars.forEach(s => { sctx.globalAlpha = (.15 + .45*(.5 + .5*Math.sin(t*1.3 + s.ph)))*s.z; sctx.fillStyle = '#EEF0F7'; sctx.beginPath(); sctx.arc(s.x*SW - px*12*s.z, s.y*SH - py*12*s.z, s.r, 0, 7); sctx.fill(); });
-  sctx.globalAlpha = 1;
-  NODES.forEach((n, i) => { const [x, y] = pos(n); const dd = inside ? Math.hypot(lx - x, ly - y) : 1e9; const k = Math.max(0, 1 - dd/(Math.min(SW, SH)*.32)); const st = nState[i];
-    st.k = lerp(st.k, Math.max(k, i === hoverN ? 1 : 0), .12); st.a = lerp(st.a, i === active ? 1 : 0, .1); labels[i].style.setProperty('--k', Math.max(st.k, st.a).toFixed(3)); });
-  EDGES.forEach(([i, j]) => { const [x1, y1] = pos(NODES[i]), [x2, y2] = pos(NODES[j]); const e = Math.max(Math.min(nState[i].k, nState[j].k)*1.4, Math.max(nState[i].a, nState[j].a)*.9);
-    const len = Math.hypot(x2 - x1, y2 - y1); const g = sctx.createLinearGradient(x1, y1, x2, y2); g.addColorStop(0, `rgba(168,245,208,${.1 + e*.6})`); g.addColorStop(1, `rgba(201,176,255,${.1 + e*.6})`);
-    sctx.strokeStyle = g; sctx.lineWidth = .8 + e*.8; sctx.setLineDash(e > .05 ? [] : [3, 6]); sctx.beginPath(); sctx.moveTo(x1, y1); sctx.lineTo(x2, y2); sctx.stroke();
-    if (e > .3 && !RM) { const f = (t*.25 + i*.13) % 1; const qx = x1 + (x2 - x1)*f, qy = y1 + (y2 - y1)*f; sctx.fillStyle = `rgba(255,255,255,${e*.8})`; sctx.beginPath(); sctx.arc(qx, qy, 1.6, 0, 7); sctx.fill(); }
-    void len; });
-  sctx.setLineDash([]);
-  NODES.forEach((n, i) => { const [x, y] = pos(n); const v = Math.max(nState[i].k, nState[i].a); const tw = .85 + .15*Math.sin(t*2 + i);
-    const rad = 10 + v*26; const g = sctx.createRadialGradient(x, y, 0, x, y, rad); const c = i % 2 ? '201,176,255' : '168,245,208';
-    g.addColorStop(0, `rgba(${c},${(.35 + v*.45)*tw})`); g.addColorStop(1, `rgba(${c},0)`); sctx.fillStyle = g; sctx.beginPath(); sctx.arc(x, y, rad, 0, 7); sctx.fill();
-    sctx.fillStyle = '#fff'; sctx.beginPath(); sctx.arc(x, y, 2 + v*1.6, 0, 7); sctx.fill(); });
-  if (inside && !RM) { let best = -1, bd = 1e9; NODES.forEach((n, i) => { const [x, y] = pos(n); const d = Math.hypot(lx - x, ly - y); if (d < bd) { bd = d; best = i; } });
-    if (bd < Math.min(SW, SH)*.3) { const [x, y] = pos(NODES[best]); sctx.strokeStyle = 'rgba(238,240,247,.35)'; sctx.setLineDash([2, 5]); sctx.lineWidth = 1; sctx.beginPath(); sctx.moveTo(lx, ly); sctx.lineTo(x, y); sctx.stroke(); sctx.setLineDash([]); } }
-}
-(function skyLoop(now) { if (skyVisible) drawSky(now); requestAnimationFrame(skyLoop); })(performance.now());
+
 
 /* photo world */
-const PCATS = {portret:'Portreti', priroda:'Priroda', grad:'Grad', noc:'Noć'};
+const PCATS = {hk:'High key', trz:'Tržnica', arh:'Arhitektura', kol:'Kolodvor', de:'Duga ekspozicija', lin:'Linija', lk:'Low key', tek:'Tekstura', med:'Mediteran', svj:'Svjetlo'};
+const PDESC = {hk:'Svijetli, gotovo bijeli kadrovi: čipka, staklo i koža.', arh:'Beton, staklo i nebo, u crno-bijelom.', kol:'Tračnice, peroni i ljudi koji čekaju.', de:'Tragovi svjetla, ljudi u pokretu i crtanje svjetlom.', lin:'Arhitektura svedena na linije: lamele, stubišta i rešetke.', lk:'Ono što ostane kad svjetla gotovo nema.', tek:'Izbliza: pleter, uže, krzno, beton, hrđa i crijep.', trz:'Pazar u Splitu, u crno-bijelom.', med:'More, litice i ljeto.', svj:'Lusteri, lampe i noć.'};
+/* Fotografije: [serija, datoteka, naslov, širina, visina, prosječna boja, nijansa, zasićenost, svjetlina]. Slike su u radovi/foto/ (-s.jpg za mrežu). */
 const photos = [
-  {k:'priroda', t:'Magla nad Velebitom', ar:1.5, ex:['f/8','1/125s','ISO 100','24mm']},
-  {k:'portret', t:'Ana, zlatni sat', ar:.8, ex:['f/1.8','1/500s','ISO 200','85mm']},
-  {k:'noc', t:'Perzeidi, Učka', ar:1.5, ex:['f/2.8','20s','ISO 3200','14mm']},
-  {k:'grad', t:'Tramvaj u kiši', ar:.75, ex:['f/2','1/60s','ISO 1600','35mm']},
-  {k:'priroda', t:'Plitvice u studenom', ar:.8, ex:['f/11','1/4s','ISO 64','16mm']},
-  {k:'grad', t:'Krovovi Splita', ar:1.33, ex:['f/5.6','1/320s','ISO 100','50mm']},
-  {k:'portret', t:'Marko u studiju', ar:1, ex:['f/4','1/160s','ISO 100','70mm']},
-  {k:'noc', t:'Mjesec nad otokom', ar:.75, ex:['f/5.6','1/250s','ISO 400','400mm']},
-  {k:'priroda', t:'Šuma nakon kiše', ar:.67, ex:['f/2.8','1/80s','ISO 400','35mm']},
-  {k:'grad', t:'Neon, Ilica', ar:1.5, ex:['f/1.4','1/125s','ISO 800','50mm']},
-  {k:'portret', t:'Baka i vrt', ar:.8, ex:['f/2','1/250s','ISO 200','50mm']},
-  {k:'noc', t:'Mliječni put, Lika', ar:1.33, ex:['f/1.8','15s','ISO 2500','20mm']},
-];
-const PAL = {
-  priroda:[['#0F3B2C','#7FA88F','#E9D9C2'],['#1B2B4A','#8E7DC7','#F2C9B0']],
-  portret:[['#2A1A33','#C98F6B','#F6D6B8'],['#0F2A22','#6E5BB8','#E8D3F0']],
-  grad:[['#0B0F1A','#3A3F66','#E8A86B'],['#101A18','#2F6B5A','#F0E6C8']],
-  noc:[['#030507','#0F1F3A','#3A2A6B'],['#020403','#0A2A20','#4A3A8F']],
-};
-function paintPhoto(ctx, W, H, p, seed) {
-  const r = rng(seed*977 + 13), pal = PAL[p.k][Math.floor(seed/3) % 2];
-  const sky = ctx.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, pal[0]); sky.addColorStop(.6, pal[1]); sky.addColorStop(1, pal[2]);
-  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
-  if (p.k === 'noc') {
-    ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillRect(0, 0, W, H);
-    for (let i = 0; i < W*H/900; i++) { ctx.globalAlpha = r()*.9; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(r()*W, r()*H*.75, r()*1.4*(W/800), 0, 7); ctx.fill(); }
-    ctx.globalAlpha = 1;
-    const band = ctx.createLinearGradient(0, -H*.08, 0, H*.08); band.addColorStop(0,'rgba(201,176,255,0)'); band.addColorStop(.5,'rgba(201,176,255,.22)'); band.addColorStop(1,'rgba(168,245,208,0)');
-    ctx.save(); ctx.translate(W/2, H*.35); ctx.rotate(-.5); ctx.fillStyle = band; ctx.fillRect(-W*1.5, -H*.08, W*3, H*.16); ctx.restore();
-    if (seed % 3 === 1) { const mx = W*(.3 + r()*.4), my = H*(.2 + r()*.2), mr = Math.min(W, H)*.09; const mg = ctx.createRadialGradient(mx, my, 0, mx, my, mr*4); mg.addColorStop(0,'rgba(240,240,255,.6)'); mg.addColorStop(1,'rgba(240,240,255,0)'); ctx.fillStyle = mg; ctx.fillRect(0,0,W,H); ctx.fillStyle = '#F2F0FF'; ctx.beginPath(); ctx.arc(mx, my, mr, 0, 7); ctx.fill(); }
-    ctx.fillStyle = '#020302'; ctx.beginPath(); ctx.moveTo(0, H);
-    for (let x = 0; x <= W; x += W/60) { const tree = r() > .6 ? r()*H*.12 : 0; ctx.lineTo(x, H*.82 - tree - Math.sin(x/W*3 + seed)*H*.03); }
-    ctx.lineTo(W, H); ctx.fill();
-  } else if (p.k === 'priroda') {
-    const sx = W*(.25 + r()*.5), sy = H*(.3 + r()*.15); const sg = ctx.createRadialGradient(sx, sy, 0, sx, sy, Math.max(W,H)*.5); sg.addColorStop(0,'rgba(255,240,220,.85)'); sg.addColorStop(.1,'rgba(255,230,200,.35)'); sg.addColorStop(1,'rgba(255,230,200,0)'); ctx.fillStyle = sg; ctx.fillRect(0,0,W,H);
-    for (let l = 0; l < 5; l++) { const base = H*(.45 + l*.11); ctx.fillStyle = `rgba(${10 + l*2},${40 - l*5},${30 - l*3},${.35 + l*.15})`; ctx.beginPath(); ctx.moveTo(0, H); let y = base;
-      for (let x = 0; x <= W; x += W/80) { y += (r() - .5)*H*.025 + (base - y)*.05; ctx.lineTo(x, y - Math.sin(x/W*(2 + l) + seed + l)*H*.05); } ctx.lineTo(W, H); ctx.fill();
-      const mist = ctx.createLinearGradient(0, base - H*.05, 0, base + H*.08); mist.addColorStop(0,'rgba(233,230,240,0)'); mist.addColorStop(.5,`rgba(233,230,240,${.18 - l*.02})`); mist.addColorStop(1,'rgba(233,230,240,0)'); ctx.fillStyle = mist; ctx.fillRect(0, base - H*.05, W, H*.13); }
-  } else if (p.k === 'grad') {
-    for (let i = 0; i < 40; i++) { const x = r()*W, y = H*(.2 + r()*.5), rr = Math.min(W,H)*(.02 + r()*.07); const g = ctx.createRadialGradient(x,y,0,x,y,rr); const cc = r() > .5 ? '232,168,107' : (r() > .5 ? '168,245,208' : '201,176,255'); g.addColorStop(0,`rgba(${cc},.5)`); g.addColorStop(1,`rgba(${cc},0)`); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x,y,rr,0,7); ctx.fill(); }
-    let x = 0; while (x < W) { const bw = W*(.05 + r()*.12), bh = H*(.25 + r()*.45); ctx.fillStyle = `rgba(5,8,10,${.75 + r()*.25})`; ctx.fillRect(x, H - bh, bw, bh);
-      for (let wy = H - bh + 10; wy < H - 10; wy += H*.035) for (let wx = x + 6; wx < x + bw - 8; wx += W*.02) if (r() > .6) { ctx.fillStyle = r() > .5 ? 'rgba(240,200,140,.85)' : 'rgba(201,176,255,.7)'; ctx.fillRect(wx, wy, W*.008, H*.014); }
-      x += bw + W*.004; }
-  } else {
-    for (let i = 0; i < 30; i++) { const x = r()*W, y = r()*H, rr = Math.min(W,H)*(.04 + r()*.12); const g = ctx.createRadialGradient(x,y,0,x,y,rr); g.addColorStop(0,`rgba(255,240,220,${.12 + r()*.2})`); g.addColorStop(1,'rgba(255,240,220,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x,y,rr,0,7); ctx.fill(); }
-    const cx = W*(.4 + r()*.2), cy = H*.42, hr = Math.min(W,H)*.16;
-    ctx.fillStyle = 'rgba(8,10,12,.92)'; ctx.beginPath(); ctx.ellipse(cx, cy, hr*.8, hr, 0, 0, 7); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(cx - hr*2.4, H); ctx.quadraticCurveTo(cx - hr*2.2, cy + hr*1.5, cx, cy + hr*1.3); ctx.quadraticCurveTo(cx + hr*2.2, cy + hr*1.5, cx + hr*2.4, H); ctx.fill();
-    ctx.strokeStyle = 'rgba(255,225,190,.55)'; ctx.lineWidth = Math.max(2, W/300); ctx.beginPath(); ctx.ellipse(cx, cy, hr*.8, hr, 0, -1.2, .6); ctx.stroke();
-  }
-  const v = ctx.createRadialGradient(W/2, H/2, Math.min(W,H)*.3, W/2, H/2, Math.max(W,H)*.75); v.addColorStop(0,'rgba(0,0,0,0)'); v.addColorStop(1,'rgba(0,0,0,.55)'); ctx.fillStyle = v; ctx.fillRect(0,0,W,H);
-  try { const id = ctx.getImageData(0, 0, W, H), d = id.data; for (let i = 0; i < d.length; i += 4) { const nz = (r() - .5)*18; d[i] += nz; d[i+1] += nz; d[i+2] += nz; } ctx.putImageData(id, 0, 0); } catch (e) {}
-}
+  ['hk','hk-cipka-pogled','Pogled kroz čipku',1800,1199,'rgb(228,228,228)',0,0,228],
+  ['hk','hk-kabel','Kabel',1800,1334,'rgb(234,234,233)',60,0,234],
+  ['hk','hk-veo','Veo',1800,1203,'rgb(224,224,224)',0,0,224],
+  ['hk','hk-profil','Profil',1800,1129,'rgb(238,238,238)',0,0,238],
+  ['hk','hk-naocale','Naočale',1800,1151,'rgb(224,224,224)',0,0,224],
+  ['hk','hk-cipka','Čipka',1800,1120,'rgb(236,230,224)',30,0.05,231],
+  ['hk','hk-case','Čaše',1800,1129,'rgb(215,215,215)',0,0,215],
+  ['trz','trz-stand','Za štandom',1800,1200,'rgb(72,72,72)',0,0,72],
+  ['trz','trz-drvored','Drvored',1800,1324,'rgb(91,91,91)',0,0,91],
+  ['trz','trz-stube','Stube i sjene',1800,1200,'rgb(67,67,67)',0,0,67],
+  ['trz','trz-banane','Banane',1800,1199,'rgb(71,71,71)',0,0,71],
+  ['trz','trz-razgovor','Razgovor',1800,1200,'rgb(82,82,82)',0,0,82],
+  ['arh','arh-sveuciliste','Sveučilište u kontrasvjetlu',1800,1196,'rgb(118,118,118)',0,0,118],
+  ['arh','arh-kutije','Kutije u nebu',1800,1233,'rgb(88,88,88)',0,0,88],
+  ['arh','arh-tornjevi','Tornjevi',1199,1800,'rgb(86,86,86)',0,0,86],
+  ['arh','arh-konzola','Konzola',1199,1800,'rgb(86,86,86)',0,0,86],
+  ['arh','arh-kutija-tamna','Tamna kutija',1199,1800,'rgb(51,51,51)',0,0,51],
+  ['arh','arh-kutija-vrh','Vrh',1199,1800,'rgb(92,92,92)',0,0,92],
+  ['arh','arh-ispod','Odozdo',1800,1350,'rgb(98,98,98)',0,0,98],
+  ['arh','arh-fasada','Fasada',1199,1800,'rgb(101,101,101)',0,0,101],
+  ['arh','arh-presjek','Presjek',1800,1209,'rgb(91,91,91)',0,0,91],
+  ['arh','arh-kutija','Kutija',1199,1800,'rgb(72,72,72)',0,0,72],
+  ['arh','arh-dijagonala','Dijagonala',1199,1800,'rgb(61,61,61)',0,0,61],
+  ['arh','arh-tornjevi-2','Tornjevi II',1227,1800,'rgb(72,72,72)',0,0,72],
+  ['arh','arh-resetka','Rešetka',1800,1350,'rgb(91,91,91)',0,0,91],
+  ['arh','arh-nebo','Nebo',1800,1222,'rgb(90,90,90)',0,0,90],
+  ['arh','arh-rub','Rub',1800,1026,'rgb(44,44,44)',0,0,44],
+  ['arh','arh-krov','Krov',1800,1200,'rgb(155,152,148)',34,0.05,152],
+  ['kol','kol-tracnice','Tračnice',1800,1200,'rgb(64,64,64)',0,0,64],
+  ['kol','kol-peron','Peron',1800,1182,'rgb(138,138,138)',0,0,138],
+  ['kol','kol-cekanje','Čekanje',1800,1200,'rgb(94,94,94)',0,0,94],
+  ['kol','kol-klupa','Klupa',1800,1200,'rgb(104,104,104)',0,0,104],
+  ['kol','kol-putnica','Putnica',1800,1200,'rgb(85,85,85)',0,0,85],
+  ['kol','kol-stanica','Stanica',1800,1172,'rgb(71,71,71)',0,0,71],
+  ['de','de-ulica','Noćna ulica',1800,1098,'rgb(107,75,22)',37,0.79,78],
+  ['de','de-duhovi','Duhovi',1800,1464,'rgb(45,29,26)',9,0.42,32],
+  ['de','de-promet','Promet',1800,1200,'rgb(60,30,14)',21,0.77,35],
+  ['de','de-palme','Pod palmama',1800,1200,'rgb(56,37,36)',3,0.36,41],
+  ['de','de-luka','Luka',1800,1200,'rgb(71,60,58)',9,0.18,62],
+  ['de','de-casna','Prolaznica',1800,1200,'rgb(96,76,60)',27,0.38,79],
+  ['de','de-lice','Crtanje svjetlom',1800,1200,'rgb(28,14,3)',26,0.89,16],
+  ['de','de-robot','Robot',1800,1200,'rgb(78,57,44)',23,0.44,61],
+  ['lin','lin-dalekovod','Dalekovod',1170,1800,'rgb(163,163,163)',0,0,163],
+  ['lin','lin-lamele','Plave lamele',1800,1200,'rgb(35,47,70)',219,0.5,46],
+  ['lin','lin-tunel','Tunel',1220,1800,'rgb(48,47,48)',300,0.02,47],
+  ['lin','lin-stubiste','Stubište odozdo',1800,1311,'rgb(21,21,20)',60,0.05,21],
+  ['lin','lin-okomice','Okomice',1800,1200,'rgb(73,73,73)',0,0,73],
+  ['lin','lin-lepeza','Lepeza',1800,1261,'rgb(69,69,69)',0,0,69],
+  ['lin','lin-konzola','Konzola',1800,1200,'rgb(100,100,100)',0,0,100],
+  ['lin','lin-stube','Stube',1800,1117,'rgb(29,29,29)',0,0,29],
+  ['lk','lk-polusjena','Polusjena',1800,1311,'rgb(3,3,3)',0,0,3],
+  ['lk','lk-dva-profila','Dva profila',1800,1301,'rgb(2,2,2)',0,0,2],
+  ['lk','lk-rame','Rame',1800,1151,'rgb(2,2,2)',0,0,2],
+  ['lk','lk-plavo','Plavo',1800,1213,'rgb(1,0,10)',246,1,1],
+  ['lk','lk-ruke','Ruke',1800,1350,'rgb(7,3,0)',26,1,4],
+  ['tek','tek-pleter','Pleter',1800,1350,'rgb(24,16,9)',28,0.63,17],
+  ['tek','tek-uze','Uže',1800,1268,'rgb(12,15,18)',210,0.33,15],
+  ['tek','tek-krzno','Krzno',1800,1347,'rgb(130,105,72)',34,0.45,108],
+  ['tek','tek-romanesco','Romanesco',1800,1350,'rgb(46,59,13)',77,0.78,53],
+  ['tek','tek-sace','Saće',1800,1120,'rgb(29,29,29)',0,0,29],
+  ['tek','tek-hrda','Hrđa',1800,1200,'rgb(41,23,13)',21,0.68,26],
+  ['tek','tek-beton','Beton',1800,1200,'rgb(69,69,69)',0,0,69],
+  ['tek','tek-crijep','Crijep',1800,1103,'rgb(126,113,96)',34,0.24,115],
+  ['tek','tek-oblaci','Oblaci',1800,1179,'rgb(170,170,170)',0,0,170],
+  ['med','med-litica','Litica',1800,1350,'rgb(83,107,140)',215,0.41,104],
+  ['med','med-brazda','Brazda',1350,1800,'rgb(62,76,101)',218,0.39,75],
+  ['med','med-skok','Prije skoka',1800,1350,'rgb(44,62,81)',211,0.46,60],
+  ['med','med-zid','Zid u Italiji',1800,1350,'rgb(99,80,68)',23,0.31,83],
+  ['med','med-ruke','Ruke i more',1273,1800,'rgb(82,82,82)',0,0,82],
+  ['svj','svj-luster','Luster',1800,1243,'rgb(31,25,19)',30,0.39,26],
+  ['svj','svj-luster-2','Luster II',1200,1800,'rgb(65,44,25)',29,0.62,47],
+  ['svj','svj-lampa','Lampa',1200,1800,'rgb(47,47,47)',0,0,47],
+  ['svj','svj-noc','Noć',1338,1800,'rgb(5,5,4)',60,0.2,5]
+].map(([k, f, t, w, h, c, hu, sa, lu]) => ({k, f, t, w, h, ar: w / h, c, hu, sa, lu}));
 const gallery = $('gallery');
 const pItems = photos.map((p, i) => {
-  const b = document.createElement('button'); b.type = 'button'; b.className = 'ph-item'; b.dataset.k = p.k; b.dataset.i = i; b.setAttribute('data-hover','Uvećaj');
-  const W = 640, H = Math.round(W / p.ar);
-  b.innerHTML = `<canvas width="${W}" height="${H}" aria-label="${p.t}" role="img"></canvas><span class="ex"><span>${p.t}</span><span>${p.ex[0]} · ${p.ex[1]}</span></span>`;
-  gallery.appendChild(b); return b;
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'ph-item'; b.dataset.k = p.k; b.dataset.i = i; b.setAttribute('data-hover','Uvećaj'); b.style.setProperty('--c', p.c);
+  b.innerHTML = `<img src="radovi/foto/${p.f}-s.jpg" width="${p.w}" height="${p.h}" alt="${p.t}" loading="lazy" decoding="async"><span class="ex"><span>${p.t}</span><span class="no"></span></span>`;
+  b._hue = p.hu; b._sat = p.sa; b._lum = p.lu; b._rgb = p.c; gallery.appendChild(b); return b;
 });
-let photosPainted = false;
-const paintGallery = () => { if (photosPainted) return; photosPainted = true; pItems.forEach((b, i) => { const c = b.querySelector('canvas'); paintPhoto(c.getContext('2d'), c.width, c.height, photos[i], i); }); };
+const paintGallery = () => layoutPhotos();
+/* Galerija: poredaj po serijama, boji ili svjetlini */
+const pSort = $('pSort'), pSpec = $('pSpec'); let sortMode = 'serije';
+const fotki = n => n % 10 === 1 && n % 100 !== 11 ? 'fotografija' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'fotografije' : 'fotografija');
+pItems.forEach((b, i) => { b.classList.toggle('wide', photos[i].ar >= 1.3); b.classList.toggle('tall', photos[i].ar <= .8); });
+function layoutPhotos(animate) {
+  const cats = Object.keys(PCATS), order = [...pItems];
+  if (sortMode === 'boja') order.sort((a, b) => (a._sat < .1) - (b._sat < .1) || a._hue - b._hue || a._lum - b._lum);
+  else if (sortMode === 'svjetlo') order.sort((a, b) => a._lum - b._lum);
+  else order.sort((a, b) => cats.indexOf(a.dataset.k) - cats.indexOf(b.dataset.k) || a.dataset.i - b.dataset.i);
+  order.forEach(it => it.classList.remove('lead'));
+  const vis = order.filter(it => !it.classList.contains('hide'));
+  vis.forEach((it, i) => it.querySelector('.no').textContent = '№ ' + String(i + 1).padStart(2, '0'));
+  const holder = document.createDocumentFragment(); order.forEach(it => holder.appendChild(it)); gallery.innerHTML = '';
+  const grid = () => { const g = document.createElement('div'); g.className = 'ph-grid'; return g; };
+  if (sortMode === 'serije') cats.forEach((k, ci) => { const its = order.filter(it => it.dataset.k === k); const shown = its.filter(it => !it.classList.contains('hide')); const sec = document.createElement('section'); sec.className = 'ph-sec'; sec.hidden = !shown.length; sec.setAttribute('aria-label', PCATS[k]); if (shown.length) shown[0].classList.add('lead'); sec.innerHTML = `<div class="ph-group"><i>${String(ci + 1).padStart(2, '0')}</i><b>${PCATS[k]}</b><em>${PDESC[k]}</em><span>${shown.length} ${fotki(shown.length)}</span></div>`; const g = grid(); its.forEach(it => g.appendChild(it)); sec.appendChild(g); gallery.appendChild(sec); });
+  else { const g = grid(); order.forEach(it => g.appendChild(it)); gallery.appendChild(g); }
+  pSpec.innerHTML = vis.map(it => `<i style="background:${it._rgb}"></i>`).join(''); pSpec.classList.toggle('on', sortMode !== 'serije');
+  $('pCount').textContent = `${vis.length} ${fotki(vis.length)}`;
+  if (animate && !RM) vis.forEach((it, i) => it.animate([{opacity:0, transform:'translateY(14px) scale(.97)'},{opacity:1, transform:'none'}], {duration:480, delay:Math.min(i, 24) * 22, easing:'cubic-bezier(.2,.8,.2,1)', fill:'backwards'}));
+}
+pSort.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; sortMode = b.dataset.s; pSort.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); layoutPhotos(true); });
 const pf = $('pFilters');
 [['all','Sve',photos.length], ...Object.entries(PCATS).map(([k,n]) => [k, n, photos.filter(p => p.k === k).length])].forEach(([k, n, c]) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'flt'; b.dataset.k = k; b.setAttribute('aria-pressed', k === 'all'); b.setAttribute('data-hover',''); b.innerHTML = `${n}<sup>${c}</sup>`; pf.appendChild(b); });
-pf.addEventListener('click', e => { const b = e.target.closest('.flt'); if (!b) return; pf.querySelectorAll('.flt').forEach(x => x.setAttribute('aria-pressed', x === b)); pItems.forEach(it => { const show = b.dataset.k === 'all' || it.dataset.k === b.dataset.k; it.classList.toggle('hide', !show); if (show && !RM) it.animate([{opacity:0, transform:'scale(.96)'},{opacity:1, transform:'none'}], {duration:500, easing:'cubic-bezier(.2,.8,.2,1)'}); }); });
+pf.addEventListener('click', e => { const b = e.target.closest('.flt'); if (!b) return; pf.querySelectorAll('.flt').forEach(x => x.setAttribute('aria-pressed', x === b)); pItems.forEach(it => it.classList.toggle('hide', !(b.dataset.k === 'all' || it.dataset.k === b.dataset.k))); layoutPhotos(true); });
 
-document.querySelectorAll('.strip canvas').forEach((c, i) => { const k = [1,2,0][i]; paintPhoto(c.getContext('2d'), c.width, c.height, {...photos[k], ar:.5}, k + 20); });
-
-const lb = $('lightbox'), lbc = $('lbCanvas'), lbx = lbc.getContext('2d');
+const lb = $('lightbox'), lbImg = $('lbImg');
 let lbIdx = -1;
-const visibleIdx = () => pItems.filter(x => !x.classList.contains('hide')).map(x => +x.dataset.i);
-function showPhoto(i) { lbIdx = i; const p = photos[i]; const W = 1600, H = Math.round(W / p.ar); lbc.width = W; lbc.height = H; paintPhoto(lbx, W, H, p, i);
-  $('lbTitle').textContent = `${p.t} · ${PCATS[p.k]}`; $('lbExif').innerHTML = p.ex.map(e => `<span>${e}</span>`).join('');
-  if (!RM) lbc.animate([{opacity:0, transform:'scale(.98)'},{opacity:1, transform:'none'}], {duration:400, easing:'ease-out'}); }
+const visibleIdx = () => [...gallery.querySelectorAll('.ph-item:not(.hide)')].map(x => +x.dataset.i);
+function showPhoto(i) { lbIdx = i; const p = photos[i], v = visibleIdx();
+  lbImg.width = p.w; lbImg.height = p.h; lbImg.src = `radovi/foto/${p.f}.jpg`; lbImg.alt = p.t; lbImg.style.background = p.c;
+  $('lbTitle').textContent = `${p.t} · ${PCATS[p.k]}`; $('lbExif').innerHTML = `<span>${String(v.indexOf(i) + 1).padStart(2, '0')} / ${String(v.length).padStart(2, '0')}</span>`;
+  if (!RM) lbImg.animate([{opacity:0, transform:'scale(.98)'},{opacity:1, transform:'none'}], {duration:400, easing:'ease-out'}); }
 function openLB(i) { lastFocus = document.activeElement; showPhoto(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); $('lbClose').focus({preventScroll:true}); }
 function closeLB() { lbIdx = -1; lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lastFocus && lastFocus.focus({preventScroll:true}); }
 const stepLB = d => { const v = visibleIdx(); const k = v.indexOf(lbIdx); showPhoto(v[(k + d + v.length) % v.length]); };
@@ -900,7 +1343,7 @@ $('teaser').addEventListener('click', e => setMode(true, ...fromEvt(e, e.current
 $('backBtn').addEventListener('click', e => setMode(false, ...fromEvt(e, e.currentTarget)));
 const route = () => { const h = location.hash.slice(1); if (h === 'fotografija') setMode(true, 0, 0, true); else if (h === 'dizajn') setMode(false, 0, 0, true); };
 addEventListener('hashchange', route); route();
-layoutHS(); addEventListener('resize', layoutHS); hsMQ.addEventListener && hsMQ.addEventListener('change', layoutHS); document.fonts && document.fonts.ready.then(() => { drawH(); layoutHS(); });
+layoutHS(); addEventListener('resize', layoutHS); hsMQ.addEventListener && hsMQ.addEventListener('change', layoutHS); document.fonts && document.fonts.ready.then(layoutHS);
 addEventListener('resize', () => { if (photoMode) sizeBk(); });
 
 /* main loop */
@@ -926,8 +1369,6 @@ function frame(now) {
   const y = scrollY; vel = lerp(vel, y - lastY, .1); lastY = y;
   if (!RM && !photoMode) { mx -= 0.6 + Math.abs(vel)*0.4; const half = marq.scrollWidth/2; if (-mx > half) mx += half; marq.style.transform = `translateX(${mx}px) skewX(${Math.max(-12, Math.min(12, -vel*0.4))}deg)`; }
   if (!photoMode) updateHS();
-  if (hoverH && !RM) drawArt(hoverH._ctx, 1000, 560, projects[+hoverH.dataset.i], now/1000, true);
-  if (hoverCard && !RM) { const i = +hoverCard.dataset.i; drawArt(hoverCard._ctx, 560, 420, projects[i], now/1000); }
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
