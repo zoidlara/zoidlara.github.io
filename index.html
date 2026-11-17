@@ -10,7 +10,9 @@
 <meta property="og:url" content="https://zoidlara.github.io/">
 <meta property="og:title" content="Larazoid · Lara Božić, grafička dizajnerica">
 <meta property="og:description" content="Vizualni identiteti, ambalaža, tisak, ilustracija i fotografija. Split.">
-<meta property="og:image" content="https://zoidlara.github.io/radovi/smotra-a3-zid.jpg">
+<meta property="og:image" content="https://zoidlara.github.io/og-larazoid.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#050807">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23050807%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23C9B0FF%22/%3E%3C/svg%3E">
@@ -52,6 +54,7 @@ button{font:inherit;color:inherit}
 /* ---------- cursor ---------- */
 .cur{position:fixed;left:0;top:0;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none}
 .has-cursor .cur{display:block}
+.has-cursor .cur-ring{display:grid}
 .has-cursor, .has-cursor *{cursor:none!important}
 .cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#fff}
 .cur-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:1px solid #fff;display:grid;place-items:center;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s,border-radius .35s}
@@ -689,7 +692,7 @@ section.s{padding-block:clamp(72px,12vw,160px)}
       -->
       <a class="btn ghost mag" href="cv.html" target="_blank" rel="noopener" data-hover="CV">Životopis ↗</a>
     </div>
-    <div class="foot mono"><span>© 2026 Larazoid</span><span>Dizajnirano i kodirano s puno kave</span></div>
+    <div class="foot mono"><span>© 2026 Larazoid</span><span>Split</span></div>
   </div>
 </section>
 
@@ -1268,8 +1271,8 @@ const photos = [
 ].map(([k, f, t, w, h, c, hu, sa, lu]) => ({k, f, t, w, h, ar: w / h, c, hu, sa, lu}));
 const gallery = $('gallery');
 const pItems = photos.map((p, i) => {
-  const b = document.createElement('button'); b.type = 'button'; b.className = 'ph-item'; b.dataset.k = p.k; b.dataset.i = i; b.setAttribute('data-hover','Uvećaj'); b.style.setProperty('--c', p.c);
-  b.innerHTML = `<img src="radovi/foto/${p.f}-s.jpg" width="${p.w}" height="${p.h}" alt="${p.t}" loading="lazy" decoding="async"><span class="ex"><span>${p.t}</span><span class="no"></span></span>`;
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'ph-item'; b.dataset.k = p.k; b.dataset.i = i; b.setAttribute('data-hover',''); b.style.setProperty('--c', p.c);
+  b.innerHTML = `<img src="radovi/foto/${p.f}-s.jpg" width="${p.w}" height="${p.h}" alt="Fotografija, ${PCATS[p.k]}" loading="lazy" decoding="async"><span class="ex"><span>${PCATS[p.k]}</span><span class="no"></span></span>`;
   b._hue = p.hu; b._sat = p.sa; b._lum = p.lu; b._rgb = p.c; gallery.appendChild(b); return b;
 });
 const paintGallery = () => layoutPhotos();
@@ -1302,8 +1305,8 @@ const lb = $('lightbox'), lbImg = $('lbImg');
 let lbIdx = -1;
 const visibleIdx = () => [...gallery.querySelectorAll('.ph-item:not(.hide)')].map(x => +x.dataset.i);
 function showPhoto(i) { lbIdx = i; const p = photos[i], v = visibleIdx();
-  lbImg.width = p.w; lbImg.height = p.h; lbImg.src = `radovi/foto/${p.f}.jpg`; lbImg.alt = p.t; lbImg.style.background = p.c;
-  $('lbTitle').textContent = `${p.t} · ${PCATS[p.k]}`; $('lbExif').innerHTML = `<span>${String(v.indexOf(i) + 1).padStart(2, '0')} / ${String(v.length).padStart(2, '0')}</span>`;
+  lbImg.width = p.w; lbImg.height = p.h; lbImg.src = `radovi/foto/${p.f}.jpg`; lbImg.alt = 'Fotografija, ' + PCATS[p.k]; lbImg.style.background = p.c;
+  $('lbTitle').textContent = PCATS[p.k]; $('lbExif').innerHTML = `<span>${String(v.indexOf(i) + 1).padStart(2, '0')} / ${String(v.length).padStart(2, '0')}</span>`;
   if (!RM) lbImg.animate([{opacity:0, transform:'scale(.98)'},{opacity:1, transform:'none'}], {duration:400, easing:'ease-out'}); }
 function openLB(i) { lastFocus = document.activeElement; showPhoto(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); $('lbClose').focus({preventScroll:true}); }
 function closeLB() { lbIdx = -1; lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lastFocus && lastFocus.focus({preventScroll:true}); }
